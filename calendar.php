@@ -320,7 +320,7 @@ add_action('wp_ajax_upcoming', 'upcoming_widget');
 function spider_calendar_quick_update() {
   $current_user = wp_get_current_user();
   if ($current_user->roles[0] !== 'administrator') {
-    echo 'You have no permission.';
+    _e( 'You have no permission.', 'sp_calendar' );
     die();
   }
   global $wpdb;
@@ -340,22 +340,22 @@ function spider_calendar_quick_update() {
     ?>
   <td><?php echo $row->id; ?></td>
   <td class="post-title page-title column-title">
-    <a title="Manage Events" class="row-title" href="admin.php?page=SpiderCalendar&task=show_manage_event&calendar_id=<?php echo $row->id; ?>"><?php echo $row->title; ?></a>
+    <a title="<?php _e( 'Manage Events', 'sp_calendar' ); ?>" class="row-title" href="admin.php?page=SpiderCalendar&task=show_manage_event&calendar_id=<?php echo $row->id; ?>"><?php echo $row->title; ?></a>
     <div class="row-actions">
       <span class="edit">
-        <a href="admin.php?page=SpiderCalendar&task=edit_calendar&id=<?php echo $row->id; ?>" title="Edit This Calendar">Edit</a> | </span>
+        <a href="admin.php?page=SpiderCalendar&task=edit_calendar&id=<?php echo $row->id; ?>" title="<?php _e( 'Edit This Calendar', 'sp_calendar' ); ?>"><?php _e( 'Edit' ); ?></a> | </span>
       <span class="inline hide-if-no-js">
-        <a href="#" class="editinline" onclick="show_calendar_inline(<?php echo $row->id; ?>)" title="Edit This Calendar Inline">Quick&nbsp;Edit</a> | </span>
+        <a href="#" class="editinline" onclick="show_calendar_inline(<?php echo $row->id; ?>)" title="<?php _e( 'Edit This Calendar Inline', 'sp_calendar' ); ?>"><?php _e( 'Quick Edit' ); ?></a> | </span>
       <span class="trash">
-        <a class="submitdelete" title="Delete This Calendar" href="javascript:confirmation('admin.php?page=SpiderCalendar&task=remove_calendar&id=<?php echo $row->id; ?>','<?php echo $row->title; ?>')">Delete</a></span>
+        <a class="submitdelete" title="<?php _e( 'Delete This Calendar', 'sp_calendar' ); ?>" href="javascript:confirmation('admin.php?page=SpiderCalendar&task=remove_calendar&id=<?php echo $row->id; ?>','<?php echo $row->title; ?>')"><?php _e( 'Delete' ); ?></a></span>
     </div>
   </td>
-  <td><a href="admin.php?page=SpiderCalendar&task=show_manage_event&calendar_id=<?php echo $row->id; ?>">Manage events</a></td>
+  <td><a href="admin.php?page=SpiderCalendar&task=show_manage_event&calendar_id=<?php echo $row->id; ?>"><?php _e( 'Manage events', 'sp_calendar' ); ?></a></td>
   <td><a <?php if (!$row->published)
     echo 'style="color:#C00"'; ?>
     href="admin.php?page=SpiderCalendar&task=published&id=<?php echo $row->id; ?>"><?php if ($row->published)
-    echo "Yes";
-  else echo "No"; ?></a></td>
+    _e( 'Yes' );
+  else _e( 'No' );; ?></a></td>
   <?php
     die();
   }
@@ -367,7 +367,7 @@ function spider_calendar_quick_update() {
 function spider_calendar_quick_edit() {
   $current_user = wp_get_current_user();
   if ($current_user->roles[0] !== 'administrator') {
-    echo 'You have no permission.';
+    _e( 'You have no permission.', 'sp_calendar' );
     die();
   }
   global $wpdb;
@@ -377,33 +377,33 @@ function spider_calendar_quick_edit() {
   <td colspan="4" class="colspanchange">
     <fieldset class="inline-edit-col-left">
       <div style="float:left; width:100% " class="inline-edit-col">
-        <h4>Quick Edit</h4>
-        <label for="calendar_title"><span style="width:160px !important" class="title">Title: </span></label>
+        <h4><?php _e( 'Quick Edit' ); ?></h4>
+        <label for="calendar_title"><span style="width:160px !important" class="title"><?php _e( 'Title', 'sp_calendar' ); ?>: </span></label>
         <span class="input-text-wrap">
           <input type="text" style="width:150px !important" id="calendar_title" name="calendar_title" value="<?php echo $row->title; ?>" class="ptitle" value=""/>
         </span>
-        <label for="def_year"><span class="title alignleft" style="width:160px !important">Default Year: </span></label>
+        <label for="def_year"><span class="title alignleft" style="width:160px !important"><?php _e( 'Default Year', 'sp_calendar' ); ?>: </span></label>
         <span>
           <input type="text" name="def_year" id="def_year" style="width:150px;" value="<?php echo $row->def_year ?>"/>
         </span>
-        <label for="def_month"><span class="title alignleft" style="width:160px !important">Default Month: </span></label>
+        <label for="def_month"><span class="title alignleft" style="width:160px !important"><?php _e( 'Default Month', 'sp_calendar' ); ?>: </span></label>
         <span>
           <select id="def_month" name="def_month" style="width:150px;">
             <?php
             $month_array = array(
-              '' => 'Current',
-              '01' => 'January',
-              '02' => 'February',
-              '03' => 'March',
-              '04' => 'April',
-              '05' => 'May',
-              '06' => 'June',
-              '07' => 'July',
-              '08' => 'August',
-              '09' => 'September',
-              '10' => 'October',
-              '11' => 'November',
-              '12' => 'December',
+              '' => __( 'Current', 'sp_calendar' ),
+              '01' => __( 'January' ),
+              '02' => __( 'February', 'sp_calendar' ),
+              '03' => __( 'March', 'sp_calendar' ),
+              '04' => __( 'April', 'sp_calendar' ),
+              '05' => __( 'May', 'sp_calendar' ),
+              '06' => __( 'June', 'sp_calendar' ),
+              '07' => __( 'July', 'sp_calendar' ),
+              '08' => __( 'August', 'sp_calendar' ),
+              '09' => __( 'September', 'sp_calendar' ),
+              '10' => __( 'October', 'sp_calendar' ),
+              '11' => __( 'November', 'sp_calendar' ),
+              '12' => __( 'December', 'sp_calendar' ),
             );
             foreach ($month_array as $key => $def_month) {
               ?>
@@ -413,17 +413,17 @@ function spider_calendar_quick_edit() {
             ?>
           </select>
         </span>
-        <label for="time_format0"><span class="title alignleft" style="width:160px !important">Use 12 hours time format: </span></label>
+        <label for="time_format0"><span class="title alignleft" style="width:160px !important"><?php _e( 'Use 12 hours time format', 'sp_calendar' ); ?>: </span></label>
         <span>
           <input style="margin-top:5px" type="radio" class="alignleft" name="time_format" id="time_format0" value="0" <?php if ($row->time_format == 0) echo 'checked="checked"'; ?> />
-          <em style="margin:4px 5px 0 0" class="alignleft"> No </em>
+          <em style="margin:4px 5px 0 0" class="alignleft"> <?php _e( 'No' ); ?> </em>
           <input style="margin-top:5px" class="alignleft" type="radio" name="time_format" id="time_format1" value="1" <?php if ($row->time_format == 1) echo 'checked="checked"'; ?> />
-          <em style="margin:4px 5px 0 0" class="alignleft"> Yes </em>
+          <em style="margin:4px 5px 0 0" class="alignleft"> <?php _e( 'Yes' ); ?> </em>
         </span>
       </div>
     </fieldset>
     <p class="submit inline-edit-save">
-      <a accesskey="c" href="#" title="Cancel" onclick="cancel_qiucik_edit(<?php echo $row->id; ?>)" class="button-secondary cancel alignleft">Cancel</a>
+      <a accesskey="c" href="#" title="<?php _e( 'Cancel' ); ?>" onclick="cancel_qiucik_edit(<?php echo $row->id; ?>)" class="button-secondary cancel alignleft"><?php _e( 'Cancel' ); ?></a>
       <input type="hidden" id="_inline_edit" name="_inline_edit" value="d8393e8662">
       <a accesskey="s" href="#" title="Update" onclick="updae_inline_sp_calendar(<?php echo  "'" . $row->id . "'" ?>)" class="button-primary save alignright">Update</a>
       <img id="imig_for_waiting" class="waiting" style="display:none;" src="http://localhost/wordpress/wp-admin/images/wpspin_light.gif" alt="">
@@ -460,16 +460,16 @@ function sp_calendar_register($plugin_array) {
 
 // Function create in menu.
 function sp_calendar_options_panel() {
-  add_menu_page('Theme page title', 'Calendar', 'manage_options', 'SpiderCalendar', 'Manage_Spider_Calendar', plugins_url("images/calendar_menu.png", __FILE__));
-  $page_calendar = add_submenu_page('SpiderCalendar', 'Calendars', 'Calendars', 'manage_options', 'SpiderCalendar', 'Manage_Spider_Calendar');
-  $page_event_category = add_submenu_page('SpiderCalendar', 'Event Category', 'Event Category', 'manage_options', 'spider_calendar_event_category', 'Manage_Spider_Category_Calendar');
-  $page_theme = add_submenu_page('SpiderCalendar', 'Calendar Parameters', 'Calendar Themes', 'manage_options', 'spider_calendar_themes', 'spider_calendar_params');
-  $page_widget_theme = add_submenu_page('SpiderCalendar', 'Calendar Parameters', 'Widget Themes', 'manage_options', 'spider_widget_calendar_themes', 'spider_widget_calendar_params');
-  $Featured_Plugins = add_submenu_page('SpiderCalendar', 'Featured Plugins', 'Featured Plugins', 'manage_options', 'calendar_Featured_Plugins', 'calendar_Featured_Plugins');
-  $Featured_themes = add_submenu_page('SpiderCalendar', 'Featured Themes', 'Featured Themes', 'manage_options', 'calendar_Featured_themes', 'calendar_Featured_themes');
+  add_menu_page(__( 'Theme page title', 'sp_calendar' ), __( 'Calendar', 'sp_calendar' ), 'manage_options', 'SpiderCalendar', 'Manage_Spider_Calendar', plugins_url("images/calendar_menu.png", __FILE__));
+  $page_calendar = add_submenu_page('SpiderCalendar', __( 'Calendars', 'sp_calendar' ), __( 'Calendars', 'sp_calendar' ), 'manage_options', 'SpiderCalendar', 'Manage_Spider_Calendar');
+  $page_event_category = add_submenu_page('SpiderCalendar', __( 'Event Category', 'sp_calendar' ), __( 'Event Category', 'sp_calendar' ), 'manage_options', 'spider_calendar_event_category', 'Manage_Spider_Category_Calendar');
+  $page_theme = add_submenu_page('SpiderCalendar', __( 'Calendar Parameters', 'sp_calendar' ), __( 'Calendar Themes', 'sp_calendar' ), 'manage_options', 'spider_calendar_themes', 'spider_calendar_params');
+  $page_widget_theme = add_submenu_page('SpiderCalendar', __( 'Calendar Parameters', 'sp_calendar' ), __( 'Widget Themes', 'sp_calendar' ), 'manage_options', 'spider_widget_calendar_themes', 'spider_widget_calendar_params');
+  $Featured_Plugins = add_submenu_page('SpiderCalendar', __( 'Featured Plugins', 'sp_calendar' ), __( 'Featured Plugins', 'sp_calendar' ), 'manage_options', 'calendar_Featured_Plugins', 'calendar_Featured_Plugins');
+  $Featured_themes = add_submenu_page('SpiderCalendar', __( 'Featured Themes', 'sp_calendar' ), __( 'Featured Themes', 'sp_calendar' ), 'manage_options', 'calendar_Featured_themes', 'calendar_Featured_themes');
   
-  add_submenu_page('SpiderCalendar', 'Licensing', 'Licensing', 'manage_options', 'Spider_calendar_Licensing', 'Spider_calendar_Licensing');
-  add_submenu_page('SpiderCalendar', 'Uninstall  Spider Event Calendar', 'Uninstall  Spider Event Calendar', 'manage_options', 'Uninstall_sp_calendar', 'Uninstall_sp_calendar'); // uninstall Calendar
+  add_submenu_page('SpiderCalendar', __( 'Licensing', 'sp_calendar' ), __( 'Licensing', 'sp_calendar' ), 'manage_options', 'Spider_calendar_Licensing', 'Spider_calendar_Licensing');
+  add_submenu_page('SpiderCalendar', __( 'Uninstall Spider Event Calendar', 'sp_calendar' ), __( 'Uninstall Spider Event Calendar', 'sp_calendar' ), 'manage_options', 'Uninstall_sp_calendar', 'Uninstall_sp_calendar'); // uninstall Calendar
   add_action('admin_print_styles-' . $Featured_Plugins, 'calendar_Featured_Plugins_styles');
   add_action('admin_print_styles-' . $Featured_themes, 'calendar_Featured_themes_styles');
   add_action('admin_print_styles-' . $page_theme, 'spider_calendar_themes_admin_styles_scripts');
@@ -481,19 +481,18 @@ function sp_calendar_options_panel() {
 function Spider_calendar_Licensing() {
   ?>
   <div style="width:95%">
-    <p>This plugin is the non-commercial version of the Spider Event Calendar. Use of the calendar is free.<br />
-    The only limitation is the use of the themes. If you want to use one of the 11 standard themes or create a new one that
-    satisfies the needs of your web site, you are required to purchase a license.<br />
-    Purchasing a license will add 17 standard themes and give possibility to edit the themes of the Spider Event Calendar.
+    <p><?php _e( 'This plugin is the non-commercial version of the Spider Event Calendar. Use of the calendar is free.', 'sp_calendar' ); ?><br />
+    <?php _e( 'The only limitation is the use of the themes. If you want to use one of the 17 standard themes or create a new one that satisfies the needs of your web site, you are required to purchase a license.', 'sp_calendar' ); ?><br />
+    <?php _e( 'Purchasing a license will add 17 standard themes and give possibility to edit the themes of the Spider Event Calendar.', 'sp_calendar' ); ?>
     </p>
     <br /><br />
-    <a href="https://web-dorado.com/files/fromSpiderCalendarWP.php" class="button-primary" target="_blank">Purchase a License</a>
+    <a href="https://web-dorado.com/files/fromSpiderCalendarWP.php" class="button-primary" target="_blank"><?php _e( 'Purchase a License', 'sp_calendar' ); ?></a>
     <br /><br /><br />
-    <p>After the purchasing the commercial version follow this steps:</p>
+    <p><?php _e( 'After the purchasing the commercial version follow this steps:', 'sp_calendar' ); ?></p>
     <ol>
-      <li>Deactivate Spider Event Calendar Plugin</li>
-      <li>Delete Spider Event Calendar Plugin</li>
-      <li>Install the downloaded commercial version of the plugin</li>
+      <li><?php _e( 'Deactivate Spider Event Calendar Plugin', 'sp_calendar' ); ?></li>
+      <li><?php _e( 'Delete Spider Event Calendar Plugin', 'sp_calendar' ); ?></li>
+      <li><?php _e( 'Install the downloaded commercial version of the plugin', 'sp_calendar' ); ?></li>
   </ol>
   </div>
   <?php
@@ -641,7 +640,7 @@ function Manage_Spider_Calendar() {
     case 'published';
 	  $nonce_sp_cal = $_REQUEST['_wpnonce'];
 	  if (! wp_verify_nonce($nonce_sp_cal, 'nonce_sp_cal') )
-   	    die("Are you sure you want to do this?");
+   	    die(__( 'Are you sure you want to do this?', 'sp_calendar' ));
       spider_calendar_published($id);
       show_spider_calendar();
       break;
@@ -712,14 +711,14 @@ function Manage_Spider_Calendar() {
     case 'remove_event':
 	  $nonce_sp_cal = $_REQUEST['_wpnonce'];
 	  if (! wp_verify_nonce($nonce_sp_cal, 'nonce_sp_cal') ) 
-	    die("Are you sure you want to do this?");
+	    die(__( 'Are you sure you want to do this?', 'sp_calendar' ));
       remove_spider_event($calendar_id, $id);
       show_spider_event($calendar_id);
       break;
     case 'published_event';
 	  $nonce_sp_cal = $_REQUEST['_wpnonce'];
 	  if (! wp_verify_nonce($nonce_sp_cal, 'nonce_sp_cal') )
-   	    die("Are you sure you want to do this?");
+   	    die(__( 'Are you sure you want to do this?', 'sp_calendar' ));
       published_spider_event($calendar_id, $id);
       show_spider_event($calendar_id);
       break;
@@ -797,7 +796,7 @@ switch($task){
 	case 'published':
 		$nonce_sp_cal = $_REQUEST['_wpnonce'];
 		if (! wp_verify_nonce($nonce_sp_cal, 'nonce_sp_cal') )
-	      die("Are you sure you want to do this?");
+	      die(__( 'Are you sure you want to do this?', 'sp_calendar' ));
 		spider_category_published($id);
 		show_event_cat();
 		break;
@@ -878,31 +877,31 @@ function Uninstall_sp_calendar() {
       
         echo '<form id="message" class="updated fade">';
         echo '<p>';
-        echo "Table '" . $wpdb->prefix . "spidercalendar_event' has been deleted.";
+        echo sprintf( __( 'Table %s has been deleted.', 'sp_calendar' ), $wpdb->prefix . "'spidercalendar_event'" );
 		$wpdb->query("DROP TABLE " . $wpdb->prefix . "spidercalendar_event");
         echo '<font style="color:#000;">';
         echo '</font><br />';
         echo '</p>';
-		echo '<p>';
-        echo "Table '" . $wpdb->prefix . "spidercalendar_event_category' has been deleted.";
+		  echo '<p>';
+        echo sprintf( __( 'Table %s has been deleted.', 'sp_calendar' ), $wpdb->prefix . "'spidercalendar_event_category'" );
 		$wpdb->query("DROP TABLE " . $wpdb->prefix . "spidercalendar_event_category");
         echo '<font style="color:#000;">';
         echo '</font><br />';
         echo '</p>';		
         echo '<p>';
-        echo "Table '" . $wpdb->prefix . "spidercalendar_calendar' has been deleted.";
+        echo sprintf( __( 'Table %s has been deleted.', 'sp_calendar' ), $wpdb->prefix . "'spidercalendar_calendar'" );
 		$wpdb->query("DROP TABLE " . $wpdb->prefix . "spidercalendar_calendar");
         echo '<font style="color:#000;">';
         echo '</font><br />';
         echo '</p>';
-		 echo '<p>';
-        echo "Table '" . $wpdb->prefix . "spidercalendar_theme' has been deleted.";
+		  echo '<p>';
+        echo sprintf( __( 'Table %s has been deleted.', 'sp_calendar' ), $wpdb->prefix . "'spidercalendar_theme'" );
 		$wpdb->query("DROP TABLE " . $wpdb->prefix . "spidercalendar_theme");
         echo '<font style="color:#000;">';
         echo '</font><br />';
         echo '</p>';
         echo '<p>';
-        echo "Table '" . $wpdb->prefix . "spidercalendar_widget_theme' has been deleted.";
+        echo sprintf( __( 'Table %s has been deleted.', 'sp_calendar' ), $wpdb->prefix . "'spidercalendar_widget_theme'" );
         $wpdb->query("DROP TABLE " . $wpdb->prefix . "spidercalendar_widget_theme");
         echo '<font style="color:#000;">';
         echo '</font><br />';
@@ -916,8 +915,8 @@ function Uninstall_sp_calendar() {
     case 'end-UNINSTALL':
       $deactivate_url = wp_nonce_url('plugins.php?action=deactivate&amp;plugin=' . plugin_basename(__FILE__), 'deactivate-plugin_' . plugin_basename(__FILE__));
       echo '<div class="wrap">';
-      echo '<h2>Uninstall Spider Event Calendar</h2>';
-      echo '<p><strong>' . sprintf('<a href="%s">Click Here</a> To Finish The Uninstallation And Spider Event Calendar Will Be Deactivated Automatically.', $deactivate_url) . '</strong></p>';
+      echo '<h2>' . __( 'Uninstall Spider Event Calendar', 'sp_calendar' ) . '</h2>';
+      echo '<p><strong>' . sprintf( __( '<a href="%s">Click Here</a> To Finish The Uninstallation And Spider Event Calendar Will Be Deactivated Automatically.', 'sp_calendar' ), $deactivate_url) . '</strong></p>';
       echo '</div>';
       break;
     // Main Page
@@ -927,24 +926,24 @@ function Uninstall_sp_calendar() {
         <?php wp_nonce_field('Spider_Calendar uninstall'); ?>
         <div class="wrap">
           <div id="icon-Spider_Calendar" class="icon32"><br/></div>
-          <h2><?php echo 'Uninstall Spider Event Calendar'; ?></h2>
+          <h2><?php _e( 'Uninstall Spider Event Calendar', 'sp_calendar' ); ?></h2>
 
           <p>
-            <?php echo 'Deactivating Spider Event Calendar plugin does not remove any data that may have been created. To completely remove this plugin, you can uninstall it here.'; ?>
+            <?php _e( 'Deactivating Spider Event Calendar plugin does not remove any data that may have been created. To completely remove this plugin, you can uninstall it here.', 'sp_calendar' ); ?>
           </p>
 
           <p style="color: red">
-            <strong><?php echo'WARNING:'; ?></strong><br/>
-            <?php echo 'Once uninstalled, this cannot be undone. You should use a Database Backup plugin of WordPress to back up all the data first.'; ?>
+            <strong><?php _e( 'WARNING:', 'sp_calendar' ); ?></strong><br/>
+            <?php _e( 'Once uninstalled, this cannot be undone. You should use a Database Backup plugin of WordPress to back up all the data first.', 'sp_calendar' ); ?>
           </p>
 
           <p style="color: red">
-            <strong><?php echo 'The following WordPress Options/Tables will be DELETED:'; ?></strong><br/>
+            <strong><?php _e( 'The following WordPress Options/Tables will be DELETED:', 'sp_calendar' ); ?></strong><br/>
           </p>
           <table class="widefat">
             <thead>
             <tr>
-              <th><?php echo 'WordPress Tables'; ?></th>
+              <th><?php _e( 'WordPress Tables:', 'sp_calendar' ); ?></th>
             </tr>
             </thead>
 
@@ -953,9 +952,9 @@ function Uninstall_sp_calendar() {
                 <ol>
                   <?php
                   echo '<li>' . $wpdb->prefix . 'spidercalendar_event</li>' . "\n";
-				  echo '<li>' . $wpdb->prefix . 'spidercalendar_event_category</li>' . "\n";
+				  		echo '<li>' . $wpdb->prefix . 'spidercalendar_event_category</li>' . "\n";
                   echo '<li>' . $wpdb->prefix . 'spidercalendar_calendar</li>' . "\n";
-				  echo '<li>' . $wpdb->prefix . 'spidercalendar_theme</li>' . "\n";
+				  		echo '<li>' . $wpdb->prefix . 'spidercalendar_theme</li>' . "\n";
                   echo '<li>' . $wpdb->prefix . 'spidercalendar_widget_theme</li>' . "\n";
                   ?>
                 </ol>
@@ -966,22 +965,22 @@ function Uninstall_sp_calendar() {
 		  function uninstall(){
 		  jQuery(document).ready(function() {
 				  if(jQuery('#uninstall_yes').is(':checked')){
-					var answer = confirm('<?php echo 'You Are About To Uninstall Spider Event Calendar From WordPress.\nThis Action Is Not Reversible.\n\n Choose [Cancel] To Stop, [OK] To Uninstall.'; ?>');
+					var answer = confirm('<?php echo __( 'You Are About To Uninstall Spider Event Calendar From WordPress.', 'sp_calendar' ) . '\n' . __( 'This Action Is Not Reversible.', 'sp_calendar' ) . '\n\n' . __( 'Choose [Cancel] To Stop, [OK] To Uninstall.', 'sp_calendar' ); ?>');
 				
 					if(answer)
 						jQuery("#uninstall_form").submit();
 					}
 				  else
-					alert('To uninstall please check the box above.');
+					alert('<?php _e( 'To uninstall please check the box above.', 'sp_calendar' ); ?>');
 
 			  });
 		  }
 		  </script>
           <p style="text-align: center;">
-              <?php echo 'Do you really want to uninstall Spider Event Calendar?'; ?><br/><br/>
-            <input type="checkbox" value="yes" id="uninstall_yes" />&nbsp;<?php echo 'Yes'; ?><br/><br/>
+              <?php _e( 'Do you really want to uninstall Spider Event Calendar?', 'sp_calendar' ); ?><br/><br/>
+            <input type="checkbox" value="yes" id="uninstall_yes" />&nbsp;<?php echo _e( 'Yes' ); ?><br/><br/>
 			  <input type="hidden" name="do" value="UNINSTALL Spider Event Calendar" />
-            <input type="button" name="DODO" value="<?php echo 'UNINSTALL Spider Event Calendar'; ?>"
+            <input type="button" name="DODO" value="<?php _e( 'UNINSTALL Spider Event Calendar', 'sp_calendar' ); ?>"
                    class="button-primary"
                    onclick="uninstall()"/>
           </p>
@@ -1001,7 +1000,7 @@ function calendar_Featured_themes() { ?>
 	<table align="center" width="90%" style="margin-top: 0px;border-bottom: rgb(111, 111, 111) solid 1px;">
 		<tr>
 			<td colspan="2" style="height: 40px; padding: 30px 0px 0px 0px;">
-				<h3 style="margin: 0px;font-family:Segoe UI;padding-bottom: 15px;color: rgb(111, 111, 111); font-size:18pt;">Featured Themes</h3>
+				<h3 style="margin: 0px;font-family:Segoe UI;padding-bottom: 15px;color: rgb(111, 111, 111); font-size:18pt;"><?php _e( 'Featured Themes', 'sp_calendar' ); ?></h3>
 			</td>
 			<td align="right" style="font-size:16px;"></td>
 		</tr>
@@ -1026,7 +1025,7 @@ function calendar_Featured_themes() { ?>
 				<div class="description">
 					 <p>Sauron is a multipurpose parallax theme, which uses multiple interactive sections designed for the client-engagement.</p>		
 				</div>
-				<a target="_blank" href="https://web-dorado.com/wordpress-themes/sauron.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/wordpress-themes/sauron.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="mottomag">
 				<div class="product"></div>
@@ -1036,7 +1035,7 @@ function calendar_Featured_themes() { ?>
 				<div class="description">
 					<p>MottoMag is a vibrant, responsive theme which is a perfect choice for the combination of textual content with videos and images.</p>	
 				</div>
-				<a target="_blank" href="https://web-dorado.com/wordpress-themes/mottomag.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/wordpress-themes/mottomag.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="business_world">
 				<div class="product"></div>
@@ -1046,7 +1045,7 @@ function calendar_Featured_themes() { ?>
 				<div class="description">
 					<p>Business World is an innovative WordPress theme great for Business websites.</p>		 
 				</div>
-				<a target="_blank" href="https://web-dorado.com/wordpress-themes/business-world.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/wordpress-themes/business-world.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="best_magazine">
 				<div class="product"></div>
@@ -1056,7 +1055,7 @@ function calendar_Featured_themes() { ?>
 				<div class="description">
 					<p>Best Magazine is an ultimate selection when you are dealing with multi-category news websites.</p>
 				</div>
-				<a target="_blank" href="https://web-dorado.com/wordpress-themes/best-magazine.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/wordpress-themes/best-magazine.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="wedding_style">
 				<div class="product"></div>
@@ -1066,7 +1065,7 @@ function calendar_Featured_themes() { ?>
 				<div class="description">
 					<p>Wedding style is a responsive theme designed for the organization and maintenance of wedding websites and blogs.</p>
 				</div>
-				<a target="_blank" href="https://web-dorado.com/wordpress-themes/wedding-style.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/wordpress-themes/wedding-style.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="magazine">
 				<div class="product"></div>
@@ -1076,7 +1075,7 @@ function calendar_Featured_themes() { ?>
 				<div class="description">
 					<p>Magazine theme is a perfect solution when creating news and informational websites. It comes with a wide range of layout options.</p>	
 				</div>
-				<a target="_blank" href="https://web-dorado.com/wordpress-themes/news-magazine.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/wordpress-themes/news-magazine.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="weddings">
 				<div class="product"></div>
@@ -1086,7 +1085,7 @@ function calendar_Featured_themes() { ?>
 				<div class="description">
 					<p>Weddings is an elegant, responsive WordPress theme designed for wedding websites. The theme includes multiple pages, homepage slider and gallery support.</p>
 				</div>
-				<a target="_blank" href="https://web-dorado.com/wordpress-themes/wedding.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/wordpress-themes/wedding.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="exclusive">
 				<div class="product"></div>
@@ -1096,7 +1095,7 @@ function calendar_Featured_themes() { ?>
 				<div class="description">
 					<p>Exclusive is a unique theme designed to best fit business style websites. It comes with a large list of customizable features.</p>
 				</div>
-				<a target="_blank" href="https://web-dorado.com/wordpress-themes/exclusive.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/wordpress-themes/exclusive.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="expert">
 				<div class="product"></div>
@@ -1106,7 +1105,7 @@ function calendar_Featured_themes() { ?>
 				<div class="description">
 					<p>WordPress Expert is a modern, user-friendly and stylish theme. It has a list of customizable layout, style, colors and fonts.</p>
 				</div>
-				<a target="_blank" href="https://web-dorado.com/wordpress-themes/business-responsive.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/wordpress-themes/business-responsive.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 		</ul>
 	</form>
@@ -1137,7 +1136,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>Photo Gallery is a fully responsive WordPress Gallery plugin with advanced functionality. </p>
 				</div>
-				<a target="_blank" href="https://web-dorado.com/products/wordpress-photo-gallery-plugin.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/products/wordpress-photo-gallery-plugin.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="form-maker">
 				<div class="product"></div>
@@ -1147,7 +1146,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>Form Maker is a modern and advanced tool for creating WordPress forms easily and fast.</p>
 				</div>
-				<a target="_blank" href="https://web-dorado.com/products/wordpress-form.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/products/wordpress-form.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			 <li class="catalog">
 				<div class="product"></div>
@@ -1157,7 +1156,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>Spider Catalog for WordPress is a convenient tool for organizing the products represented on your website into catalogs.</p>	
 				</div>
-				<a target="_blank" href="https://web-dorado.com/products/wordpress-catalog.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/products/wordpress-catalog.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="slider_wd">
 				 <div class="product"></div>
@@ -1167,7 +1166,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>Create responsive, highly configurable sliders with various effects for your WordPress site. </p>			
 				</div>
-				<a target="_blank" href="https://web-dorado.com/products/wordpress-slider-plugin.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/products/wordpress-slider-plugin.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="player">
 				<div class="product"></div>
@@ -1177,7 +1176,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>Spider Video Player for WordPress is a Flash & HTML5 video player plugin that allows you to easily add videos to your website with the possibility</p>
 				</div>
-				<a target="_blank" href="https://web-dorado.com/products/wordpress-player.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/products/wordpress-player.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="contacts">
 				<div class="product"></div>
@@ -1187,7 +1186,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>Spider Contacts helps you to display information about the group of people more intelligible, effective and convenient.</p>	
 				</div>
-				<a target="_blank" href="https://web-dorado.com/products/wordpress-contacts-plugin.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/products/wordpress-contacts-plugin.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="facebook">
 				<div class="product"></div>
@@ -1197,7 +1196,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>Spider Facebook is a WordPress integration tool for Facebook.It includes all the available Facebook social plugins and widgets.</p>
 				</div>
-				<a target="_blank" href="https://web-dorado.com/products/wordpress-facebook.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/products/wordpress-facebook.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="faq">
 				<div class="product"></div>
@@ -1207,7 +1206,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>The Spider FAQ WordPress plugin is for creating an FAQ (Frequently Asked Questions) section for your website.</p>	
 				</div>
-				<a target="_blank" href="https://web-dorado.com/products/wordpress-faq-plugin.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/products/wordpress-faq-plugin.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="zoom">
 				<div class="product"></div>
@@ -1217,7 +1216,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>Zoom enables site users to resize the predefined areas of the web site.</p>	
 				</div>
-				<a target="_blank" href="https://web-dorado.com/products/wordpress-zoom.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/products/wordpress-zoom.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="flash-calendar">
 				<div class="product"></div>
@@ -1227,7 +1226,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>Spider Flash Calendar is a highly configurable Flash calendar plugin which allows you to have multiple organized events.</p>	
 				</div>
-				<a target="_blank" href="https://web-dorado.com/products/wordpress-events-calendar.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/products/wordpress-events-calendar.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="contact-maker">
 				<div class="product"></div>
@@ -1237,7 +1236,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>WordPress Contact Form Maker is an advanced and easy-to-use tool for creating forms.</p>			 
 				 </div>
-				 <a target="_blank" href="https://web-dorado.com/products/wordpress-contact-form-maker-plugin.html" class="download">Download</a>
+				 <a target="_blank" href="https://web-dorado.com/products/wordpress-contact-form-maker-plugin.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="twitter-widget">
 				<div class="product"></div>
@@ -1247,7 +1246,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>The Widget Twitter plugin lets you to fully integrate your WordPress site with your Twitter account.</p>
 				</div>
-				<a target="_blank" href="https://web-dorado.com/products/wordpress-twitter-integration-plugin.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/products/wordpress-twitter-integration-plugin.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="contact_form_bulder">
 				<div class="product"></div>
@@ -1257,7 +1256,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>Contact Form Builder is the best tool for quickly arranging a contact form for your clients and visitors. </p>		 
 				</div>
-				<a target="_blank" href="https://web-dorado.com/products/wordpress-contact-form-builder.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/products/wordpress-contact-form-builder.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="folder_menu">
 				<div class="product"></div>
@@ -1267,7 +1266,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>Folder Menu Vertical is a WordPress Flash menu module for your website, designed to meet your needs and preferences. </p>		 
 				</div>
-				<a target="_blank" href="https://web-dorado.com/products/wordpress-menu-vertical.html" class="download">Download</a>
+				<a target="_blank" href="https://web-dorado.com/products/wordpress-menu-vertical.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 			<li class="random_post">
 				<div class="product"></div>
@@ -1277,7 +1276,7 @@ function calendar_Featured_Plugins() {  ?>
 				<div class="description">
 					<p>Spider Random Post is a small but very smart solution for your WordPress web site. </p>		 
 			 </div>
-			 <a target="_blank" href="https://web-dorado.com/products/wordpress-random-post.html" class="download">Download</a>
+			 <a target="_blank" href="https://web-dorado.com/products/wordpress-random-post.html" class="download"><?php _e( 'Download', 'sp_calendar' ); ?></a>
 			</li>
 		</ul>
 	</form>

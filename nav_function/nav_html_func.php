@@ -48,7 +48,7 @@ function print_html_nav($count_items,$page_number,$serch_fields=""){
 	}
 	?>
 	<div class="tablenav-pages">
-    <span class="displaying-num"><?php echo $count_items; ?> items</span>
+    <span class="displaying-num"><?php echo sprintf( __( '%d items', 'sp_calendar' ), $count_items ); ?></span>
 	<?php if($count_items>20) {
 
 			if($page_number==1)
@@ -68,16 +68,16 @@ function print_html_nav($count_items,$page_number,$serch_fields=""){
 		
 		?>     
 	<span class="pagination-links">
-	<a class="<?php echo $first_page; ?>" title="Go to the first page" href="javascript:submit_href(<?php echo $page_number; ?>,-2);">«</a>
-	<a class="<?php echo $prev_page; ?>" title="Go to the previous page" href="javascript:submit_href(<?php echo $page_number; ?>,-1);">‹</a>
+	<a class="<?php echo $first_page; ?>" title="<?php _e( 'Go to the first page', 'sp_calendar' ); ?>" href="javascript:submit_href(<?php echo $page_number; ?>,-2);">«</a>
+	<a class="<?php echo $prev_page; ?>" title="<?php _e( 'Go to the previous page', 'sp_calendar' ); ?>" href="javascript:submit_href(<?php echo $page_number; ?>,-1);">‹</a>
 	<span class="paging-input">
 	<span class="total-pages"><?php echo $page_number; ?></span>
 	of <span class="total-pages">
 	<?php echo ($count_items-$count_items%20)/20+1; ?>
 	</span>
 	</span>
-	<a class="<?php echo $next_page ?>" title="Go to the next page" href="javascript:submit_href(<?php echo $page_number; ?>,1);">›</a>
-	<a class="<?php echo $last_page ?>" title="Go to the last page" href="javascript:submit_href(<?php echo $page_number; ?>,2);">»</a>
+	<a class="<?php echo $next_page ?>" title="<?php _e( 'Go to the next page', 'sp_calendar' ); ?>" href="javascript:submit_href(<?php echo $page_number; ?>,1);">›</a>
+	<a class="<?php echo $last_page ?>" title="<?php _e( 'Go to the last page', 'sp_calendar' ); ?>" href="javascript:submit_href(<?php echo $page_number; ?>,2);">»</a>
 	<?php }		
 	 ?>
 	</span>

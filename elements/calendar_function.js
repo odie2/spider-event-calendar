@@ -514,6 +514,7 @@ function checkAll_button( n, task ) {
 				box.checked = true;
 			}
 		} else {
+			// TODO
 			alert("You cannot change the order of items, as an item in the list is `Checked Out`");
 			return;
 		}

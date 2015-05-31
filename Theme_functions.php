@@ -1,6 +1,6 @@
 <?php
 if (!current_user_can('manage_options')) {
-  die('Access Denied');
+  die(__( 'Access Denied', 'sp_calendar' ));
 }
 // function add_theme_calendar() {
   // global $wpdb;
@@ -436,13 +436,13 @@ function apply_theme_calendar($id) {
   }
   if ($save_or_no === FALSE) {
     ?>
-    <div class="updated"><p><strong>Error. Please install plugin again.</strong></p></div>
+    <div class="updated"><p><strong><?php _e( 'Error. Please install plugin again.', 'sp_calendar' ); ?></strong></p></div>
     <?php
     return FALSE;
   }
   else {
     ?>
-    <div class="updated"><p><strong>Theme Saved.</strong></p></div>
+    <div class="updated"><p><strong><?php _e( 'Theme Saved.', 'sp_calendar' ); ?></strong></p></div>
     <?php
     return TRUE;
   }
@@ -462,7 +462,7 @@ function edit_theme_calendar($id) {
 function remove_theme_calendar($id) {
   if ($id > 0 && $id < 18) {
     ?>
-    <div id="message" class="error"><p>You can't delete deafult theme.</p></div>
+    <div id="message" class="error"><p><?php _e( "You can't delete deafult theme.", 'sp_calendar' ); ?></p></div>
     <?php
     return FALSE;
   }
@@ -470,12 +470,12 @@ function remove_theme_calendar($id) {
   $sql_remove_tag = $wpdb->prepare ( "DELETE FROM " . $wpdb->prefix . "spidercalendar_theme WHERE id=%d", $id );
   if (!$wpdb->query($sql_remove_tag)) {
     ?>
-    <div id="message" class="error"><p>Spider Calendar Theme Not Deleted</p></div>
+    <div id="message" class="error"><p><?php _e( 'Spider Calendar Theme Not Deleted', 'sp_calendar' ); ?></p></div>
     <?php
   }
   else {
     ?>
-    <div class="updated"><p><strong>Item Deleted.</strong></p></div>
+    <div class="updated"><p><strong><?php _e( 'Item Deleted.', 'sp_calendar' ); ?></strong></p></div>
     <?php
   }
 }

@@ -1,7 +1,7 @@
 <?php
 if (function_exists('current_user_can')) {
   if (!current_user_can('manage_options')) {
-    die('Access Denied');
+    die(__( 'Access Denied', 'sp_calendar' ));
   }
 }
 function html_show_spider_calendar($rows, $pageNav, $sort) {
@@ -93,7 +93,7 @@ function html_show_spider_calendar($rows, $pageNav, $sort) {
             cancel_qiucik_edit(cal_id);
           }
           else {
-            alert('ERROR PLEAS INSTALL PLUGIN AGAIN');
+            alert(<?php _e( 'ERROR PLEASE INSTALL PLUGIN AGAIN', 'sp_calendar' ); ?>);
             cancel_qiucik_edit(cal_id);
           }
         }
@@ -121,10 +121,10 @@ function html_show_spider_calendar($rows, $pageNav, $sort) {
 	<table cellspacing="10" width="100%" id="calendar_table">
       <tr>
         <td width="100%" style="font-size:14px; font-weight:bold">
-          <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-2.html" target="_blank" style="color:blue; text-decoration:none;">User Manual</a>
+          <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-2.html" target="_blank" style="color:blue; text-decoration:none;"><?php _e( 'User Manual', 'sp_calendar' ); ?></a>
           <br />
-          This section allows you to create calendars. You can add unlimited number of calendars.
-          <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-2.html" target="_blank" style="color:blue; text-decoration:none;">More...</a>
+          <?php _e( 'This section allows you to create calendars. You can add unlimited number of calendars.', 'sp_calendar' ); ?>
+          <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-2.html" target="_blank" style="color:blue; text-decoration:none;"><?php _e( 'More...', 'sp_calendar' ); ?></a>
         </td>
         <td colspan="7" align="right" style="font-size:16px;">
           <a href="https://web-dorado.com/files/fromSpiderCalendarWP.php" target="_blank" style="color:red; text-decoration:none;">
@@ -133,10 +133,10 @@ function html_show_spider_calendar($rows, $pageNav, $sort) {
         </td>
       </tr>
       <tr>
-        <td style="width:210px"><h2>Calendar Manager</h2></td>
+        <td style="width:210px"><h2><?php _e( 'Calendar Manager', 'sp_calendar' ); ?></h2></td>
         <td style="width:90px; text-align:right;">
           <p class="submit" style="padding:0px; text-align:left">
-            <input type="button" value="Add a Calendar" name="custom_parametrs" onClick="window.location.href='admin.php?page=SpiderCalendar&task=add_calendar'"/>
+            <input type="button" value="<?php _e( 'Add a Calendar', 'sp_calendar' ); ?>" name="custom_parametrs" onClick="window.location.href='admin.php?page=SpiderCalendar&task=add_calendar'"/>
           </p>
         </td>
         <td style="text-align:right;font-size:16px;padding:20px; padding-right:50px">
@@ -152,13 +152,13 @@ function html_show_spider_calendar($rows, $pageNav, $sort) {
     }
     $serch_fields = '
       <div class="alignleft actions">
-        <label for="search_events_by_title" style="font-size:14px">Title: </label>
+        <label for="search_events_by_title" style="font-size:14px">' . __( 'Title', 'sp_calendar' ) . ': </label>
         <input type="text" name="search_events_by_title" value="' . $serch_value . '" id="search_events_by_title" onchange="clear_serch_texts()">
       </div>
       <div class="alignleft actions">
-        <input type="button" value="Search" onclick="document.getElementById(\'page_number\').value=\'1\'; document.getElementById(\'serch_or_not\').value=\'search\';
+        <input type="button" value="' . _x( 'Search', 'submit button' ) . '" onclick="document.getElementById(\'page_number\').value=\'1\'; document.getElementById(\'serch_or_not\').value=\'search\';
           document.getElementById(\'admin_form\').submit();" class="button-secondary action">
-        <input type="button" value="Reset" onclick="window.location.href=\'admin.php?page=SpiderCalendar\'" class="button-secondary action">
+        <input type="button" value="' . __( 'Reset', 'sp_calendar' ) . '" onclick="window.location.href=\'admin.php?page=SpiderCalendar\'" class="button-secondary action">
       </div>';
     print_html_nav($pageNav['total'], $pageNav['limit'], $serch_fields);
     ?>
@@ -167,20 +167,20 @@ function html_show_spider_calendar($rows, $pageNav, $sort) {
       <TR>
         <th scope="col" id="id" class="<?php echo (($sort["sortid_by"] == "id") ? $sort["custom_style"] : $sort["default_style"]); ?>" style="width:50px">
           <a href="javascript:ordering('id',<?php echo(($sort["sortid_by"] == "id") ? $sort["1_or_2"] : "1"); ?>)">
-            <span>ID</span>
+            <span><?php _e( 'ID', 'sp_calendar' ); ?></span>
             <span class="sorting-indicator"></span>
           </a>
         </th>
         <th scope="col" id="title" class="<?php echo (($sort["sortid_by"] == "title") ? $sort["custom_style"] : $sort["default_style"]); ?>">
           <a href="javascript:ordering('title',<?php echo (($sort["sortid_by"] == "title") ? $sort["1_or_2"] : "1"); ?>)">
-            <span>Title</span>
+            <span><?php _e( 'Title', 'sp_calendar' ); ?></span>
             <span class="sorting-indicator"></span>
           </a>
         </th>
-        <th style="width:100px">Manage Events</th>
+        <th style="width:100px"><?php _e( 'Manage Events', 'sp_calendar' ); ?></th>
         <th scope="col" id="published" class="<?php echo (($sort["sortid_by"] == "published") ? $sort["custom_style"] : $sort["default_style"]); ?>" style="width:100px">
           <a href="javascript:ordering('published',<?php echo (($sort["sortid_by"] == "published") ? $sort["1_or_2"] : "1"); ?>)">
-            <span>Published</span>
+            <span><?php _e( 'Published', 'sp_calendar' ); ?></span>
             <span class="sorting-indicator"></span>
           </a>
         </th>
@@ -191,19 +191,19 @@ function html_show_spider_calendar($rows, $pageNav, $sort) {
       <tr id="Calendar-<?php echo $rows[$i]->id; ?>" class=" hentry alternate iedit author-self" style="display:table-row;">
         <td><?php echo $rows[$i]->id; ?></td>
         <td class="post-title page-title column-title">
-          <a title="Manage Events" class="row-title" href="admin.php?page=SpiderCalendar&task=show_manage_event&calendar_id=<?php echo $rows[$i]->id; ?>"><?php echo $rows[$i]->title; ?></a>
+          <a title="<?php _e( 'Manage Events', 'sp_calendar' ); ?>" class="row-title" href="admin.php?page=SpiderCalendar&task=show_manage_event&calendar_id=<?php echo $rows[$i]->id; ?>"><?php echo $rows[$i]->title; ?></a>
           <div class="row-actions">
             <span class="edit">
-              <a href="admin.php?page=SpiderCalendar&task=edit_calendar&id=<?php echo $rows[$i]->id; ?>" title="Edit This Calendar">Edit</a> | </span>
+              <a href="admin.php?page=SpiderCalendar&task=edit_calendar&id=<?php echo $rows[$i]->id; ?>" title="<?php _e( 'Edit This Calendar', 'sp_calendar' ); ?>"><?php _e( 'Edit' ); ?></a> | </span>
             <span class="inline hide-if-no-js">
-              <a href="#" class="editinline" onClick="show_calendar_inline(<?php echo  $rows[$i]->id; ?>)" title="Edit This Calendar Inline">Quick Edit</a>  | </span>
+              <a href="#" class="editinline" onClick="show_calendar_inline(<?php echo  $rows[$i]->id; ?>)" title="<?php _e( 'Edit This Calendar Inline', 'sp_calendar' ); ?>"><?php _e( 'Quick Edit' ); ?></a>  | </span>
             <span class="trash">
-              <a class="submitdelete" title="Delete This Calendar" href="javascript:confirmation('admin.php?page=SpiderCalendar&task=remove_calendar&id=<?php echo $rows[$i]->id; ?>','<?php echo $rows[$i]->title; ?>')">Delete</a></span>
+              <a class="submitdelete" title="<?php _e( 'Delete This Calendar', 'sp_calendar' ); ?>" href="javascript:confirmation('admin.php?page=SpiderCalendar&task=remove_calendar&id=<?php echo $rows[$i]->id; ?>','<?php echo $rows[$i]->title; ?>')"><?php _e( 'Delete' ); ?></a></span>
           </div>
         </td>
-        <td><a href="admin.php?page=SpiderCalendar&task=show_manage_event&calendar_id=<?php echo $rows[$i]->id; ?>">Manage events</a></td>
+        <td><a href="admin.php?page=SpiderCalendar&task=show_manage_event&calendar_id=<?php echo $rows[$i]->id; ?>"><?php _e( 'Manage events', 'sp_calendar' ); ?></a></td>
         <td><a <?php if (!$rows[$i]->published) echo 'style="color:#C00"'; ?>
-          href="admin.php?page=SpiderCalendar&task=published&id=<?php echo $rows[$i]->id; ?>&_wpnonce=<?php echo $sp_cal_nonce; ?>"><?php if ($rows[$i]->published) echo 'Yes'; else echo 'No'; ?></a>
+          href="admin.php?page=SpiderCalendar&task=published&id=<?php echo $rows[$i]->id; ?>&_wpnonce=<?php echo $sp_cal_nonce; ?>"><?php if ($rows[$i]->published) _e( 'Yes' ); else _e( 'No' ); ?></a>
         </td>
       </tr>
         <?php } ?>
@@ -233,7 +233,7 @@ function html_add_spider_calendar() {
     function submitform(pressbutton) {
       document.getElementById('adminForm').action = document.getElementById('adminForm').action + "&task=" + pressbutton;
 	  if (document.getElementById('title').value == "") {
-					alert('Provide calendar title:');
+					alert('<?php _e( 'Provide calendar title', 'sp_calendar' ); ?>');
 				  }
 				  else {
       document.getElementById('adminForm').submit();
@@ -268,10 +268,10 @@ function html_add_spider_calendar() {
   <table width="95%">
     <tr>
       <td width="100%" style="font-size:14px; font-weight:bold">
-        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-2.html" target="_blank" style="color:blue; text-decoration:none;">User Manual</a>
+        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-2.html" target="_blank" style="color:blue; text-decoration:none;"><?php _e( 'User Manual', 'sp_calendar' ); ?></a>
         <br />
-        This section allows you to create calendars. You can add unlimited number of calendars.
-        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-2.html" target="_blank" style="color:blue; text-decoration:none;">More...</a>
+        <?php _e( 'This section allows you to create calendars. You can add unlimited number of calendars.', 'sp_calendar' ); ?>
+        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-2.html" target="_blank" style="color:blue; text-decoration:none;"><?php _e( 'More...', 'sp_calendar' ); ?></a>
       </td>
       <td colspan="7" align="right" style="font-size:16px;">
         <a href="https://web-dorado.com/files/fromSpiderCalendarWP.php" target="_blank" style="color:red; text-decoration:none;">
@@ -280,42 +280,43 @@ function html_add_spider_calendar() {
       </td>
     </tr>
     <tr>
-      <td width="100%"><h2>Add Calendar</h2></td>
-      <td align="right"><input type="button" onClick="submitbutton('Save')" value="Save" class="button-secondary action"></td>
-      <td align="right"><input type="button" onClick="submitbutton('Apply')" value="Apply" class="button-secondary action"></td>
-      <td align="right"><input type="button" onClick="window.location.href='admin.php?page=SpiderCalendar'" value="Cancel" class="button-secondary action"></td>
+      <td width="100%"><h2><?php _e( 'Add Calendar', 'sp_calendar' ); ?></h2></td>
+      <td align="right"><input type="button" onClick="submitbutton('Save')" value="<?php _e( 'Save' ); ?>" class="button-secondary action"></td>
+      <td align="right"><input type="button" onClick="submitbutton('Apply')" value="<?php _e( 'Apply' ); ?>" class="button-secondary action"></td>
+      <td align="right"><input type="button" onClick="window.location.href='admin.php?page=SpiderCalendar'" value="<?php _e( 'Cancel' ); ?>" class="button-secondary action"></td>
     </tr>
   </table>
 
   <form onKeyPress="doNothing()" action="admin.php?page=SpiderCalendar" method="post" name="adminForm" id="adminForm">
     <table class="form-table" style="width:400px">
       <tr>
-        <td class="key"><label for="name">Title: </label></td>
+        <td class="key"><label for="name"><?php _e( 'Title', 'sp_calendar' ); ?>: </label></td>
         <td><input type="text" name="title" id="title" size="30" value=""/></td>
       </tr>
       <tr>
-        <td class="key"><label for="def_year">Default Year: </label></td>
+        <td class="key"><label for="def_year"><?php _e( 'Default Year', 'sp_calendar' ); ?>: </label></td>
         <td><input type="text" name="def_year" id="def_year" size="30" value=""/></td>
       </tr>
       <tr>
-        <td class="key"><label for="def_month">Default Month: </label></td>
+        <td class="key"><label for="def_month"><?php _e( 'Default Month', 'sp_calendar' ); ?>: </label></td>
         <td>
           <select id="def_month" name="def_month">
-            <option selected="selected" value="">Current</option>
+            <option selected="selected" value=""><?php _e( 'Current', 'sp_calendar' ); ?></option>
           <?php
           $month_array = array(
-            '01' => 'January',
-            '02' => 'February',
-            '03' => 'March',
-            '04' => 'April',
-            '05' => 'May',
-            '06' => 'June',
-            '07' => 'July',
-            '08' => 'August',
-            '09' => 'September',
-            '10' => 'October',
-            '11' => 'November',
-            '12' => 'December',
+            '' => __( 'Current', 'sp_calendar' ),
+            '01' => __( 'January' ),
+            '02' => __( 'February' ),
+            '03' => __( 'March' ),
+            '04' => __( 'April' ),
+            '05' => __( 'May' ),
+            '06' => __( 'June' ),
+            '07' => __( 'July' ),
+            '08' => __( 'August' ),
+            '09' => __( 'September' ),
+            '10' => __( 'October' ),
+            '11' => __( 'November' ),
+            '12' => __( 'December' ),
           );
           foreach ($month_array as $key => $def_month) {
             ?>
@@ -327,21 +328,21 @@ function html_add_spider_calendar() {
         </td>
       </tr>
       <tr>
-        <td class="key"><label for="name">Use 12-hour time format: </label></td>
+        <td class="key"><label for="name"><?php _e( 'Use 12-hour time format', 'sp_calendar' ); ?>: </label></td>
         <td>
           <input type="radio" name="time_format" id="time_format0" value="0" checked="checked" class="inputbox">
-          <label for="time_format0">No</label>
+          <label for="time_format0"><?php _e( 'No' ); ?></label>
           <input type="radio" name="time_format" id="time_format1" value="1" class="inputbox">
-          <label for="time_format1">Yes</label>
+          <label for="time_format1"><?php _e( 'Yes' ); ?></label>
         </td>
       </tr>
       <tr>
-        <td class="key"><label for="published">Published: </label></td>
+        <td class="key"><label for="published"><?php _e( 'Published', 'sp_calendar' ); ?>: </label></td>
         <td>
           <input type="radio" name="published" id="published0" value="0" class="inputbox">
-          <label for="published0">No</label>
+          <label for="published0"><?php _e( 'No' ); ?></label>
           <input type="radio" name="published" id="published1" value="1" checked="checked" class="inputbox">
-          <label for="published1">Yes</label>
+          <label for="published1"><?php _e( 'Yes' ); ?></label>
         </td>
       </tr>
     </table>
@@ -368,7 +369,7 @@ function html_edit_spider_calendar($row) {
     function submitform(pressbutton) {
       document.getElementById('adminForm').action = document.getElementById('adminForm').action + "&task=" + pressbutton;
 	  if (document.getElementById('title').value == "") {
-					alert('Provide calendar title:');
+					alert('<?php _e( 'Provide calendar title', 'sp_calendar' ); ?>');
 				  }
 				  else {
       document.getElementById('adminForm').submit();
@@ -403,10 +404,10 @@ function html_edit_spider_calendar($row) {
   <table width="95%">
     <tr>
       <td width="100%" style="font-size:14px; font-weight:bold">
-        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-2.html" target="_blank" style="color:blue; text-decoration:none;">User Manual</a>
+        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-2.html" target="_blank" style="color:blue; text-decoration:none;"><?php _e( 'User Manual', 'sp_calendar' ); ?></a>
         <br />
-        This section allows you to create calendars. You can add unlimited number of calendars.
-        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-2.html" target="_blank" style="color:blue; text-decoration:none;">More...</a>
+        <?php _e( 'This section allows you to create calendars. You can add unlimited number of calendars.', 'sp_calendar' ); ?>
+        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-2.html" target="_blank" style="color:blue; text-decoration:none;"><?php _e( 'More...', 'sp_calendar' ); ?></a>
       </td>
       <td colspan="7" align="right" style="font-size:16px;">
         <a href="https://web-dorado.com/files/fromSpiderCalendarWP.php" target="_blank" style="color:red; text-decoration:none;">
@@ -415,42 +416,42 @@ function html_edit_spider_calendar($row) {
       </td>
     </tr>
     <tr>
-      <td width="100%"><h2>Calendar - <?php echo $row->title; ?></h2></td>
-      <td align="right"><input type="button" onClick="submitbutton('Save')" value="Save" class="button-secondary action"></td>
-      <td align="right"><input type="button" onClick="submitbutton('Apply')" value="Apply" class="button-secondary action"></td>
-      <td align="right"><input type="button" onClick="window.location.href='admin.php?page=SpiderCalendar'" value="Cancel" class="button-secondary action"></td>
+      <td width="100%"><h2><?php echo sprintf( __( 'Calendar - %s', 'sp_calendar' ), $row->title ); ?></h2></td>
+      <td align="right"><input type="button" onClick="submitbutton('Save')" value="<?php _e( 'Save', 'sp_calendar' ); ?>" class="button-secondary action"></td>
+      <td align="right"><input type="button" onClick="submitbutton('Apply')" value="<?php _e( 'Apply' ); ?>" class="button-secondary action"></td>
+      <td align="right"><input type="button" onClick="window.location.href='admin.php?page=SpiderCalendar'" value="<?php _e( 'Cancel' ); ?>" class="button-secondary action"></td>
     </tr>
   </table>
 
   <form onKeyPress="doNothing()" action="admin.php?page=SpiderCalendar&id=<?php echo $row->id; ?>" method="post" name="adminForm" id="adminForm">
     <table class="form-table" style="width:400px">
       <tr>
-        <td class="key"><label for="name">Title: </label></td>
+        <td class="key"><label for="name"><?php _e( 'Title', 'sp_calendar' ); ?>: </label></td>
         <td><input type="text" name="title" id="title" size="30" value="<?php echo $row->title; ?>"/></td>
       </tr>
       <tr>
-        <td class="key"><label for="name">Default Year: </label></td>
+        <td class="key"><label for="name"><?php _e( 'Default Year', 'sp_calendar' ); ?>: </label></td>
         <td><input type="text" name="def_year" id="def_year" size="30" value="<?php echo $row->def_year; ?>"/></td>
       </tr>
       <tr>
-        <td class="key"><label for="name">Default Month: </label></td>
+        <td class="key"><label for="name"><?php _e( 'Default Month', 'sp_calendar' ); ?>: </label></td>
         <td>
           <select id="def_month" name="def_month">
           <?php
           $month_array = array(
-            '' => 'Current',
-            '01' => 'January',
-            '02' => 'February',
-            '03' => 'March',
-            '04' => 'April',
-            '05' => 'May',
-            '06' => 'June',
-            '07' => 'July',
-            '08' => 'August',
-            '09' => 'September',
-            '10' => 'October',
-            '11' => 'November',
-            '12' => 'December',
+            '' => __( 'Current', 'sp_calendar' ),
+            '01' => __( 'January' ),
+            '02' => __( 'February' ),
+            '03' => __( 'March' ),
+            '04' => __( 'April' ),
+            '05' => __( 'May' ),
+            '06' => __( 'June' ),
+            '07' => __( 'July' ),
+            '08' => __( 'August' ),
+            '09' => __( 'September' ),
+            '10' => __( 'October' ),
+            '11' => __( 'November' ),
+            '12' => __( 'December' ),
           );
           foreach ($month_array as $key => $def_month) {
             ?>
@@ -462,21 +463,21 @@ function html_edit_spider_calendar($row) {
         </td>
       </tr>
       <tr>
-        <td class="key"><label for="name">Use 12 hours time format: </label></td>
+        <td class="key"><label for="name"><?php _e( 'Use 12 hours time format', 'sp_calendar' ); ?>: </label></td>
         <td>
           <input type="radio" name="time_format" id="time_format0" value="0" <?php cheched($row->time_format, '0'); ?> class="inputbox">
-          <label for="time_format0">No</label>
+          <label for="time_format0"><?php _e( 'No' ); ?></label>
           <input type="radio" name="time_format" id="time_format1" value="1" <?php cheched($row->time_format, '1'); ?> class="inputbox">
-          <label for="time_format1">Yes</label>
+          <label for="time_format1"><?php _e( 'Yes' ); ?></label>
         </td>
       </tr>
       <tr>
-        <td class="key"><label for="published">Published:</label></td>
+        <td class="key"><label for="published"><?php _e( 'Published', 'sp_calendar' ); ?>:</label></td>
         <td>
           <input type="radio" name="published" id="published0" value="0" <?php cheched($row->published, '0'); ?> class="inputbox">
-          <label for="published0">No</label>
+          <label for="published0"><?php _e( 'No' ); ?></label>
           <input type="radio" name="published" id="published1" value="1" <?php cheched($row->published, '1'); ?> class="inputbox">
-          <label for="published1">Yes</label>
+          <label for="published1"><?php _e( 'Yes' ); ?></label>
         </td>
       </tr>
     </table>
@@ -506,6 +507,7 @@ function show_event_category($rows, $pageNav, $sort){
    ?>
   <script language="javascript">
     function confirmation(href, title) {
+      // TODO (also on top)
       var answer = confirm("Are you sure you want to delete '" + title + "'?")
       if (answer) {
         document.getElementById('admin_form').action = href;
@@ -591,7 +593,7 @@ function show_event_category($rows, $pageNav, $sort){
             cancel_qiucik_edit(cal_id);
           }
           else {
-            alert('ERROR PLEAS INSTALL PLUGIN AGAIN');
+            alert(<?php _e( 'ERROR PLEASE INSTALL PLUGIN AGAIN', 'sp_calendar' ); ?>);
             cancel_qiucik_edit(cal_id);
           }
         }
@@ -619,10 +621,10 @@ function show_event_category($rows, $pageNav, $sort){
 	<table cellspacing="10" width="100%" id="category_table">
       <tr>
         <td width="100%" style="font-size:14px; font-weight:bold">
-          <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-2.html" target="_blank" style="color:blue; text-decoration:none;">User Manual</a>
+          <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-2.html" target="_blank" style="color:blue; text-decoration:none;"><?php _e( 'User Manual', 'sp_calendar' ); ?></a>
           <br />
-          This section allows you to create event categories. You can add unlimited number of categories.
-          <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-4.html" target="_blank" style="color:blue; text-decoration:none;">More...</a>
+          <?php _e( 'This section allows you to create event categories. You can add unlimited number of categories.', 'sp_calendar' ); ?>
+          <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-4.html" target="_blank" style="color:blue; text-decoration:none;"><?php _e( 'More...', 'sp_calendar' ); ?></a>
         </td>
 		<td colspan="7" align="right" style="font-size:16px;">
       <a href="https://web-dorado.com/files/fromSpiderCalendarWP.php" target="_blank" style="color:red; text-decoration:none;">
@@ -632,10 +634,10 @@ function show_event_category($rows, $pageNav, $sort){
       </tr>
 	  
       <tr>
-        <td style="width:210px"><h2>Event Category</h2></td>
+        <td style="width:210px"><h2><?php _e( 'Event Category', 'sp_calendar' ); ?></h2></td>
         <td style="width:90px; text-align:right;">
           <p class="submit" style="padding:0px; text-align:left">
-            <input type="button" value="Add a Category" name="custom_parametrs" onClick="window.location.href='admin.php?page=spider_calendar_event_category&task=add_category'"/>
+            <input type="button" value="<?php _e( 'Add a Category', 'sp_calendar' ); ?>" name="custom_parametrs" onClick="window.location.href='admin.php?page=spider_calendar_event_category&task=add_category'"/>
           </p>
         </td>
         <td style="text-align:right;font-size:16px;padding:20px; padding-right:50px">
@@ -651,13 +653,13 @@ function show_event_category($rows, $pageNav, $sort){
     }
     $serch_fields = '
       <div class="alignleft actions" >
-        <label for="search_cat_by_title" style="font-size:14px">Title: </label>
+        <label for="search_cat_by_title" style="font-size:14px">' . __( 'Title', 'sp_calendar' ) . ': </label>
         <input type="text" name="search_cat_by_title" value="' . $serch_value . '" id="search_cat_by_title" onchange="clear_serch_texts()">
       </div>
       <div class="alignleft actions">
-        <input type="button" value="Search" onclick="document.getElementById(\'page_number\').value=\'1\'; document.getElementById(\'serch_or_not\').value=\'search\';
+        <input type="button" value="' . _x( 'Search', 'submit button' ) . '" onclick="document.getElementById(\'page_number\').value=\'1\'; document.getElementById(\'serch_or_not\').value=\'search\';
           document.getElementById(\'admin_form\').submit();" class="button-secondary action">
-        <input type="button" value="Reset" onclick="window.location.href=\'admin.php?page=spider_calendar_event_category\'" class="button-secondary action">
+        <input type="button" value="' . __( 'Reset', 'sp_calendar' ) . '" onclick="window.location.href=\'admin.php?page=spider_calendar_event_category\'" class="button-secondary action">
       </div>';
     print_html_nav($pageNav['total'], $pageNav['limit'], $serch_fields);
     ?>
@@ -666,25 +668,25 @@ function show_event_category($rows, $pageNav, $sort){
       <TR>
         <th scope="col" id="id" class="<?php echo (($sort["sortid_by"] == "id") ? $sort["custom_style"] : $sort["default_style"]); ?>" style="width:50px">
           <a href="javascript:ordering('id',<?php echo(($sort["sortid_by"] == "id") ? $sort["1_or_2"] : "1"); ?>)">
-            <span>ID</span>
+            <span><?php _e( 'ID', 'sp_calendar' ); ?></span>
             <span class="sorting-indicator"></span>
           </a>
         </th>
         <th scope="col" id="title" class="<?php echo (($sort["sortid_by"] == "title") ? $sort["custom_style"] : $sort["default_style"]); ?>">
           <a href="javascript:ordering('title',<?php echo (($sort["sortid_by"] == "title") ? $sort["1_or_2"] : "1"); ?>)">
-            <span>Title</span>
+            <span><?php _e( 'Title', 'sp_calendar' ); ?></span>
             <span class="sorting-indicator"></span>
           </a>
         </th>
         <th scope="col" id="description" class="<?php echo (($sort["sortid_by"] == "description") ? $sort["custom_style"] : $sort["default_style"]); ?>">
           <a href="javascript:ordering('description',<?php echo (($sort["sortid_by"] == "description") ? $sort["1_or_2"] : "1"); ?>)">
-            <span>Description</span>
+            <span><?php _e( 'Description', 'sp_calendar' ); ?></span>
             <span class="sorting-indicator"></span>
           </a>
         </th>
         <th scope="col" id="published" class="<?php echo (($sort["sortid_by"] == "published") ? $sort["custom_style"] : $sort["default_style"]); ?>" style="width:100px">
           <a href="javascript:ordering('published',<?php echo (($sort["sortid_by"] == "published") ? $sort["1_or_2"] : "1"); ?>)">
-            <span>Published</span>
+            <span><?php _e( 'Published', 'sp_calendar' ); ?></span>
             <span class="sorting-indicator"></span>
           </a>
         </th>
@@ -699,13 +701,13 @@ function show_event_category($rows, $pageNav, $sort){
 		  
 		 <div class="row-actions">
             <span class="edit">
-              <a href="admin.php?page=spider_calendar_event_category&task=edit_event_category&id=<?php echo $rows[$i]->id; ?>" title="Edit This Calendar">Edit</a> | </span>
+              <a href="admin.php?page=spider_calendar_event_category&task=edit_event_category&id=<?php echo $rows[$i]->id; ?>" title="<?php _e( 'Edit This Calendar', 'sp_calendar' ); ?>"><?php _e( 'Edit' ); ?></a> | </span>
             <span class="trash">
-              <a class="submitdelete" title="Delete This Calendar" href="javascript:confirmation('admin.php?page=spider_calendar_event_category&task=remove_event_category&id=<?php echo $rows[$i]->id; ?>','<?php echo $rows[$i]->title; ?>')">Delete</a></span>
+              <a class="submitdelete" title="<?php _e( 'Delete This Calendar', 'sp_calendar' ); ?>" href="javascript:confirmation('admin.php?page=spider_calendar_event_category&task=remove_event_category&id=<?php echo $rows[$i]->id; ?>','<?php echo $rows[$i]->title; ?>')"><?php _e( 'Delete' ); ?></a></span>
           </div>
         </td>
         <td><?php echo $rows[$i]->description; ?></td>
-        <td><a <?php if (!$rows[$i]->published) echo 'style="color:#C00"'; ?> href="admin.php?page=spider_calendar_event_category&task=published&id=<?php echo $rows[$i]->id; ?>&_wpnonce=<?php echo $sp_cal_nonce; ?>"><?php if ($rows[$i]->published) echo 'Yes'; else echo 'No'; ?></a>
+        <td><a <?php if (!$rows[$i]->published) echo 'style="color:#C00"'; ?> href="admin.php?page=spider_calendar_event_category&task=published&id=<?php echo $rows[$i]->id; ?>&_wpnonce=<?php echo $sp_cal_nonce; ?>"><?php if ($rows[$i]->published) _e( 'Yes' ); else _e( 'No' ); ?></a>
         </td>
       </tr>
         <?php } ?>
@@ -732,7 +734,7 @@ $row=$wpdb->get_row($wpdb->prepare ("SELECT * FROM " . $wpdb->prefix . "spiderca
 		function submitbutton(pressbutton) {
 			document.getElementById('adminForm').action = "admin.php?page=spider_calendar_event_category&task=" + pressbutton+"&id=<?php echo $id?>";
 				if (document.getElementById('cat_title').value == "") {
-					alert('Provide the category title:');
+					alert('<?php _e( 'Provide the category title', 'sp_calendar' ); ?>');
 				  }
 				  else {
 					document.getElementById('adminForm').submit();
@@ -768,9 +770,9 @@ $row=$wpdb->get_row($wpdb->prepare ("SELECT * FROM " . $wpdb->prefix . "spiderca
 		</style>
 	<table>
 		 <tr>
-			  <td align="right"><input type="button" onClick="submitbutton('save_category_event')" value="Save" class="button-secondary action"></td>
-			  <td align="right"><input type="button" onClick="submitbutton('apply_event_category')" value="Apply" class="button-secondary action"></td>
-			  <td align="right"><input type="button" onClick="window.location.href='admin.php?page=spider_calendar_event_category'" value="Cancel" class="button-secondary action">
+			  <td align="right"><input type="button" onClick="submitbutton('save_category_event')" value="<?php _e( 'Save' ); ?>" class="button-secondary action"></td>
+			  <td align="right"><input type="button" onClick="submitbutton('apply_event_category')" value="<?php _e( 'Apply' ); ?>" class="button-secondary action"></td>
+			  <td align="right"><input type="button" onClick="window.location.href='admin.php?page=spider_calendar_event_category'" value="<?php _e( 'Cancel' ); ?>" class="button-secondary action">
 			  </td>   
 		 </tr>
     </table>
@@ -788,7 +790,7 @@ $row=$wpdb->get_row($wpdb->prepare ("SELECT * FROM " . $wpdb->prefix . "spiderca
 
           
               <tr>
-                <td class="key" ><label for="message"><?php echo 'Category title'; ?>:</label>  </td>
+                <td class="key" ><label for="message"><?php _e( 'Category title', 'sp_calendar' ); ?>:</label>  </td>
                <td> 
 			   
 			   <input   type="text" name="title" value="<?php if(isset($row->title)) echo htmlspecialchars($row->title); 
@@ -797,7 +799,7 @@ $row=$wpdb->get_row($wpdb->prepare ("SELECT * FROM " . $wpdb->prefix . "spiderca
                </tr>
                
 				 <tr>
-			   <td class="key" ><label for="message"><?php echo 'Category Color'; ?>:</label>  </td>
+			   <td class="key" ><label for="message"><?php _e( 'Category Color', 'sp_calendar' ); ?>:</label>  </td>
              
                <td>
 				<div class="color_for_this" style="background-color: #<?php if(isset($row->color)) echo htmlspecialchars($row->color); ?>">
@@ -808,7 +810,7 @@ $row=$wpdb->get_row($wpdb->prepare ("SELECT * FROM " . $wpdb->prefix . "spiderca
                 
 
 			    <tr>
-					<td class="key"><label for="message"> <?php echo 'Description'; ?>:</label></td>
+					<td class="key"><label for="message"> <?php _e( 'Description', 'sp_calendar' ); ?>:</label></td>
 					<td ><div id="poststuff" style="width:100% !important;">
 					 <?php if(version_compare(get_bloginfo('version'),3.3)<0) {?>
 							<div id="<?php echo user_can_richedit() ? 'postdivrich' : 'postdiv'; ?>" class="postarea"><?php the_editor(stripslashes($row->description),"description","title" ); ?>
@@ -824,19 +826,19 @@ $row=$wpdb->get_row($wpdb->prepare ("SELECT * FROM " . $wpdb->prefix . "spiderca
 				</tr>		
 							
 					<tr>
-				<td class="key" ><label for="message"><?php echo 'Published'; ?>:</label>  </td>
+				<td class="key" ><label for="message"><?php _e( 'Published', 'sp_calendar' ); ?>:</label>  </td>
                
 			   <td>
                     <input type="radio" name="published" id="published0" value="0" <?php if(isset($row->published)) cheched($row->published, '0'); ?> class="inputbox">
-                    <label for="published0">No</label>
+                    <label for="published0"><?php _e( 'No' ); ?></label>
                     <input type="radio" name="published" id="published1" value="1" <?php if(isset($row->published)) cheched($row->published, '1'); ?> class="inputbox">
-                    <label for="published1">Yes</label>
+                    <label for="published1"><?php _e( 'Yes' ); ?></label>
                   </td>
                  </tr> 		
 
                 </table>
                 
-     </fieldset >  
+     </fieldset>  
        </div>
 <?php wp_nonce_field('nonce_sp_cal', 'nonce_sp_cal'); ?>	   
 <input type="hidden" name="id" value="<?php echo $id ?>" />
@@ -1011,14 +1013,14 @@ else
 
 <link rel="stylesheet" id="thickbox-css" href="<?php echo bloginfo('url')?>/wp-includes/js/thickbox/thickbox.css?ver=20111117" type="text/css" media="all">
 
-<!---- <link rel="stylesheet" id="colors-css" href="<?php echo bloginfo('url')?>/wp-admin/css/colors-classic.css?ver=20111206" type="text/css" media="all"> --->
+<!-- <link rel="stylesheet" id="colors-css" href="<?php echo bloginfo('url')?>/wp-admin/css/colors-classic.css?ver=20111206" type="text/css" media="all"> -->
 </head>
   <body>
     <form method="post" onKeyPress="doNothing()" action="<?php echo admin_url('admin-ajax.php') ?>?action=upcoming&id_input=<?php echo $input_id;?>&upcalendar_id=<?php echo $calendar_id;?>&w_id=<?php echo $w_id;?>" id="admin_form" name="admin_form">
     <table cellspacing="10" width="100%">
     
     <tr>
-      <td width="100%"><h2>Event Manager</h2></td></td>
+      <td width="100%"><h2<?php _e( 'Event Manager', 'sp_calendar' ); ?>/h2></td></td>
 	  <td align="right" width="100%">
 
                 <button onClick="select_events();" style="width:98px; height:34px; background:url(<?php echo plugins_url('',__FILE__) ?>/front_end/images/add_but.png) no-repeat;border:none;cursor:pointer;">&nbsp;</button>			
@@ -1036,18 +1038,18 @@ else
   $enddate = (isset($_POST["enddate"]) ? esc_js(esc_html(stripslashes($_POST["enddate"]))) : '');
   $serch_fields = '
     <div class="alignleft actions">
-    	<label for="search_events_by_title" style="font-size:14px">Title: </label>
+    	<label for="search_events_by_title" style="font-size:14px">' . __( 'Title', 'sp_calendar' ) . ': </label>
       <input type="text" name="search_events_by_title" value="' . $serch_value . '" id="search_events_by_title" onchange="clear_serch_texts()" style="border: 1px solid #DCDCEC;"/>
     </div>
     <div class="alignleft actions">
-      From: <input class="inputbox" type="text" style="width: 90px;border: 1px solid #DCDCEC;" name="startdate" id="startdate" size="10" maxlength="10" value="' . $startdate . '" />
+      ' . __( 'From', 'sp_calendar' ) . ':<input class="inputbox" type="text" style="width: 90px;border: 1px solid #DCDCEC;" name="startdate" id="startdate" size="10" maxlength="10" value="' . $startdate . '" />
       <input type="reset" class="wd_button" value="..." onclick="return showCalendar(\'startdate\',\'%Y-%m-%d\');">
-      To: <input class="inputbox" type="text" style="width: 90px;border: 1px solid #DCDCEC;" name="enddate" id="enddate" size="10" maxlength="10" value="' . $enddate . '">
+      ' . __( 'To', 'sp_calendar' ) . ':<input class="inputbox" type="text" style="width: 90px;border: 1px solid #DCDCEC;" name="enddate" id="enddate" size="10" maxlength="10" value="' . $enddate . '">
       <input type="reset" class="wd_button" value="..." onclick="return showCalendar(\'enddate\',\'%Y-%m-%d\');">
     </div>
     <div class="alignleft actions">
-   		<input type="button" style="border: 1px solid #DCDCEC;border-radius: 10px;" value="Search" onclick="document.getElementById(\'page_number\').value=\'1\';document.getElementById(\'serch_or_not\').value=\'search\'; document.getElementById(\'admin_form\').submit();" class="button-secondary action">
-      <input type="button" style="border: 1px solid #DCDCEC;border-radius: 10px;" value="Reset" onclick="window.location.href=\'admin-ajax.php?action=upcoming&id_input='.$input_id.'&upcalendar_id='.$calendar_id.'&w_id='.$w_id.'\'" class="button-secondary action">
+   		<input type="button" style="border: 1px solid #DCDCEC;border-radius: 10px;" value="' . _x( 'Search', 'submit button' ) . '" onclick="document.getElementById(\'page_number\').value=\'1\';document.getElementById(\'serch_or_not\').value=\'search\'; document.getElementById(\'admin_form\').submit();" class="button-secondary action">
+      <input type="button" style="border: 1px solid #DCDCEC;border-radius: 10px;" value="' . __( 'Reset', 'sp_calendar' ) . '" onclick="window.location.href=\'admin-ajax.php?action=upcoming&id_input='.$input_id.'&upcalendar_id='.$calendar_id.'&w_id='.$w_id.'\'" class="button-secondary action">
     </div>';
   print_html_nav($pageNav['total'], $pageNav['limit'], $serch_fields);
   ?>
@@ -1072,7 +1074,7 @@ else
     <TR>
       <th scope="col" id="id" class="<?php echo (($sort["sortid_by"] == "id") ? $sort["custom_style"] : $sort["default_style"]); ?>" style="width:50px;background-image: linear-gradient(to top, #EFF8FF, #F7FCFE);">
         <a href="javascript:ordering('id',<?php echo (($sort["sortid_by"] == "id") ? $sort["1_or_2"] : "1"); ?>)">
-          <span>ID</span>
+          <span><?php _e( 'ID', 'sp_calendar' ); ?></span>
           <span class="sorting-indicator"></span>
         </a>
       </th>
@@ -1083,19 +1085,19 @@ else
             </th>
       <th style="background-image: linear-gradient(to top, #EFF8FF, #F7FCFE);" scope="col" id="title" class="<?php echo (($sort["sortid_by"] == "title") ? $sort["custom_style"] : $sort["default_style"]); ?>">
         <a href="javascript:ordering('title',<?php echo (($sort["sortid_by"] == "title") ? $sort["1_or_2"] : "1"); ?>)">
-          <span>Title</span>
+          <span><?php _e( 'Title', 'sp_calendar' ); ?></span>
           <span class="sorting-indicator"></span>
         </a>
       </th>
       <th style="background-image: linear-gradient(to top, #EFF8FF, #F7FCFE);"scope="col" id="date" class="<?php echo (($sort["sortid_by"] == "date") ? $sort["custom_style"] : $sort["default_style"]); ?>">
         <a href="javascript:ordering('date',<?php echo (($sort["sortid_by"] == "date") ? $sort["1_or_2"] :  "1"); ?>)">
-          <span>Date</span>
+          <span><?php _e( 'Date', 'sp_calendar' ); ?></span>
           <span class="sorting-indicator"></span>
         </a>
       </th>
       <th style="background-image: linear-gradient(to top, #EFF8FF, #F7FCFE);"scope="col" id="time" class="<?php echo (($sort["sortid_by"] == "time") ? $sort["custom_style"] : $sort["default_style"]); ?>">
         <a href="javascript:ordering('time',<?php echo (($sort["sortid_by"] == "time") ? $sort["1_or_2"] : "1"); ?>)">
-          <span>Time</span>
+          <span><?php _e( 'Time', 'sp_calendar' ); ?></span>
           <span class="sorting-indicator"></span>
         </a>
       </th>
@@ -1172,10 +1174,10 @@ function html_show_spider_event($rows, $pageNav, $sort, $calendar_id, $cal_name)
 	<table cellspacing="10" width="95%">
     <tr>
       <td width="100%" style="font-size:14px; font-weight:bold">
-        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-3.html" target="_blank" style="color:blue; text-decoration:none;">User Manual</a><br>
-        This section allows you to create/edit the events of a particular calendar.<br/> You can add
-        unlimited number of events for each calendar.
-        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-3.html" target="_blank" style="color:blue; text-decoration:none;">More...</a>
+        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-3.html" target="_blank" style="color:blue; text-decoration:none;"><?php _e( 'User Manual', 'sp_calendar' ); ?></a><br>
+        <?php _e( 'This section allows you to create/edit the events of a particular calendar.', 'sp_calendar' ); ?><br>
+        <?php _e( 'You can add unlimited number of events for each calendar.', 'sp_calendar' ); ?>
+        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-3.html" target="_blank" style="color:blue; text-decoration:none;"><?php _e( 'More...', 'sp_calendar' ); ?></a>
       </td>
       <td colspan="7" align="right" style="font-size:16px;">
         <a href="https://web-dorado.com/files/fromSpiderCalendarWP.php" target="_blank" style="color:red; text-decoration:none;">
@@ -1184,15 +1186,15 @@ function html_show_spider_event($rows, $pageNav, $sort, $calendar_id, $cal_name)
       </td>
     </tr>
     <tr>
-      <td width="100%"><h2>Event Manager for calendar <font style="color:red"><?php echo $cal_name; ?></font></h2></td>
+      <td width="100%"><h2><?php sprintf( __( 'Event Manager for calendar %s', 'sp_calendar' ), '<font style="color:red">' . $cal_name . '</font>' ); ?></h2></td>
       <td>
         <p class="submit" style="padding:0px; text-align:left">
-          <input class="button-primary" type="button" value="Add an Event" name="custom_parametrs" onClick="window.location.href='admin.php?page=SpiderCalendar&task=add_event&calendar_id=<?php echo $calendar_id; ?>'"/>
+          <input class="button-primary" type="button" value="<?php _e( 'Add an Event', 'sp_calendar' ); ?>" name="custom_parametrs" onClick="window.location.href='admin.php?page=SpiderCalendar&task=add_event&calendar_id=<?php echo $calendar_id; ?>'"/>
         </p>
       </td>
       <td>
         <p class="submit" style="padding:0px; text-align:left">
-          <input type="button" class="button-primary" value="Back" name="custom_parametrs" onClick="window.location.href='admin.php?page=SpiderCalendar'"/>
+          <input type="button" class="button-primary" value="<?php _e( 'Back' ); ?>" name="custom_parametrs" onClick="window.location.href='admin.php?page=SpiderCalendar'"/>
         </p>
       </td>
     </tr>
@@ -1208,18 +1210,18 @@ function html_show_spider_event($rows, $pageNav, $sort, $calendar_id, $cal_name)
   $enddate = (isset($_POST["enddate"]) ? esc_js(esc_html(stripslashes($_POST["enddate"]))) : '');
   $serch_fields = '
     <div class="alignleft actions">
-    	<label for="search_events_by_title" style="font-size:14px">Title: </label>
+    	<label for="search_events_by_title" style="font-size:14px">' . __( 'Title', 'sp_calendar' ) . ': </label>
       <input type="text" name="search_events_by_title" value="' . $serch_value . '" id="search_events_by_title" onchange="clear_serch_texts()" />
     </div>
     <div class="alignleft actions">
-      From: <input style="width: 90px;" class="inputbox" type="text" name="startdate" id="startdate" size="10" maxlength="10" value="' . $startdate . '" />
+      ' . __( 'From', 'sp_calendar' ) . ':<input style="width: 90px;" class="inputbox" type="text" name="startdate" id="startdate" size="10" maxlength="10" value="' . $startdate . '" />
       <input type="reset" class="wd_button" value="..." onclick="return showCalendar(\'startdate\',\'%Y-%m-%d\');">
-      To: <input style="width: 90px;" class="inputbox" type="text" name="enddate" id="enddate" size="10" maxlength="10" value="' . $enddate . '">
+      ' . __( 'To', 'sp_calendar' ) . ':<input style="width: 90px;" class="inputbox" type="text" name="enddate" id="enddate" size="10" maxlength="10" value="' . $enddate . '">
       <input type="reset" class="wd_button" value="..." onclick="return showCalendar(\'enddate\',\'%Y-%m-%d\');">
     </div>
     <div class="alignleft actions">
-   		<input type="button" value="Search" onclick="document.getElementById(\'page_number\').value=\'1\';document.getElementById(\'serch_or_not\').value=\'search\'; document.getElementById(\'admin_form\').submit();" class="button-secondary action">
-      <input type="button" value="Reset" onclick="window.location.href=\'admin.php?page=SpiderCalendar&task=show_manage_event&calendar_id=' . $calendar_id . '\'" class="button-secondary action">
+   		<input type="button" value="' . _x( 'Search', 'submit button' ) . '" onclick="document.getElementById(\'page_number\').value=\'1\';document.getElementById(\'serch_or_not\').value=\'search\'; document.getElementById(\'admin_form\').submit();" class="button-secondary action">
+      <input type="button" value="' . __( 'Reset', 'sp_calendar' ) . '" onclick="window.location.href=\'admin.php?page=SpiderCalendar&task=show_manage_event&calendar_id=' . $calendar_id . '\'" class="button-secondary action">
     </div>';
   print_html_nav($pageNav['total'], $pageNav['limit'], $serch_fields);
   ?>
@@ -1228,42 +1230,42 @@ function html_show_spider_event($rows, $pageNav, $sort, $calendar_id, $cal_name)
     <TR>
       <th scope="col" id="id" class="<?php echo (($sort["sortid_by"] == "id") ? $sort["custom_style"] : $sort["default_style"]); ?>" style="width:50px">
         <a href="javascript:ordering('id',<?php echo (($sort["sortid_by"] == "id") ? $sort["1_or_2"] : "1"); ?>)">
-          <span>ID</span>
+          <span><?php _e( 'ID', 'sp_calendar' ); ?></span>
           <span class="sorting-indicator"></span>
         </a>
       </th>
       <th scope="col" id="title" class="<?php echo (($sort["sortid_by"] == "title") ? $sort["custom_style"] : $sort["default_style"]); ?>">
         <a href="javascript:ordering('title',<?php echo (($sort["sortid_by"] == "title") ? $sort["1_or_2"] : "1"); ?>)">
-          <span>Title</span>
+          <span><?php _e( 'Title', 'sp_calendar' ); ?></span>
           <span class="sorting-indicator"></span>
         </a>
       </th>
       <th scope="col" id="date" class="<?php echo (($sort["sortid_by"] == "date") ? $sort["custom_style"] : $sort["default_style"]); ?>">
         <a href="javascript:ordering('date',<?php echo (($sort["sortid_by"] == "date") ? $sort["1_or_2"] :  "1"); ?>)">
-          <span>Date</span>
+          <span><?php _e( 'Date', 'sp_calendar' ); ?></span>
           <span class="sorting-indicator"></span>
         </a>
       </th>
       <th scope="col" id="time" class="<?php echo (($sort["sortid_by"] == "time") ? $sort["custom_style"] : $sort["default_style"]); ?>">
         <a href="javascript:ordering('time',<?php echo (($sort["sortid_by"] == "time") ? $sort["1_or_2"] : "1"); ?>)">
-          <span>Time</span>
+          <span><?php _e( 'Time', 'sp_calendar' ); ?></span>
           <span class="sorting-indicator"></span>
         </a>
       </th>
 	   <th scope="col" id="cattitle" class="<?php echo (($sort["sortid_by"] == "cattitle") ? $sort["custom_style"] : $sort["default_style"]); ?>">
         <a href="javascript:ordering('cattitle',<?php echo (($sort["sortid_by"] == "cattitle") ? $sort["1_or_2"] : "1"); ?>)">
-          <span>Category</span>
+          <span><?php _e( 'Category', 'sp_calendar' ); ?></span>
           <span class="sorting-indicator"></span>
         </a>
       </th>
       <th scope="col" id="published" class="<?php echo (($sort["sortid_by"] == "published") ? $sort["custom_style"] : $sort["default_style"]); ?>" style="width:100px">
         <a href="javascript:ordering('published',<?php echo (($sort["sortid_by"] == "published") ? $sort["1_or_2"] : "1"); ?>)">
-          <span>Published</span>
+          <span><?php _e( 'Published', 'sp_calendar' ); ?></span>
           <span class="sorting-indicator"></span>
         </a>
       </th>
-      <th style="width:80px">Edit</th>
-      <th style="width:80px">Delete</th>
+      <th style="width:80px"><?php _e( 'Edit' ); ?></th>
+      <th style="width:80px"><?php _e( 'Delete' ); ?></th>
     </TR>
     </thead>
     <tbody>
@@ -1277,14 +1279,14 @@ function html_show_spider_event($rows, $pageNav, $sort, $calendar_id, $cal_name)
 	  <td><?php echo $rows[$i]->cattitle ?></td>
       <td>
 	    <a <?php if (!$rows[$i]->published) echo 'style="color:#C00"'; ?> href="admin.php?page=SpiderCalendar&calendar_id=<?php echo $calendar_id; ?>&task=published_event&id=<?php echo $rows[$i]->id; ?>&_wpnonce=<?php echo $sp_cal_nonce; ?>"><?php if ($rows[$i]->published)
-          echo 'Yes'; else echo 'No'; ?>
+          _e( 'Yes' ); else _e( 'No' ); ?>
 		</a>
       </td>
       <td>
-        <a href="admin.php?page=SpiderCalendar&calendar_id=<?php echo $calendar_id; ?>&task=edit_event&id=<?php echo $rows[$i]->id; ?>">Edit</a>
+        <a href="admin.php?page=SpiderCalendar&calendar_id=<?php echo $calendar_id; ?>&task=edit_event&id=<?php echo $rows[$i]->id; ?>"><?php _e( 'Edit' ); ?></a>
       </td>
       <td>
-        <a href="admin.php?page=SpiderCalendar&calendar_id=<?php echo $calendar_id; ?>&task=remove_event&id=<?php echo $rows[$i]->id; ?>&_wpnonce=<?php echo $sp_cal_nonce; ?>">Delete</a>
+        <a href="admin.php?page=SpiderCalendar&calendar_id=<?php echo $calendar_id; ?>&task=remove_event&id=<?php echo $rows[$i]->id; ?>&_wpnonce=<?php echo $sp_cal_nonce; ?>"><?php _e( 'Delete' ); ?></a>
       </td>
     </tr>
       <?php } ?>
@@ -1342,7 +1344,7 @@ function html_add_spider_event($calendar_id, $cal_name) {
   function submitform(pressbutton) {
   
   if (document.getElementById('title').value == "") {
-					alert('Provide the title:');
+					alert('<?php _e( 'Provide the title', 'sp_calendar' ); ?>');
 				  }
   else {
 		document.getElementById('adminForm').submit();	  
@@ -1456,7 +1458,7 @@ function html_add_spider_event($calendar_id, $cal_name) {
         document.getElementById('daily').removeAttribute('style');
         document.getElementById('weekly').setAttribute('style', 'display:none');
         document.getElementById('monthly').setAttribute('style', 'display:none');
-        document.getElementById('repeat').innerHTML = 'Day(s)';
+        document.getElementById('repeat').innerHTML = '<?php _e( 'Day(s)', 'sp_calendar' ); ?>';
         document.getElementById('repeat_input').value = document.getElementById('daily1').value;
         document.getElementById('month').value = '';
         document.getElementById('year_month').setAttribute('style', 'display:none');
@@ -1470,7 +1472,7 @@ function html_add_spider_event($calendar_id, $cal_name) {
         document.getElementById('daily').removeAttribute('style');
         document.getElementById('weekly').removeAttribute('style');
         document.getElementById('monthly').setAttribute('style', 'display:none');
-        document.getElementById('repeat').innerHTML = 'Week(s) on :';
+        document.getElementById('repeat').innerHTML = '<?php _e( 'Week(s) on :', 'sp_calendar' ); ?>';
         document.getElementById('repeat_input').value = document.getElementById('weekly1').value;
         document.getElementById('month').value = '';
         document.getElementById('year_month').setAttribute('style', 'display:none');
@@ -1484,7 +1486,7 @@ function html_add_spider_event($calendar_id, $cal_name) {
         document.getElementById('daily').removeAttribute('style');
         document.getElementById('weekly').setAttribute('style', 'display:none');
         document.getElementById('monthly').removeAttribute('style');
-        document.getElementById('repeat').innerHTML = 'Month(s)'
+        document.getElementById('repeat').innerHTML = '<?php _e( 'Month(s)', 'sp_calendar' ); ?>'
         document.getElementById('repeat_input').value = document.getElementById('monthly1').value;
         document.getElementById('month').value = '';
         document.getElementById('year_month').setAttribute('style', 'display:none');
@@ -1500,7 +1502,7 @@ function html_add_spider_event($calendar_id, $cal_name) {
         document.getElementById('year_month').removeAttribute('style');
         document.getElementById('weekly').setAttribute('style', 'display:none');
         document.getElementById('monthly').removeAttribute('style');
-        document.getElementById('repeat').innerHTML = 'Year(s) in ';
+        document.getElementById('repeat').innerHTML = '<?php _e( 'Year(s) in ', 'sp_calendar' ); ?>';
         document.getElementById('repeat_input').value = document.getElementById('yearly1').value;
         document.getElementById('month').value = '';
         document.getElementById('repeat_until').removeAttribute('style');
@@ -1563,18 +1565,18 @@ function html_add_spider_event($calendar_id, $cal_name) {
 <table width="95%">
   <tr>
     <td width="100%" style="font-size:14px; font-weight:bold">
-      <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-3.html" target="_blank" style="color:blue; text-decoration:none;">User Manual</a>
+      <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-3.html" target="_blank" style="color:blue; text-decoration:none;"><?php _e( 'User Manual', 'sp_calendar' ); ?></a>
       <br />
-      This section allows you to create/edit the events of a particular calendar.<br/> You can add unlimited number of events for each calendar.
-      <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-3.html" target="_blank" style="color:blue; text-decoration:none;">More...</a>
+      <?php _e( 'This section allows you to create/edit the events of a particular calendar.', 'sp_calendar' ); ?><br/><?php _e( 'You can add unlimited number of events for each calendar.', 'sp_calendar' ); ?>
+      <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-3.html" target="_blank" style="color:blue; text-decoration:none;"><?php _e( 'More...', 'sp_calendar' ); ?></a>
     </td>
   </tr>
   <tbody>
     <tr>
-      <td width="100%"><h2>Add an event for calendar <font style="color:red"><?php echo $cal_name; ?></font></h2></td>
-      <td align="right"><input type="button" onClick="submitbutton('save_event')" value="Save" class="button-secondary action"></td>
-      <td align="right"><input type="button" onClick="submitbutton('apply_event')" value="Apply" class="button-secondary action"></td>
-      <td align="right"><input type="button" onClick="window.location.href='admin.php?page=SpiderCalendar&calendar_id=<?php echo $calendar_id; ?>&task=show_manage_event'" value="Cancel" class="button-secondary action"></td>
+      <td width="100%"><h2><?php sprintf( __( 'Add an event for calendar %s', 'sp_calendar' ), '<font style="color:red">' . $cal_name . '</font>' ); ?></h2></td>
+      <td align="right"><input type="button" onClick="submitbutton('save_event')" value="<?php _e( 'Save' ); ?>" class="button-secondary action"></td>
+      <td align="right"><input type="button" onClick="submitbutton('apply_event')" value="<?php _e( 'Apply' ); ?>" class="button-secondary action"></td>
+      <td align="right"><input type="button" onClick="window.location.href='admin.php?page=SpiderCalendar&calendar_id=<?php echo $calendar_id; ?>&task=show_manage_event'" value="<?php _e( 'Cancel' ); ?>" class="button-secondary action"></td>
     </tr>
     </tbody>
 </table>
@@ -1597,18 +1599,18 @@ ON " . $wpdb->prefix . "spidercalendar_event.category=" . $wpdb->prefix . "spide
         <td style="width:45%">
           <div style="width:95%">
             <fieldset class="adminform">
-              <legend>Event Details</legend>
+              <legend><?php _e( 'Event Details', 'sp_calendar' ); ?></legend>
               <table class="admintable">
                 <tr>
-                  <td class="key"><label for="title">Title: </label></td>
+                  <td class="key"><label for="title"><?php _e( 'Title', 'sp_calendar' ); ?>: </label></td>
                   <td><input type="text" id="title" name="title" size="41"/></td>
                 </tr>
 				
 				<tr>
-                  <td class="key"><label for="category">Select Category: </label></td>
+                  <td class="key"><label for="category"><?php _e( 'Select Category', 'sp_calendar' ); ?>: </label></td>
                   <td>
 						<select id="category" name="category" style="width:240px">
-							<option value="0">--Select Category--</option>
+							<option value="0">--<?php _e( 'Select Category', 'sp_calendar' ); ?>--</option>
 							<?php foreach ($query2 as $key => $category) {
             ?>
             <option value="<?php echo $category->id; ?>"><?php if(isset($category)) echo $category->title ?></option>
@@ -1619,28 +1621,28 @@ ON " . $wpdb->prefix . "spidercalendar_event.category=" . $wpdb->prefix . "spide
 				  </td>
                 </tr>
                 <tr>
-                  <td class="key"><label for="date">Date: </label></td>
+                  <td class="key"><label for="date"><?php _e( 'Date', 'sp_calendar' ); ?>: </label></td>
                   <td>
                     <input style="width:90px" class="inputbox" type="text" name="date" id="date" size="10" maxlength="10" value="" />
                     <input type="reset" class="wd_button" value="..." onClick="return showCalendar('date','%Y-%m-%d');" style="width: 31px;" />
                   </td>
                 </tr>
                 <tr>
-                  <td class="key"><label for="selhour_from">Time: </label></td>
+                  <td class="key"><label for="selhour_from"><?php _e( 'Time', 'sp_calendar' ); ?>: </label></td>
                   <?php if ($calendar->time_format == 1) { ?>
                   <td>
                     <input type="text" id="selhour_from" name="selhour_from" size="1" style="text-align:right" onKeyPress="return check12hour('selhour_from',event)" value="" title="from"/> <b>:</b>
                     <input type="text" id="selminute_from" name="selminute_from" size="1" style="text-align:right" onKeyPress="return checkminute('selminute_from',event)" value="" onBlur="add_0('selminute_from')" title="from"/>
                     <select id="select_from" name="select_from">
-                      <option selected="selected">AM</option>
-                      <option>PM</option>
+                      <option selected="selected"><?php _e( 'AM', 'sp_calendar' ); ?></option>
+                      <option><?php _e( 'PM', 'sp_calendar' ); ?></option>
                     </select>
                     <span style="font-size:12px">&nbsp;-&nbsp;</span>
                     <input type="text" id="selhour_to" name="selhour_to" size="1" style="text-align:right" onKeyPress="return check12hour('selhour_to',event)" value="" title="to"/> <b>:</b>
                     <input type="text" id="selminute_to" name="selminute_to" size="1" style="text-align:right" onKeyPress="return checkminute('selminute_to',event)" value="" onBlur="add_0('selminute_to')" title="to"/>
                     <select id="select_to" name="select_to">
-                      <option>AM</option>
-                      <option>PM</option>
+                      <option><?php _e( 'AM', 'sp_calendar' ); ?></option>
+                      <option><?php _e( 'PM', 'sp_calendar' ); ?></option>
                     </select>
                   </td>
                   <?php } if ($calendar->time_format == 0) { ?>
@@ -1668,12 +1670,12 @@ ON " . $wpdb->prefix . "spidercalendar_event.category=" . $wpdb->prefix . "spide
                   </td>
                 </tr>
                 <tr>
-                  <td class="key"><label for="published1">Published: </label></td>
+                  <td class="key"><label for="published1"><?php _e( 'Published', 'sp_calendar' ); ?>: </label></td>
                   <td>
                     <input type="radio" name="published" id="published0" value="0" class="inputbox">
-                    <label for="published0">No</label>
+                    <label for="published0"><?php _e( 'No' ); ?></label>
                     <input type="radio" name="published" id="published1" value="1" checked="checked" class="inputbox">
-                    <label for="published1">Yes</label>
+                    <label for="published1"><?php _e( 'Yes' ); ?></label>
                   </td>
                 </tr>
               </table>
@@ -1682,44 +1684,44 @@ ON " . $wpdb->prefix . "spidercalendar_event.category=" . $wpdb->prefix . "spide
         </td>
         <td style="padding-left:25px; vertical-align:top !important; width:45%">
           <div style="width:100%">
-            <fieldset class="adminform" style="margin-left: -25px;"><legend>Repeat Event</legend>
+            <fieldset class="adminform" style="margin-left: -25px;"><legend><?php _e( 'Repeat Event', 'sp_calendar' ); ?></legend>
               <table>
                 <tr>
                   <td valign="top">
 					<input type="radio" id="no_repeat_type" value="no_repeat" name="repeat_method" checked="checked" onChange="change_type('no_repeat')">
-					<label for="no_repeat_type">Don't repeat this event</label>
+					<label for="no_repeat_type"><?php _e( "Don't repeat this event", 'sp_calendar' ); ?></label>
                     <br/>
                     <input type="radio" id="daily_type" value="daily" name="repeat_method" onChange="change_type('daily');">
-					<label for="daily_type">Repeat daily</label>
+					<label for="daily_type"><?php _e( 'Repeat daily', 'sp_calendar' ); ?></label>
 					<br/>
                     <input type="radio"  id="weekly_type" value="weekly" name="repeat_method" onChange="change_type('weekly');">
-					<label for="weekly_type">Repeat weekly</label>
+					<label for="weekly_type"><?php _e( 'Repeat weekly', 'sp_calendar' ); ?></label>
 					<br/>
                     <input type="radio"  id="monthly_type" value="monthly" name="repeat_method" onChange="change_type('monthly');">
-					<label for="monthly_type">Repeat monthly</label>
+					<label for="monthly_type"><?php _e( 'Repeat monthly', 'sp_calendar' ); ?></label>
 					<br/>
                     <input type="radio"  id="yearly_type" value="yearly" name="repeat_method" onChange="change_type('yearly');">
-					<label for="yearly_type">Repeat yearly</label>
+					<label for="yearly_type"><?php _e( 'Repeat yearly', 'sp_calendar' ); ?></label>
 					<br/>
                   </td>
                   <td style="padding-left:10px" valign="top">
-                    <div id="daily" style="display:none">Repeat every
+                    <div id="daily" style="display:none"><?php _e( 'Repeat every', 'sp_calendar' ); ?>
                       <input type="text" id="repeat_input" size="5" name="repeat" onClick="return input_repeat()" onKeyPress="return checknumber(repeat_input)" value="1"/>
                       <label id="repeat"></label>
                       <label id="year_month" style="display:none;">
                         <select name="year_month" id="year_month" class="inputbox">
-                          <option value="1" selected="selected">January</option>
-                          <option value="2">February</option>
-                          <option value="3">March</option>
-                          <option value="4">April</option>
-                          <option value="5">May</option>
-                          <option value="6">June</option>
-                          <option value="7">July</option>
-                          <option value="8">August</option>
-                          <option value="9">September</option>
-                          <option value="10">October</option>
-                          <option value="11">November</option>
-                          <option value="12">December</option>
+                          <option value="1" selected="selected"><?php _e( 'January' ); ?></option>
+                          <option value="2"><?php _e( 'February' ); ?></option>
+                          <option value="3"><?php _e( 'March' ); ?></option>
+                          <option value="4"><?php _e( 'April' ); ?></option>
+                          <option value="5"><?php _e( 'May' ); ?></option>
+                          <option value="6"><?php _e( 'June' ); ?></option>
+                          <option value="7"><?php _e( 'July' ); ?></option>
+                          <option value="8"><?php _e( 'August' ); ?></option>
+                          <option value="9"><?php _e( 'September' ); ?></option>
+                          <option value="10"><?php _e( 'October' ); ?></option>
+                          <option value="11"><?php _e( 'November' ); ?></option>
+                          <option value="12"><?php _e( 'December' ); ?></option>
                         </select>
                       </label>
                     </div>
@@ -1729,20 +1731,20 @@ ON " . $wpdb->prefix . "spidercalendar_event.category=" . $wpdb->prefix . "spide
                     <input type="hidden" id="monthly1"/>
                     <input type="hidden" id="yearly1"/>
                     <div class="key" id="weekly" style="display:none">
-                      <input type="checkbox" value="Mon" id="week_1" onChange="week_value()"/>Mon
-                      <input type="checkbox" value="Tue" id="week_2" onChange="week_value()"/>Tue
-                      <input type="checkbox" value="Wed" id="week_3" onChange="week_value()"/>Wed
-                      <input type="checkbox" value="Thu" id="week_4" onChange="week_value()"/>Thu
-                      <input type="checkbox" value="Fri" id="week_5" onChange="week_value()"/>Fri
-                      <input type="checkbox" value="Sat" id="week_6" onChange="week_value()"/>Sat
-                      <input type="checkbox" value="Sun" id="week_7" onChange="week_value()"/>Sun
+                      <input type="checkbox" value="Mon" id="week_1" onChange="week_value()"/><?php _e ( 'Mon' ); ?>
+                      <input type="checkbox" value="Tue" id="week_2" onChange="week_value()"/><?php _e ( 'Tue' ); ?>
+                      <input type="checkbox" value="Wed" id="week_3" onChange="week_value()"/><?php _e ( 'Wed' ); ?>
+                      <input type="checkbox" value="Thu" id="week_4" onChange="week_value()"/><?php _e ( 'Thu' ); ?>
+                      <input type="checkbox" value="Fri" id="week_5" onChange="week_value()"/><?php _e ( 'Fri' ); ?>
+                      <input type="checkbox" value="Sat" id="week_6" onChange="week_value()"/><?php _e ( 'Sat' ); ?>
+                      <input type="checkbox" value="Sun" id="week_7" onChange="week_value()"/><?php _e ( 'Sun' ); ?>
                       <input type="hidden" name="week" id="week"/>
                     </div>
                     <br/>
                     <div class="key" id="monthly" style="display:none">
-                      <input type="radio" id="radio1" onChange="radio_month()" name="month_type" value="1" checked="checked"/>on the:  
+                      <input type="radio" id="radio1" onChange="radio_month()" name="month_type" value="1" checked="checked"/><?php _e( 'on the', 'sp_calendar' ); ?>:  
                       <input type="text" onKeyPress="return checknumber(month)" name="month" size="3" id="month"/><br/>
-                      <input type="radio" id="radio2" onChange="radio_month()" name="month_type" value="2"/>on the: 
+                      <input type="radio" id="radio2" onChange="radio_month()" name="month_type" value="2"/><?php _e( 'on the', 'sp_calendar' ); ?>: 
                       <select name="monthly_list" id="monthly_list" class="inputbox">
                         <option value="1">First</option>
                         <option value="8">Second</option>
@@ -1751,13 +1753,13 @@ ON " . $wpdb->prefix . "spidercalendar_event.category=" . $wpdb->prefix . "spide
                         <option value="last">Last</option>
                       </select>
                       <select name="month_week" id="month_week" class="inputbox">
-                        <option value="Mon">Monday</option>
-                        <option value="Tue">Tuesday</option>
-                        <option value="Wed">Wednesday</option>
-                        <option value="Thu">Thursday</option>
-                        <option value="Fri">Friday</option>
-                        <option value="Sat">Saturday</option>
-                        <option value="Sun">Sunday</option>
+                        <option value="Mon"><?php _e( 'Monday' ); ?></option>
+                        <option value="Tue"><?php _e( 'Tuesday' ); ?></option>
+                        <option value="Wed"><?php _e( 'Wednesday' ); ?></option>
+                        <option value="Thu"><?php _e( 'Thursday' ); ?></option>
+                        <option value="Fri"><?php _e( 'Friday' ); ?></option>
+                        <option value="Sat"><?php _e( 'Saturday' ); ?></option>
+                        <option value="Sun"><?php _e( 'Sunday' ); ?></option>
                       </select>
                     </div>
                     <br/>
@@ -1767,7 +1769,7 @@ ON " . $wpdb->prefix . "spidercalendar_event.category=" . $wpdb->prefix . "spide
                   </td>
                 </tr>
                 <tr id="repeat_until" style="display:none">
-                  <td>Repeat until: </td>
+                  <td><?php _e( 'Repeat until', 'sp_calendar' ); ?>: </td>
                   <td>
                     <input style="width:90px" class="inputbox" type="text" name="date_end" id="date_end" size="10" maxlength="10" value=""/>
                     <input type="reset" class="wd_button" value="..." onClick="return showCalendar('date_end','%Y-%m-%d');"/>
@@ -1816,7 +1818,7 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
   <script language="javascript" type="text/javascript">
     function submitform(pressbutton) {
 	if (document.getElementById('title').value == "") {
-					alert('Provide the title:');
+					alert('<?php _e( 'Provide the title', 'sp_calendar' ); ?>');
 				  }
   else {
       document.getElementById('adminForm').action = document.getElementById('adminForm').action + "&task=" + pressbutton;
@@ -1952,7 +1954,7 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
           document.getElementById('repeat_until').removeAttribute('style');
           document.getElementById('weekly').setAttribute('style', 'display:none');
           document.getElementById('monthly').setAttribute('style', 'display:none');
-          document.getElementById('repeat').innerHTML = 'Day(s)';
+          document.getElementById('repeat').innerHTML = '<?php _e( 'Day(s)', 'sp_calendar' ); ?>';
           document.getElementById('repeat_input').onchange = function onchange(event) {
             return input_value('daily1')
           };
@@ -1965,7 +1967,7 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
           document.getElementById('daily').removeAttribute('style');
           document.getElementById('weekly').removeAttribute('style');
           document.getElementById('monthly').setAttribute('style', 'display:none');
-          document.getElementById('repeat').innerHTML = 'Week(s) on :';
+          document.getElementById('repeat').innerHTML = '<?php _e( 'Week(s) on :', 'sp_calendar' ); ?>';
           document.getElementById('repeat_input').onchange = function onchange(event) {
             return input_value('weekly1')
           };
@@ -1979,7 +1981,7 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
           document.getElementById('daily').removeAttribute('style');
           document.getElementById('weekly').setAttribute('style', 'display:none');
           document.getElementById('monthly').removeAttribute('style');
-          document.getElementById('repeat').innerHTML = 'Month(s)'
+          document.getElementById('repeat').innerHTML = '<?php _e( 'Month(s)', 'sp_calendar' ); ?>'
           document.getElementById('repeat_input').value = document.getElementById('monthly1').value;
           document.getElementById('month').value = '';
           document.getElementById('year_month').setAttribute('style', 'display:none');
@@ -1994,7 +1996,7 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
           document.getElementById('year_month').removeAttribute('style');
           document.getElementById('weekly').setAttribute('style', 'display:none');
           document.getElementById('monthly').removeAttribute('style');
-          document.getElementById('repeat').innerHTML = 'Year(s) in ';
+          document.getElementById('repeat').innerHTML = '<?php _e( 'Year(s) in ', 'sp_calendar' ); ?>';
           document.getElementById('repeat_input').value = document.getElementById('yearly1').value;
           document.getElementById('month').value = '';
           document.getElementById('repeat_until').removeAttribute('style');
@@ -2036,18 +2038,18 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
   <table width="95%">
     <tr>
       <td width="100%" style="font-size:14px; font-weight:bold">
-        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-3.html" target="_blank" style="color:blue; text-decoration:none;">User Manual</a>
+        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-3.html" target="_blank" style="color:blue; text-decoration:none;"><?php _e( 'User Manual', 'sp_calendar' ); ?></a>
         <br />
-        This section allows you to create/edit the events of a particular calendar.<br/> You can add unlimited number of events for each calendar.
-        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-3.html" target="_blank" style="color:blue; text-decoration:none;">More...</a>
+        <?php _e( 'This section allows you to create/edit the events of a particular calendar.', 'sp_calendar' ); ?><br/> <?php _e( 'You can add unlimited number of events for each calendar.', 'sp_calendar' ); ?>
+        <a href="https://web-dorado.com/spider-calendar-wordpress-guide-step-3.html" target="_blank" style="color:blue; text-decoration:none;"><?php _e( 'More...', 'sp_calendar' ); ?></a>
       </td>
     </tr>
     <tbody>
       <tr>
-        <td width="100%"><h2>Edit an event for calendar <font style="color:red"><?php echo $cal_name; ?></font></h2></td>
-        <td align="right"><input type="button" onClick="submitbutton('save_event')" value="Save" class="button-secondary action"></td>
-        <td align="right"><input type="button" onClick="submitbutton('apply_event')" value="Apply" class="button-secondary action"></td>
-        <td align="right"><input type="button" onClick="window.location.href='admin.php?page=SpiderCalendar&calendar_id=<?php echo $calendar_id; ?>&task=show_manage_event'" value="Cancel" class="button-secondary action"></td>
+        <td width="100%"><h2><?php sprintf( __( 'Edit an event for calendar %s', 'sp_calendar' ), '<font style="color:red">' . $cal_name . '</font>' ); ?></h2></td>
+        <td align="right"><input type="button" onClick="submitbutton('save_event')" value="<?php _e( 'Save' ); ?>" class="button-secondary action"></td>
+        <td align="right"><input type="button" onClick="submitbutton('apply_event')" value="<?php _e( 'Apply' ); ?>" class="button-secondary action"></td>
+        <td align="right"><input type="button" onClick="window.location.href='admin.php?page=SpiderCalendar&calendar_id=<?php echo $calendar_id; ?>&task=show_manage_event'" value="<?php _e( 'Cancel' ); ?>" class="button-secondary action"></td>
       </tr>
     </tbody>
   </table>
@@ -2058,17 +2060,17 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
         <td style="width:45%">
           <div style="width:95%">
             <fieldset class="adminform">
-              <legend>Event Details</legend>
+              <legend><?php _e( 'Event Details', 'sp_calendar' ); ?></legend>
               <table class="admintable">
                 <tr>
-                  <td class="key"><label for="message">Title: </label></td>
+                  <td class="key"><label for="message"><?php _e( 'Title', 'sp_calendar' ); ?>: </label></td>
                   <td><input type="text" id="title" name="title" size="41" value="<?php echo htmlspecialchars($row->title, ENT_QUOTES); ?>"/></td>
                 </tr>
 				<tr>
-                  <td class="key"><label for="category">Select Category: </label></td>
+                  <td class="key"><label for="category"><?php _e( 'Select Category', 'sp_calendar' ); ?>: </label></td>
                   <td>
 						<select id="category" name="category" style="width:240px">
-							<option value="0" <?php if ($row->category == "0") echo 'selected="selected"'; ?>><?php if(isset($category)) echo $category->title ?>--Select Category--</option>
+							<option value="0" <?php if ($row->category == "0") echo 'selected="selected"'; ?>><?php if(isset($category)) echo $category->title ?>--<?php _e( 'Select Category', 'sp_calendar' ); ?>--</option>
 							<?php foreach ($query2 as $key => $category) {
             ?>
             <option value="<?php echo $category->id; ?>"  <?php if ( $category->id == $row->category ) echo 'selected="selected"'; ?>><?php if(isset($category)) echo $category->title ?></option>
@@ -2081,7 +2083,7 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
                 </tr>
 				
                 <tr>
-                  <td class="key"><label for="message">Date: </label></td>
+                  <td class="key"><label for="message"><?php _e( 'Date', 'sp_calendar' ); ?>: </label></td>
                   <td>
                     <input class="inputbox" style="width:90px" type="text" name="date" id="date" size="10" maxlength="10" value="<?php echo $row->date; ?>"/>
                     <?php
@@ -2093,7 +2095,7 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
                   </td>
                 </tr>
                 <tr>
-                  <td class="key"><label for="message">Time: </label></td>
+                  <td class="key"><label for="message"><?php _e( 'Time', 'sp_calendar' ); ?>: </label></td>
                   <td>
                     <?php
                     if (!$row->time) {
@@ -2137,10 +2139,10 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
                            title="from" onBlur="add_0('selminute_from')"/>
                     <select id="select_from" name="select_from">
                       <option <?php if (substr($from[1], 2, 2) == "AM")
-                        echo 'selected="selected"'; ?>>AM
+                        echo 'selected="selected"'; ?>><?php _e( 'AM', 'sp_calendar' ); ?>
                       </option>
                       <option <?php if (substr($from[1], 2, 2) == "PM")
-                        echo 'selected="selected"'; ?>>PM
+                        echo 'selected="selected"'; ?>><?php _e( 'PM', 'sp_calendar' ); ?>
                       </option>
                     </select>
                     <span style="font-size:12px">&nbsp;-&nbsp;</span>
@@ -2152,17 +2154,17 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
                            title="to" onBlur="add_0('selminute_to')"/>
                     <select id="select_to" name="select_to">
                       <option <?php if (substr($to[1], 2, 2) == "AM")
-                        echo 'selected="selected"'; ?>>AM
+                        echo 'selected="selected"'; ?>><?php _e( 'AM', 'sp_calendar' ); ?>
                       </option>
                       <option <?php if (substr($to[1], 2, 2) == "PM")
-                        echo 'selected="selected"';  ?>>PM
+                        echo 'selected="selected"';  ?>><?php _e( 'PM', 'sp_calendar' ); ?>
                       </option>
                     </select>
                     <?php }?>
                   </td>
                 </tr>
                 <tr>
-                  <td class="key"><label for="note">Note: </label></td>
+                  <td class="key"><label for="note"><?php _e( 'Note', 'sp_calendar' ); ?>: </label></td>
                   <td>
                     <div id="poststuff" style="width:100% !important;"> 
 						  <?php if(version_compare(get_bloginfo('version'),3.3)<0) {?>
@@ -2177,12 +2179,12 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
                   </td>
                 </tr>
                 <tr>
-                  <td class="key"><label for="note">Published: </label></td>
+                  <td class="key"><label for="note"><?php _e( 'Published', 'sp_calendar' ); ?>: </label></td>
                   <td>
                     <input type="radio" name="published" id="published0" value="0" <?php cheched($row->published, '0'); ?> class="inputbox">
-                    <label for="published0">No</label>
+                    <label for="published0"><?php _e( 'No' ); ?></label>
                     <input type="radio" name="published" id="published1" value="1" <?php cheched($row->published, '1'); ?> class="inputbox">
-                    <label for="published1">Yes</label>
+                    <label for="published1"><?php _e( 'Yes' ); ?></label>
                   </td>
                 </tr>
               </table>
@@ -2192,57 +2194,57 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
         <td style="padding-left:25px; vertical-align:top !important; width:45%">
           <div style="width:100%">
             <fieldset class="adminform" style="margin-left: -25px;">
-              <legend>Repeat Event</legend>
+              <legend><?php _e( 'Repeat Event', 'sp_calendar' ); ?></legend>
               <table>
                 <tr>
                   <td valign="top">
                     <input type="radio" value="no_repeat" id="no_repeat_type" name="repeat_method" <?php if ($row->repeat_method == 'no_repeat')
                       echo 'checked="checked"' ?> checked="checked" onChange="change_type('no_repeat')"/>
-					  <label for="no_repeat_type">Don't repeat this event</label><br/>
+					  <label for="no_repeat_type"><?php _e( "Don't repeat this event", 'sp_calendar' ); ?></label><br/>
 					  
                     <input type="radio" value="daily" id="daily_type" name="repeat_method" <?php if ($row->repeat_method == 'daily')
                       echo 'checked="checked"' ?>  onchange="change_type('daily')"/>
-					  <label for="daily_type">Repeat daily</label><br/>
+					  <label for="daily_type"><?php _e( 'Repeat daily', 'sp_calendar' ); ?></label><br/>
 					  
                     <input type="radio" value="weekly" id="weekly_type" name="repeat_method" <?php if ($row->repeat_method == 'weekly')
                       echo 'checked="checked"' ?> onChange="change_type('weekly')"/>
-					  <label for="weekly_type">Repeat weekly</label>
+					  <label for="weekly_type"><?php _e( 'Repeat weekly', 'sp_calendar' ); ?></label>
 					<br/>
                     <input type="radio" value="monthly" id="monthly_type" name="repeat_method" <?php if ($row->repeat_method == 'monthly')
                       echo 'checked="checked"'?> onChange="change_type('monthly')"/>
-					  <label for="monthly_type">Repeat monthly</label>
+					  <label for="monthly_type"><?php _e( 'Repeat monthly', 'sp_calendar' ); ?></label>
 					<br/>
                     <input type="radio" value="yearly" id="yearly_type" name="repeat_method" <?php if ($row->repeat_method == 'yearly')
                       echo 'checked="checked"' ?> onChange="change_type('yearly')"/>
-					  <label for="yearly_type">Repeat yearly</label>
+					  <label for="yearly_type"><?php _e( 'Repeat yearly', 'sp_calendar' ); ?></label>
 					<br/>
                   </td>
                   <td style="padding-left:10px" valign="top">
                     <div id="daily" style="display:<?php if ($row->repeat_method == 'no_repeat') echo 'none'; ?>">
-                      Repeat every <input type="text" id="repeat_input" size="5" name="repeat" onKeyPress="return checknumber(repeat_input)" value="<?php echo $row->repeat ?>"/>
+                      <?php _e( 'Repeat every', 'sp_calendar' ); ?> <input type="text" id="repeat_input" size="5" name="repeat" onKeyPress="return checknumber(repeat_input)" value="<?php echo $row->repeat ?>"/>
                       <label id="repeat"><?php if ($row->repeat_method == 'daily')
-                        echo 'Day(s)';
+                        _e( 'Day(s)', 'sp_calendar' );
                         if ($row->repeat_method == 'weekly')
-                          echo 'Week(s) on :';
+                          _e( 'Week(s) on :', 'sp_calendar' );
                         if ($row->repeat_method == 'monthly')
-                          echo 'Month(s)';
+                          _e( 'Month(s)', 'sp_calendar' );
                         if ($row->repeat_method == 'yearly')
-                          echo 'Year(s) in';
+                          _e( 'Year(s) in', 'sp_calendar' );
                         ?></label>
                       <label id="year_month" style="display:<?php if ($row->repeat_method != 'yearly') echo 'none'; ?>">
                       <select name="year_month" id="year_month" class="inputbox">
-                        <option value="1" <?php echo selectted($row->year_month, '1'); ?>>January</option>
-                        <option value="2" <?php echo selectted($row->year_month, '2'); ?>>February</option>
-                        <option value="3" <?php echo selectted($row->year_month, '3'); ?>>March</option>
-                        <option value="4" <?php echo selectted($row->year_month, '4'); ?>>April</option>
-                        <option value="5" <?php echo selectted($row->year_month, '5'); ?>>May</option>
-                        <option value="6" <?php echo selectted($row->year_month, '6'); ?>>June</option>
-                        <option value="7" <?php echo selectted($row->year_month, '7'); ?>>July</option>
-                        <option value="8" <?php echo selectted($row->year_month, '8'); ?>>August</option>
-                        <option value="9" <?php echo selectted($row->year_month, '9'); ?>>September</option>
-                        <option value="10" <?php echo selectted($row->year_month, '10'); ?>>October</option>
-                        <option value="11" <?php echo selectted($row->year_month, '11'); ?>>November</option>
-                        <option value="12" <?php echo selectted($row->year_month, '12'); ?>>December</option>
+                        <option value="1" <?php echo selectted($row->year_month, '1'); ?>><?php _e( 'January' ); ?></option>
+                        <option value="2" <?php echo selectted($row->year_month, '2'); ?>><?php _e( 'February' ); ?></option>
+                        <option value="3" <?php echo selectted($row->year_month, '3'); ?>><?php _e( 'March' ); ?></option>
+                        <option value="4" <?php echo selectted($row->year_month, '4'); ?>><?php _e( 'April' ); ?></option>
+                        <option value="5" <?php echo selectted($row->year_month, '5'); ?>><?php _e( 'May' ); ?></option>
+                        <option value="6" <?php echo selectted($row->year_month, '6'); ?>><?php _e( 'June' ); ?></option>
+                        <option value="7" <?php echo selectted($row->year_month, '7'); ?>><?php _e( 'July' ); ?></option>
+                        <option value="8" <?php echo selectted($row->year_month, '8'); ?>><?php _e( 'August' ); ?></option>
+                        <option value="9" <?php echo selectted($row->year_month, '9'); ?>><?php _e( 'September' ); ?></option>
+                        <option value="10" <?php echo selectted($row->year_month, '10'); ?>><?php _e( 'October' ); ?></option>
+                        <option value="11" <?php echo selectted($row->year_month, '11'); ?>><?php _e( 'November' ); ?></option>
+                        <option value="12" <?php echo selectted($row->year_month, '12'); ?>><?php _e( 'December' ); ?></option>
                       </select></label>
                       <input type="hidden" value="<?php if ($row->repeat_method == 'daily') echo $row->repeat; ?>" id="daily1"/>
                       <input type="hidden" value="<?php if ($row->repeat_method == 'weekly') echo $row->repeat; ?>" id="weekly1"/>
@@ -2251,36 +2253,36 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
                     </div>
                     <br/>
                     <div class="key" id="weekly" style="display:<?php if ($row->repeat_method != 'weekly') echo 'none'; ?>">
-                      <input type="checkbox" value="Mon" id="week_1" onChange="week_value()" <?php if (in_array('Mon', explode(',', $row->week))) echo 'checked="checked"' ?>   />Mon
-                      <input type="checkbox" value="Tue" id="week_2" onChange="week_value()" <?php if (in_array('Tue', explode(',', $row->week))) echo 'checked="checked"' ?>   />Tue
-                      <input type="checkbox" value="Wed" id="week_3" onChange="week_value()" <?php if (in_array('Wed', explode(',', $row->week))) echo 'checked="checked"' ?> />Wed
-                      <input type="checkbox" value="Thu" id="week_4" onChange="week_value()" <?php if (in_array('Thu', explode(',', $row->week))) echo 'checked="checked"' ?>  />Thu
-                      <input type="checkbox" value="Fri" id="week_5" onChange="week_value()" <?php if (in_array('Fri', explode(',', $row->week))) echo 'checked="checked"' ?> />Fri
-                      <input type="checkbox" value="Sat" id="week_6" onChange="week_value()" <?php if (in_array('Sat', explode(',', $row->week))) echo 'checked="checked"' ?>  />Sat
-                      <input type="checkbox" value="Sun" id="week_7" onChange="week_value()" <?php if (in_array('Sun', explode(',', $row->week))) echo 'checked="checked"' ?> />Sun
+                      <input type="checkbox" value="Mon" id="week_1" onChange="week_value()" <?php if (in_array('Mon', explode(',', $row->week))) echo 'checked="checked"' ?>   /><?php _e( 'Mo', 'sp_calendar' ); ?>
+                      <input type="checkbox" value="Tue" id="week_2" onChange="week_value()" <?php if (in_array('Tue', explode(',', $row->week))) echo 'checked="checked"' ?>   /><?php _e( 'Tu', 'sp_calendar' ); ?>
+                      <input type="checkbox" value="Wed" id="week_3" onChange="week_value()" <?php if (in_array('Wed', explode(',', $row->week))) echo 'checked="checked"' ?> /><?php _e( 'We', 'sp_calendar' ); ?>
+                      <input type="checkbox" value="Thu" id="week_4" onChange="week_value()" <?php if (in_array('Thu', explode(',', $row->week))) echo 'checked="checked"' ?>  /><?php _e( 'Th', 'sp_calendar' ); ?>
+                      <input type="checkbox" value="Fri" id="week_5" onChange="week_value()" <?php if (in_array('Fri', explode(',', $row->week))) echo 'checked="checked"' ?> /><?php _e( 'Fr', 'sp_calendar' ); ?>
+                      <input type="checkbox" value="Sat" id="week_6" onChange="week_value()" <?php if (in_array('Sat', explode(',', $row->week))) echo 'checked="checked"' ?>  /><?php _e( 'Sa', 'sp_calendar' ); ?>
+                      <input type="checkbox" value="Sun" id="week_7" onChange="week_value()" <?php if (in_array('Sun', explode(',', $row->week))) echo 'checked="checked"' ?> /><?php _e( 'Su', 'sp_calendar' ); ?>
                       <input type="hidden" name="week" id="week" value="<?php echo $row->week ?>"/>
                     </div>
                     <br/>
                     <div class="key" id="monthly" style="display:<?php if ($row->repeat_method != 'monthly' && $row->repeat_method != 'yearly') echo 'none'; ?>">
                       <input type="radio" id="radio1" name="month_type" onChange="radio_month()" value="1" checked="checked" <?php if ($row->month_type == 1)
-                        echo 'checked="checked"' ?>  />on the: <input type="text" name="month" size="3" onKeyPress="return checknumber(month)" id="month"
+                        echo 'checked="checked"' ?>  /><?php _e( 'on the', 'sp_calendar' ); ?>: <input type="text" name="month" size="3" onKeyPress="return checknumber(month)" id="month"
                                                                       value="<?php echo $row->month; ?>"/><br/>
-                      <input type="radio" id="radio2" name="month_type" onChange="radio_month()" value="2" <?php if ($row->month_type == 2) echo 'checked="checked"'; ?> />on the:
+                      <input type="radio" id="radio2" name="month_type" onChange="radio_month()" value="2" <?php if ($row->month_type == 2) echo 'checked="checked"'; ?> /><?php _e( 'on the', 'sp_calendar' ); ?>:
                       <select name="monthly_list" id="monthly_list" class="inputbox">
-                        <option <?php echo selectted($row->monthly_list, '1'); ?> value="1">First</option>
-                        <option <?php echo selectted($row->monthly_list, '8'); ?> value="8">Second</option>
-                        <option <?php echo selectted($row->monthly_list, '15'); ?> value="15">Third</option>
-                        <option <?php echo selectted($row->monthly_list, '22'); ?> value="22">Fourth</option>
-                        <option <?php echo selectted($row->monthly_list, 'last'); ?> value="last">Last</option>
+                        <option <?php echo selectted($row->monthly_list, '1'); ?> value="1"><?php _e( 'First', 'sp_calendar' ); ?></option>
+                        <option <?php echo selectted($row->monthly_list, '8'); ?> value="8"><?php _e( 'Second', 'sp_calendar' ); ?></option>
+                        <option <?php echo selectted($row->monthly_list, '15'); ?> value="15"><?php _e( 'Third', 'sp_calendar' ); ?></option>
+                        <option <?php echo selectted($row->monthly_list, '22'); ?> value="22"><?php _e( 'Fourth', 'sp_calendar' ); ?></option>
+                        <option <?php echo selectted($row->monthly_list, 'last'); ?> value="last"><?php _e( 'Last', 'sp_calendar' ); ?></option>
                       </select>
                       <select name="month_week" id="month_week" class="inputbox">
-                        <option <?php echo selectted($row->month_week, 'Mon'); ?> value="Mon">Monday</option>
-                        <option <?php echo selectted($row->month_week, 'Tue'); ?> value="Tue">Tuesday</option>
-                        <option <?php echo selectted($row->month_week, 'Wed'); ?> value="Wed">Wednesday</option>
-                        <option <?php echo selectted($row->month_week, 'Thu'); ?> value="Thu">Thursday</option>
-                        <option <?php echo selectted($row->month_week, 'Fri'); ?> value="Fri">Friday</option>
-                        <option <?php echo selectted($row->month_week, 'Sat'); ?> value="Sat">Saturday</option>
-                        <option <?php echo selectted($row->month_week, 'Sun'); ?> value="Sun">Sunday</option>
+                        <option <?php echo selectted($row->month_week, 'Mon'); ?> value="Mon"><?php _e( 'Monday' ); ?></option>
+                        <option <?php echo selectted($row->month_week, 'Tue'); ?> value="Tue"><?php _e( 'Tuesday' ); ?></option>
+                        <option <?php echo selectted($row->month_week, 'Wed'); ?> value="Wed"><?php _e( 'Wednesday' ); ?></option>
+                        <option <?php echo selectted($row->month_week, 'Thu'); ?> value="Thu"><?php _e( 'Thursday' ); ?></option>
+                        <option <?php echo selectted($row->month_week, 'Fri'); ?> value="Fri"><?php _e( 'Friday' ); ?></option>
+                        <option <?php echo selectted($row->month_week, 'Sat'); ?> value="Sat"><?php _e( 'Saturday' ); ?></option>
+                        <option <?php echo selectted($row->month_week, 'Sun'); ?> value="Sun"><?php _e( 'Sunday' ); ?></option>
                       </select>
                     </div>
                     <br/>
@@ -2290,7 +2292,7 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
                   </td>
                 </tr>
                 <tr id="repeat_until" style="display:<?php if ($row->repeat_method == 'no_repeat') echo 'none'; ?>">
-                  <td>Repeat until: </td>
+                  <td><?php _e( 'Repeat until', 'sp_calendar' ); ?>: </td>
                   <?php
                   if ($row->date_end == '2070-12-12') {
                     $row->date_end = '';

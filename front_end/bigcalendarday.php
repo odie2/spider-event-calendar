@@ -161,18 +161,18 @@ $theme = $wpdb->get_row($wpdb->prepare('SELECT * FROM ' . $wpdb->prefix . 'spide
   $show_numbers_for_events = $theme->day_start;
 
 
-  __('January', 'sp_calendar');
-  __('February', 'sp_calendar');
-  __('March', 'sp_calendar');
-  __('April', 'sp_calendar');
-  __('May', 'sp_calendar');
-  __('June', 'sp_calendar');
-  __('July', 'sp_calendar');
-  __('August', 'sp_calendar');
-  __('September', 'sp_calendar');
-  __('October', 'sp_calendar');
-  __('November', 'sp_calendar');
-  __('December', 'sp_calendar');
+  __('January');
+  __('February');
+  __('March');
+  __('April');
+  __('May');
+  __('June');
+  __('July');
+  __('August');
+  __('September');
+  __('October');
+  __('November');
+  __('December');
   if ($cell_height == '') {
     $cell_height = 70;
   }
@@ -512,7 +512,7 @@ position: relative;
 				'cat_ids' => $cat_ids,
                 'widget' => $widget,
 				'rand' => $many_sp_calendar,
-                ), $site_url);?>','<?php echo $many_sp_calendar; ?>','<?php echo $widget; ?>')" ><span style="color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px"><?php echo __('Day', 'sp_calendar'); ?></span>
+                ), $site_url);?>','<?php echo $many_sp_calendar; ?>','<?php echo $widget; ?>')" ><span style="color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px"><?php _e('Day', 'sp_calendar'); ?></span>
             </div>
             <div class="views" style="<?php if (!in_array('week', $views) AND $defaultview != 'week') echo 'display:none;'; if ($view == 'bigcalendarweek') echo 'background-color:' . $bg_top . ';top:0;'; ?>"
               onclick="showbigcalendar('bigcalendar<?php echo $many_sp_calendar; ?>', '<?php echo add_query_arg(array(
@@ -528,7 +528,7 @@ position: relative;
 				'cat_ids' => $cat_ids,
                 'widget' => $widget,
 				'rand' => $many_sp_calendar,
-                ), $site_url);?>','<?php echo $many_sp_calendar; ?>','<?php echo $widget; ?>')" ><span style="color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px"><?php echo __('Week', 'sp_calendar'); ?></span>
+                ), $site_url);?>','<?php echo $many_sp_calendar; ?>','<?php echo $widget; ?>')" ><span style="color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px"><?php _e('Week', 'sp_calendar'); ?></span>
             </div>
             <div class="views" style="<?php if (!in_array('list', $views) AND $defaultview != 'list') echo 'display:none;'; if ($view == 'bigcalendarlist') echo 'background-color:' . $bg_top . ';top:0;'; ?>"
               onclick="showbigcalendar('bigcalendar<?php echo $many_sp_calendar; ?>', '<?php echo add_query_arg(array(
@@ -543,7 +543,7 @@ position: relative;
 				'cat_ids' => $cat_ids,
                 'widget' => $widget,
 				'rand' => $many_sp_calendar,
-                ), $site_url);?>','<?php echo $many_sp_calendar; ?>','<?php echo $widget; ?>')" ><span style="color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px"><?php echo __('List', 'sp_calendar'); ?></span>
+                ), $site_url);?>','<?php echo $many_sp_calendar; ?>','<?php echo $widget; ?>')" ><span style="color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px"><?php _e('List', 'sp_calendar'); ?></span>
             </div>
             <div class="views" style="<?php if (!in_array('month', $views) AND $defaultview != 'month') echo 'display:none;'; if ($view == 'bigcalendarmonth') echo 'background-color:' . $bg_top . ';top:0;'; ?>"
               onclick="showbigcalendar('bigcalendar<?php echo $many_sp_calendar; ?>', '<?php echo add_query_arg(array(
@@ -558,15 +558,15 @@ position: relative;
 				'cat_ids' => $cat_ids,
                 'widget' => $widget,
 				'rand' => $many_sp_calendar,
-                ), $site_url);?>','<?php echo $many_sp_calendar; ?>','<?php echo $widget; ?>')"><span style="color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px"><?php echo __('Month', 'sp_calendar'); ?></span>
+                ), $site_url);?>','<?php echo $many_sp_calendar; ?>','<?php echo $widget; ?>')"><span style="color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px"><?php _e('Month', 'sp_calendar'); ?></span>
             </div>
           </div>
 		  <div id="views_tabs_select" style="display:none" >
 <div  id="views_select" style="background-color:<?php echo $bg_top?>;color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px">
-<?php if($view=='bigcalendarday') echo 'Day'; ?>
-<?php if($view=='bigcalendarmonth') echo 'Month'; ?>
-<?php if($view=='bigcalendarweek') echo 'Week'; ?>
-<?php if($view=='bigcalendarlist') echo 'List'; ?>
+<?php if($view=='bigcalendarday') _e( 'Day', 'sp_calendar' ); ?>
+<?php if($view=='bigcalendarmonth') _e( 'Month', 'sp_calendar' ); ?>
+<?php if($view=='bigcalendarweek') _e( 'Week', 'sp_calendar' ); ?>
+<?php if($view=='bigcalendarlist') _e( 'List', 'sp_calendar' ); ?>
 <span>&#9658;</span>
 </div>
 <ul id="drop_down_views" style="float: left;top: inherit;left: -20px;margin-top: 0px;">
@@ -584,7 +584,7 @@ position: relative;
 				'cat_ids' => $cat_ids,
                 'widget' => $widget,
                 ), $site_url);?>','<?php echo $many_sp_calendar; ?>','<?php echo $widget; ?>')"  >
-<span style="position:relative;top:25%;color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px">Day</span>
+<span style="position:relative;top:25%;color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px"><?php _e( 'Day', 'sp_calendar' ); ?></span>
 </div>
 </li>
 
@@ -602,7 +602,7 @@ position: relative;
 				'cat_ids' => $cat_ids,
                 'widget' => $widget,
                 ), $site_url);?>','<?php echo $many_sp_calendar; ?>','<?php echo $widget; ?>')">
-	<span style="position:relative;top:25%;color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px">Week</span>
+	<span style="position:relative;top:25%;color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px"><?php _e( 'Week', 'sp_calendar' ); ?></span>
 </div>
 </li>
 
@@ -619,7 +619,7 @@ position: relative;
 				'cat_ids' => $cat_ids,
                 'widget' => $widget,
                 ), $site_url);?>','<?php echo $many_sp_calendar; ?>','<?php echo $widget; ?>')" >
-<span style="position:relative;top:25%;color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px">List</span>
+<span style="position:relative;top:25%;color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px"><?php _e( 'List', 'sp_calendar' ); ?></span>
 </div>
 </li>
 
@@ -636,7 +636,7 @@ position: relative;
 				'cat_ids' => $cat_ids,
                 'widget' => $widget,
                 ), $site_url);?>','<?php echo $many_sp_calendar; ?>','<?php echo $widget; ?>')" >
-<span style="position:relative;top:25%;color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px">Month</span></div></li>
+<span style="position:relative;top:25%;color:<?php echo $views_tabs_text_color ?>;font-size:<?php echo $views_tabs_font_size  ?>px"><?php _e( 'Month', 'sp_calendar' ); ?></span></div></li>
 
 </ul>
 </div>
@@ -1021,7 +1021,7 @@ if (!empty($categories)) {
 				'cat_id' => '',
 				'cat_ids' => '',
                 'widget' => $widget,
-                ), $site_url);?>','<?php echo $many_sp_calendar; ?>','<?php echo $widget; ?>')"><?php echo __('All categories', 'sp_calendar'); ?></p></li>
+                ), $site_url);?>','<?php echo $many_sp_calendar; ?>','<?php echo $widget; ?>')"><?php _e('All categories', 'sp_calendar'); ?></p></li>
 <?php echo '</ul>';
 }
   die();

@@ -17,7 +17,7 @@ if (!defined('WP_LOAD_PATH')) {
 // Load WordPress.
 require_once(WP_LOAD_PATH . 'wp-load.php');
 if (!current_user_can('manage_options')) {
-  die('Access Denied');
+  die(__( 'Access Denied', 'sp_calendar' ));
 }
 require_once("front_end/frontend_functions.php");
 // $month = date('m');
@@ -201,25 +201,25 @@ $day = substr($date, 8, 2);
             </tr>
             <tr class="cell_body" align="center"  height="10%">
               <td class="cell_body_su" style="margin:0; padding:0">
-                <div class="calbottom_border" style="text-align:center; margin:0; padding:0;"><b> Su </b></div>
+                <div class="calbottom_border" style="text-align:center; margin:0; padding:0;"><b> <?php _e( 'Sun' ); ?> </b></div>
               </td>
               <td class="cell_body_mo" style="margin:0; padding:0">
-                <div class="calbottom_border" style="text-align:center; margin:0; padding:0;"><b> Mo </b></div>
+                <div class="calbottom_border" style="text-align:center; margin:0; padding:0;"><b> <?php _e( 'Mon' ); ?> </b></div>
               </td>
               <td class="cell_body_mo" style="margin:0; padding:0">
-                <div class="calbottom_border" style="text-align:center; margin:0; padding:0;"><b> Tu </b></div>
+                <div class="calbottom_border" style="text-align:center; margin:0; padding:0;"><b> <?php _e( 'Tue' ); ?> </b></div>
               </td>
               <td class="cell_body_mo" style="margin:0; padding:0">
-                <div class="calbottom_border" style="text-align:center; margin:0; padding:0;"><b> We </b></div>
+                <div class="calbottom_border" style="text-align:center; margin:0; padding:0;"><b> <?php _e( 'Wed' ); ?> </b></div>
               </td>
               <td class="cell_body_mo" style="margin:0; padding:0">
-                <div class="calbottom_border" style="text-align:center; margin:0; padding:0;"><b> Th </b></div>
+                <div class="calbottom_border" style="text-align:center; margin:0; padding:0;"><b> <?php _e( 'Thu' ); ?> </b></div>
               </td>
               <td class="cell_body_mo" style="margin:0; padding:0">
-                <div class="calbottom_border" style="text-align:center; margin:0; padding:0;"><b> Fr </b></div>
+                <div class="calbottom_border" style="text-align:center; margin:0; padding:0;"><b> <?php _e( 'Fri' ); ?> </b></div>
               </td>
               <td class="cell_body_mo" style="margin:0; padding:0">
-                <div class="calbottom_border" style="text-align:center; margin:0; padding:0;"><b> Sa </b></div>
+                <div class="calbottom_border" style="text-align:center; margin:0; padding:0;"><b> <?php _e( 'Sat' ); ?> </b></div>
               </td>
             </tr>
 <?php
@@ -245,10 +245,10 @@ $array_days = array(11);
 $array_days1 = $array_days;
 $title = array(
     11 => '<br>
-1.   Event1<br>
-2.   Event2<br>
-3.   Event3<br>
-4.   Event4'
+1.   '. __( 'Event', 'sp_calendar' ) .'1<br>
+2.   '. __( 'Event', 'sp_calendar' ) .'2<br>
+3.   '. __( 'Event', 'sp_calendar' ) .'3<br>
+4.   '. __( 'Event', 'sp_calendar' ) .'4'
   );
   $ev_ids = array(
     11 => '97<br>

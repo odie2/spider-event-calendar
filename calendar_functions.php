@@ -2,7 +2,7 @@
 
 if (function_exists('current_user_can')) {
   if (!current_user_can('manage_options')) {
-    die('Access Denied');
+    die(__( 'Access Denied', 'sp_calendar' ));
   }
 }
 
@@ -207,18 +207,18 @@ function remove_spider_calendar($id) {
   $sql_remov_eve = $wpdb->prepare ("DELETE FROM " . $wpdb->prefix . "spidercalendar_event WHERE calendar=%d", $id);
   if (!$wpdb->query($sql_remov_vid)) {
     ?>
-    <div id="message" class="error"><p>Calendar Not Deleted.</p></div>
+    <div id="message" class="error"><p><?php _e( 'Calendar Not Deleted.', 'sp_calendar' ); ?></p></div>
     <?php
   }
   else {
     ?>
-    <div class="updated"><p><strong>Calendar Deleted.</strong></p></div>
+    <div class="updated"><p><strong><?php _e( 'Calendar Deleted.', 'sp_calendar' ); ?></strong></p></div>
     <?php
     $count_eve = $wpdb->get_var($wpdb->prepare('SELECT COUNT(*) FROM ' . $wpdb->prefix . 'spidercalendar_event WHERE `calendar`="%d"', $id));
     if ($count_eve) {
       if (!$wpdb->query($sql_remov_eve)) {
         ?>
-        <div id="message" class="error"><p>Events Not Deleted.</p></div>
+        <div id="message" class="error"><p><?php _e( 'Events Not Deleted.', 'sp_calendar' ); ?></p></div>
         <?php
       }
     }
@@ -265,11 +265,11 @@ function spider_category_published($id) {
   $publish = $wpdb->get_var($wpdb->prepare('SELECT published FROM ' . $wpdb->prefix . 'spidercalendar_event_category WHERE `id`="%d"', $id));
   if ($publish) {
     $publish = 0;
-    $publish_unpublish = 'Category unpublished.';
+    $publish_unpublish = __( 'Category unpublished.', 'sp_calendar' );
   }
   else {
     $publish = 1;
-    $publish_unpublish = 'Category published.';
+    $publish_unpublish = __( 'Category published.', 'sp_calendar' );
   }
   $save_or_no = $wpdb->update($wpdb->prefix . 'spidercalendar_event_category', array(
       'published' => $publish,
@@ -315,7 +315,7 @@ function apply_spider_category_event($id) {
 // Save calendar.
 function apply_spider_calendar($id) {
   if (!$id) {
-    echo '<h1 style="color:#00C">Error. ID does not exist.</h1>';
+    echo '<h1 style="color:#00C">' . __( 'Error. ID does not exist.', 'sp_calendar' ) . '</h1>';
     exit;
   }
 if(isset($_POST['title'])){
@@ -373,13 +373,13 @@ if(isset($_POST['title'])){
   }
   if ($save_or_no === FALSE) {
     ?>
-    <div class="updated"><p><strong>Error. Please install plugin again.</strong></p></div>
+    <div class="updated"><p><strong><?php _e( 'Error. Please install plugin again.', 'sp_calendar' ); ?></strong></p></div>
     <?php
     return FALSE;
   }
   else {
     ?>
-    <div class="updated"><p><strong>Calendar Saved.</strong></p></div>
+    <div class="updated"><p><strong><?php _e( 'Calendar Saved.', 'sp_calendar' ); ?></strong></p></div>
     <?php
     return TRUE;
   }
@@ -392,11 +392,11 @@ function spider_calendar_published($id) {
   $publish = $wpdb->get_var($wpdb->prepare('SELECT published FROM ' . $wpdb->prefix . 'spidercalendar_calendar WHERE `id`="%d"', $id));
   if ($publish) {
     $publish = 0;
-    $publish_unpublish = 'Calendar unpublished.';
+    $publish_unpublish = __( 'Calendar unpublished.', 'sp_calendar' );
   }
   else {
     $publish = 1;
-    $publish_unpublish = 'Calendar published.';
+    $publish_unpublish = __( 'Calendar published.', 'sp_calendar' );
   }
   $save_or_no = $wpdb->update($wpdb->prefix . 'spidercalendar_calendar', array(
       'published' => $publish,
@@ -613,13 +613,13 @@ function apply_spider_event($calendar_id, $id) {
   }
   if ($save !== FALSE) {
     ?>
-    <div class="updated"><p><strong>Item Saved.</strong></p></div>
+    <div class="updated"><p><strong><?php _e( 'Item Saved.', 'sp_calendar' ); ?></strong></p></div>
     <?php
     return TRUE;
   }
   else {
     ?>
-    <div class="updated"><p><strong>Error. Please install plugin again.</strong></p></div>
+    <div class="updated"><p><strong><?php _e( 'Error. Please install plugin again.', 'sp_calendar' ); ?></strong></p></div>
     <?php
     return FALSE;
   }
@@ -633,11 +633,11 @@ echo $calendar_id."kuku";
   $publish = $wpdb->get_var($wpdb->prepare('SELECT published FROM ' . $wpdb->prefix . 'spidercalendar_event WHERE `id`="%d"', $id));
   if ($publish) {
     $publish = 0;
-    $publish_unpublish = 'Event unpublished.';
+    $publish_unpublish = __( 'Event unpublished.', 'sp_calendar' );
   }
   else {
     $publish = 1;
-    $publish_unpublish = 'Event published.';
+    $publish_unpublish = __( 'Event published.', 'sp_calendar' );
   }
   $save_or_no = $wpdb->update($wpdb->prefix . 'spidercalendar_event', array(
       'published' => $publish,
@@ -660,12 +660,12 @@ function remove_spider_event($calendar_id, $id) {
   $sql_remove_vid = $wpdb->prepare ("DELETE FROM " . $wpdb->prefix . "spidercalendar_event WHERE id=%d" , $id );
   if (!$wpdb->query($sql_remove_vid)) {
     ?>
-    <div id="message" class="error"><p>Event Not Deleted.</p></div>
+    <div id="message" class="error"><p><?php _e( 'Event Not Deleted.', 'sp_calendar' ); ?></p></div>
     <?php
   }
   else {
     ?>
-    <div class="updated"><p><strong>Event Deleted.</strong></p></div>
+    <div class="updated"><p><strong><?php _e( 'Event Deleted.', 'sp_calendar' ); ?></strong></p></div>
     <?php
   }
 }
@@ -677,12 +677,12 @@ function remove_category_event($id) {
   $sql_remove_vid = $wpdb->prepare ("DELETE FROM " . $wpdb->prefix . "spidercalendar_event_category WHERE id=%d", $id );
   if (!$wpdb->query($sql_remove_vid)) {
     ?>
-    <div id="message" class="error"><p>Event Category Not Deleted.</p></div>
+    <div id="message" class="error"><p><?php _e( 'Event Category Not Deleted.', 'sp_calendar' ); ?></p></div>
     <?php
   }
   else {
     ?>
-    <div class="updated"><p><strong>Event Category Deleted.</strong></p></div>
+    <div class="updated"><p><strong><?php _e( 'Event Category Deleted.', 'sp_calendar' ); ?></strong></p></div>
     <?php
   }
 }

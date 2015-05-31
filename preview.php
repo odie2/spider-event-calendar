@@ -17,7 +17,7 @@ if (!defined('WP_LOAD_PATH')) {
 // Load WordPress.
 require_once(WP_LOAD_PATH . 'wp-load.php');
 if (!current_user_can('manage_options')) {
-  die('Access Denied');
+  die(__( 'Access Denied', 'sp_calendar' ));
 }
 ?>
 <script>
@@ -111,7 +111,7 @@ if (!current_user_can('manage_options')) {
                           <a style="text-shadow: 1px 1px 2px black;">&#9668;</a>
                         </td>
                         <td style="text-align:center; margin:0;" width="40%">
-                          <span id="month_day" style="font-family:arial; ;text-shadow: 1px 1px  black;">12 June 2013</span>
+                          <span id="month_day" style="font-family:arial; ;text-shadow: 1px 1px  black;">12 <?php _e( 'June' ); ?> 2013</span>
                         </td>
                         <td style="margin:0; padding:0;text-align:left" width="15%" class="cala_arrow">
                           <a style="text-shadow: 1px 1px 2px black;">&#9658;</a>
@@ -132,37 +132,37 @@ if (!current_user_can('manage_options')) {
           <tr align="center" id="week_days_tr" style="">
             <td id="weekdays1" class="weekdays" style="margin:0; padding:0">
               <div id="calbottom_border1" class="calbottom_border" style="text-align:center; margin:0; padding:0;">
-                <b class="week_days"> Mo </b>
+                <b class="week_days"> <?php _e( 'Mo', 'sp_calendar' ); ?> </b>
               </div>
             </td>
             <td id="weekdays2" class="weekdays" style="margin:0; padding:0">
               <div id="calbottom_border2" class="calbottom_border" style="text-align:center; margin:0; padding:0;">
-                <b class="week_days"> Tu </b>
+                <b class="week_days"> <?php _e( 'Tu', 'sp_calendar' ); ?> </b>
               </div>
             </td>
             <td id="weekdays3" class="weekdays" style="margin:0; padding:0">
               <div id="calbottom_border3" class="calbottom_border" style="text-align:center; margin:0; padding:0;">
-                <b class="week_days"> We </b>
+                <b class="week_days"> <?php _e( 'We', 'sp_calendar' ); ?> </b>
               </div>
             </td>
             <td id="weekdays4" class="weekdays" style=" margin:0; padding:0">
               <div id="calbottom_border4" class="calbottom_border" style="text-align:center;margin:0; padding:0;">
-                <b class="week_days"> Th </b>
+                <b class="week_days"> <?php _e( 'Th', 'sp_calendar' ); ?> </b>
               </div>
             </td>
             <td id="weekdays5" class="weekdays" style="margin:0; padding:0">
               <div id="calbottom_border5" class="calbottom_border" style="text-align:center;margin:0; padding:0;">
-                <b class="week_days"> Fr </b>
+                <b class="week_days"> <?php _e( 'Fr', 'sp_calendar' ); ?> </b>
               </div>
             </td>
             <td id="weekdays6" class="weekdays" style=" margin:0; padding:0">
               <div id="calbottom_border6" class="calbottom_border" style="text-align:center;margin:0; padding:0;">
-                <b class="week_days"> Sa </b>
+                <b class="week_days"> <?php _e( 'Sa', 'sp_calendar' ); ?> </b>
               </div>
             </td>
             <td id="weekdays_su" class="weekdays" style=" margin:0; padding:0;">
               <div id="calbottom_border_su" class="calbottom_border" style="text-align:center;  margin:0; padding:0;">
-                <b class="week_days"> Su </b>
+                <b class="week_days"> <?php _e( 'Su', 'sp_calendar' ); ?> </b>
               </div>
             </td>
           </tr>
@@ -184,10 +184,10 @@ if (!current_user_can('manage_options')) {
   $array_days1 = $array_days;
   $title = array(
     11 => '<br>
-1.   Event1<br>
-2.   Event2<br>
-3.   Event3<br>
-4.   Event4'
+1.   '. __( 'Event', 'sp_calendar' ) .'1<br>
+2.   '. __( 'Event', 'sp_calendar' ) .'2<br>
+3.   '. __( 'Event', 'sp_calendar' ) .'3<br>
+4.   '. __( 'Event', 'sp_calendar' ) .'4'
   );
   $ev_ids = array(
     11 => '97<br>
@@ -236,7 +236,7 @@ if (!current_user_can('manage_options')) {
           if ($r < $number_of_shown_evetns)
             ?>
           <script>
-            document.write('<a style="background:none;color:' + event_title_color + '; text-decoration:underline;" href="" ><b><br>1.   Event1<br>2.   Event2<br>3.   Event3<br></b></a>');
+            document.write('<a style="background:none;color:' + event_title_color + '; text-decoration:underline;" href="" ><b><br>1.   '. __( 'Event', 'sp_calendar' ) .'1<br>2.   '. __( 'Event', 'sp_calendar' ) .'2<br>3.   '. __( 'Event', 'sp_calendar' ) .'3<br></b></a>');
           </script>
             <?php
           $r++;
@@ -260,8 +260,8 @@ if (!current_user_can('manage_options')) {
             if ($r < $number_of_shown_evetns) {
               ?>
             <script>
-              document.write('<a style="background:none;color:' + event_title_color + '; text-decoration:underline;" href="" ><b><br>1.   Event1<br>2.   Event2<br>3.   Event3<br></b></a>');
-              document.write('<a style="background:none;color:' + event_title_color + ';text-align:center;text-decoration:underline;" href=""> <b>See More</b></a>');
+              document.write('<a style="background:none;color:' + event_title_color + '; text-decoration:underline;" href="" ><b><br>1.   '. __( 'Event', 'sp_calendar' ) .'1<br>2.   '. __( 'Event', 'sp_calendar' ) .'2<br>3.   '. __( 'Event', 'sp_calendar' ) .'3<br></b></a>');
+              document.write('<a style="background:none;color:' + event_title_color + ';text-align:center;text-decoration:underline;" href=""> <b>'. __( 'See More', 'sp_calendar' ) .'</b></a>');
             </script>
               <?php
             }
@@ -291,8 +291,8 @@ if (!current_user_can('manage_options')) {
             if ($r < $number_of_shown_evetns) {
               ?>
             <script>
-              document.write('<a style="background:none;color:' + event_title_color + '; text-decoration:underline;" href="" ><b><br>1.   Event1<br>2.   Event2<br>3.   Event3<br></b></a>');
-              document.write('<a style="background:none;color:' + event_title_color + ';text-align:center;text-decoration:underline;" href=""> <b>See More</b></a>');
+              document.write('<a style="background:none;color:' + event_title_color + '; text-decoration:underline;" href="" ><b><br>1.   '. __( 'Event', 'sp_calendar' ) .'1<br>2.   '. __( 'Event', 'sp_calendar' ) .'2<br>3.   '. __( 'Event', 'sp_calendar' ) .'3<br></b></a>');
+              document.write('<a style="background:none;color:' + event_title_color + ';text-align:center;text-decoration:underline;" href=""> <b>'. __( 'See More', 'sp_calendar' ) .'</b></a>');
             </script>
               <?php
             }
@@ -320,8 +320,8 @@ if (!current_user_can('manage_options')) {
         if ($r < $number_of_shown_evetns) {
           ?>
         <script>
-          document.write('<a style="background:none;color:' + event_title_color + '; text-decoration:underline;" href="" ><b><br>1.   Event1<br>2.   Event2<br>3.   Event3<br></b></a>');
-          document.write('<a style="background:none;color:' + event_title_color + ';text-align:center;text-decoration:underline;" href=""> <b>See More</b></a>');
+          document.write('<a style="background:none;color:' + event_title_color + '; text-decoration:underline;" href="" ><b><br>1.   '. __( 'Event', 'sp_calendar' ) .'1<br>2.   '. __( 'Event', 'sp_calendar' ) .'2<br>3.   '. __( 'Event', 'sp_calendar' ) .'3<br></b></a>');
+          document.write('<a style="background:none;color:' + event_title_color + ';text-align:center;text-decoration:underline;" href=""> <b>'. __( 'See More', 'sp_calendar' ) .'</b></a>');
         </script>
           <?php
         }
@@ -341,8 +341,8 @@ if (!current_user_can('manage_options')) {
             if ($r < $number_of_shown_evetns) {
               ?>
             <script>
-              document.write('<a style="background:none;color:' + event_title_color + '; text-decoration:underline;" href="" ><b><br>1.   Event1<br>2.   Event2<br>3.   Event3<br></b></a>');
-              document.write('<a style="background:none;color:' + event_title_color + ';text-align:center;text-decoration:underline;" href=""> <b>See More</b></a>');
+              document.write('<a style="background:none;color:' + event_title_color + '; text-decoration:underline;" href="" ><b><br>1.   '. __( 'Event', 'sp_calendar' ) .'1<br>2.   '. __( 'Event', 'sp_calendar' ) .'2<br>3.   '. __( 'Event', 'sp_calendar' ) .'3<br></b></a>');
+              document.write('<a style="background:none;color:' + event_title_color + ';text-align:center;text-decoration:underline;" href=""> <b>'. __( 'See More', 'sp_calendar' ) .'</b></a>');
 
             </script>
               <?php
@@ -377,8 +377,8 @@ if (!current_user_can('manage_options')) {
           if ($r < $number_of_shown_evetns) {
             ?>
           <script>
-            document.write('<a style="background:none;color:' + event_title_color + '; text-decoration:underline;" href="" ><b><br>1.   Event1<br>2.   Event2<br>3.   Event3<br></b></a>');
-            document.write('<a style="background:none;color:' + event_title_color + ';text-align:center;text-decoration:underline;" href=""> <b>See More</b></a>');
+            document.write('<a style="background:none;color:' + event_title_color + '; text-decoration:underline;" href="" ><b><br>1.   '. __( 'Event', 'sp_calendar' ) .'1<br>2.   '. __( 'Event', 'sp_calendar' ) .'2<br>3.   '. __( 'Event', 'sp_calendar' ) .'3<br></b></a>');
+            document.write('<a style="background:none;color:' + event_title_color + ';text-align:center;text-decoration:underline;" href=""> <b>'. __( 'See More', 'sp_calendar' ) .'</b></a>');
           </script>
             <?php
           }
