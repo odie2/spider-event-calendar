@@ -93,7 +93,7 @@ function html_show_spider_calendar($rows, $pageNav, $sort) {
             cancel_qiucik_edit(cal_id);
           }
           else {
-            alert(<?php _e( 'ERROR PLEASE INSTALL PLUGIN AGAIN', 'sp_calendar' ); ?>);
+            alert('<?php _e( 'ERROR PLEASE INSTALL PLUGIN AGAIN', 'sp_calendar' ); ?>');
             cancel_qiucik_edit(cal_id);
           }
         }
@@ -593,7 +593,7 @@ function show_event_category($rows, $pageNav, $sort){
             cancel_qiucik_edit(cal_id);
           }
           else {
-            alert(<?php _e( 'ERROR PLEASE INSTALL PLUGIN AGAIN', 'sp_calendar' ); ?>);
+            alert('<?php _e( 'ERROR PLEASE INSTALL PLUGIN AGAIN', 'sp_calendar' ); ?>');
             cancel_qiucik_edit(cal_id);
           }
         }
