@@ -152,7 +152,7 @@ function html_show_spider_calendar($rows, $pageNav, $sort) {
     }
     $serch_fields = '
       <div class="alignleft actions">
-        <label for="search_events_by_title" style="font-size:14px">' . __( 'Title', 'sp_calendar' ) . ': </label>
+        <label for="search_events_by_title" style="font-size:14px">' . __( 'Title' ) . ': </label>
         <input type="text" name="search_events_by_title" value="' . $serch_value . '" id="search_events_by_title" onchange="clear_serch_texts()">
       </div>
       <div class="alignleft actions">
@@ -173,7 +173,7 @@ function html_show_spider_calendar($rows, $pageNav, $sort) {
         </th>
         <th scope="col" id="title" class="<?php echo (($sort["sortid_by"] == "title") ? $sort["custom_style"] : $sort["default_style"]); ?>">
           <a href="javascript:ordering('title',<?php echo (($sort["sortid_by"] == "title") ? $sort["1_or_2"] : "1"); ?>)">
-            <span><?php _e( 'Title', 'sp_calendar' ); ?></span>
+            <span><?php _e( 'Title' ); ?></span>
             <span class="sorting-indicator"></span>
           </a>
         </th>
@@ -290,7 +290,7 @@ function html_add_spider_calendar() {
   <form onKeyPress="doNothing()" action="admin.php?page=SpiderCalendar" method="post" name="adminForm" id="adminForm">
     <table class="form-table" style="width:400px">
       <tr>
-        <td class="key"><label for="name"><?php _e( 'Title', 'sp_calendar' ); ?>: </label></td>
+        <td class="key"><label for="name"><?php _e( 'Title' ); ?>: </label></td>
         <td><input type="text" name="title" id="title" size="30" value=""/></td>
       </tr>
       <tr>
@@ -426,7 +426,7 @@ function html_edit_spider_calendar($row) {
   <form onKeyPress="doNothing()" action="admin.php?page=SpiderCalendar&id=<?php echo $row->id; ?>" method="post" name="adminForm" id="adminForm">
     <table class="form-table" style="width:400px">
       <tr>
-        <td class="key"><label for="name"><?php _e( 'Title', 'sp_calendar' ); ?>: </label></td>
+        <td class="key"><label for="name"><?php _e( 'Title' ); ?>: </label></td>
         <td><input type="text" name="title" id="title" size="30" value="<?php echo $row->title; ?>"/></td>
       </tr>
       <tr>
@@ -653,7 +653,7 @@ function show_event_category($rows, $pageNav, $sort){
     }
     $serch_fields = '
       <div class="alignleft actions" >
-        <label for="search_cat_by_title" style="font-size:14px">' . __( 'Title', 'sp_calendar' ) . ': </label>
+        <label for="search_cat_by_title" style="font-size:14px">' . __( 'Title' ) . ': </label>
         <input type="text" name="search_cat_by_title" value="' . $serch_value . '" id="search_cat_by_title" onchange="clear_serch_texts()">
       </div>
       <div class="alignleft actions">
@@ -674,7 +674,7 @@ function show_event_category($rows, $pageNav, $sort){
         </th>
         <th scope="col" id="title" class="<?php echo (($sort["sortid_by"] == "title") ? $sort["custom_style"] : $sort["default_style"]); ?>">
           <a href="javascript:ordering('title',<?php echo (($sort["sortid_by"] == "title") ? $sort["1_or_2"] : "1"); ?>)">
-            <span><?php _e( 'Title', 'sp_calendar' ); ?></span>
+            <span><?php _e( 'Title' ); ?></span>
             <span class="sorting-indicator"></span>
           </a>
         </th>
@@ -1038,7 +1038,7 @@ else
   $enddate = (isset($_POST["enddate"]) ? esc_js(esc_html(stripslashes($_POST["enddate"]))) : '');
   $serch_fields = '
     <div class="alignleft actions">
-    	<label for="search_events_by_title" style="font-size:14px">' . __( 'Title', 'sp_calendar' ) . ': </label>
+    	<label for="search_events_by_title" style="font-size:14px">' . __( 'Title' ) . ': </label>
       <input type="text" name="search_events_by_title" value="' . $serch_value . '" id="search_events_by_title" onchange="clear_serch_texts()" style="border: 1px solid #DCDCEC;"/>
     </div>
     <div class="alignleft actions">
@@ -1085,7 +1085,7 @@ else
             </th>
       <th style="background-image: linear-gradient(to top, #EFF8FF, #F7FCFE);" scope="col" id="title" class="<?php echo (($sort["sortid_by"] == "title") ? $sort["custom_style"] : $sort["default_style"]); ?>">
         <a href="javascript:ordering('title',<?php echo (($sort["sortid_by"] == "title") ? $sort["1_or_2"] : "1"); ?>)">
-          <span><?php _e( 'Title', 'sp_calendar' ); ?></span>
+          <span><?php _e( 'Title' ); ?></span>
           <span class="sorting-indicator"></span>
         </a>
       </th>
@@ -1210,7 +1210,7 @@ function html_show_spider_event($rows, $pageNav, $sort, $calendar_id, $cal_name)
   $enddate = (isset($_POST["enddate"]) ? esc_js(esc_html(stripslashes($_POST["enddate"]))) : '');
   $serch_fields = '
     <div class="alignleft actions">
-    	<label for="search_events_by_title" style="font-size:14px">' . __( 'Title', 'sp_calendar' ) . ': </label>
+    	<label for="search_events_by_title" style="font-size:14px">' . __( 'Title' ) . ': </label>
       <input type="text" name="search_events_by_title" value="' . $serch_value . '" id="search_events_by_title" onchange="clear_serch_texts()" />
     </div>
     <div class="alignleft actions">
@@ -1236,7 +1236,7 @@ function html_show_spider_event($rows, $pageNav, $sort, $calendar_id, $cal_name)
       </th>
       <th scope="col" id="title" class="<?php echo (($sort["sortid_by"] == "title") ? $sort["custom_style"] : $sort["default_style"]); ?>">
         <a href="javascript:ordering('title',<?php echo (($sort["sortid_by"] == "title") ? $sort["1_or_2"] : "1"); ?>)">
-          <span><?php _e( 'Title', 'sp_calendar' ); ?></span>
+          <span><?php _e( 'Title' ); ?></span>
           <span class="sorting-indicator"></span>
         </a>
       </th>
@@ -1602,7 +1602,7 @@ ON " . $wpdb->prefix . "spidercalendar_event.category=" . $wpdb->prefix . "spide
               <legend><?php _e( 'Event Details', 'sp_calendar' ); ?></legend>
               <table class="admintable">
                 <tr>
-                  <td class="key"><label for="title"><?php _e( 'Title', 'sp_calendar' ); ?>: </label></td>
+                  <td class="key"><label for="title"><?php _e( 'Title' ); ?>: </label></td>
                   <td><input type="text" id="title" name="title" size="41"/></td>
                 </tr>
 				
@@ -2063,7 +2063,7 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
               <legend><?php _e( 'Event Details', 'sp_calendar' ); ?></legend>
               <table class="admintable">
                 <tr>
-                  <td class="key"><label for="message"><?php _e( 'Title', 'sp_calendar' ); ?>: </label></td>
+                  <td class="key"><label for="message"><?php _e( 'Title' ); ?>: </label></td>
                   <td><input type="text" id="title" name="title" size="41" value="<?php echo htmlspecialchars($row->title, ENT_QUOTES); ?>"/></td>
                 </tr>
 				<tr>

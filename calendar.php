@@ -380,7 +380,7 @@ function spider_calendar_quick_edit() {
     <fieldset class="inline-edit-col-left">
       <div style="float:left; width:100% " class="inline-edit-col">
         <h4><?php _e( 'Quick Edit' ); ?></h4>
-        <label for="calendar_title"><span style="width:160px !important" class="title"><?php _e( 'Title', 'sp_calendar' ); ?>: </span></label>
+        <label for="calendar_title"><span style="width:160px !important" class="title"><?php _e( 'Title' ); ?>: </span></label>
         <span class="input-text-wrap">
           <input type="text" style="width:150px !important" id="calendar_title" name="calendar_title" value="<?php echo $row->title; ?>" class="ptitle" value=""/>
         </span>

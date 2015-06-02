@@ -470,7 +470,7 @@ function remove_theme_calendar($id) {
   $sql_remove_tag = $wpdb->prepare ( "DELETE FROM " . $wpdb->prefix . "spidercalendar_theme WHERE id=%d", $id );
   if (!$wpdb->query($sql_remove_tag)) {
     ?>
-    <div id="message" class="error"><p><?php _e( 'Spider Calendar Theme Not Deleted', 'sp_calendar' ); ?></p></div>
+    <div id="message" class="error"><p><?php _e( 'Spider Calendar Theme Not Deleted.', 'sp_calendar' ); ?></p></div>
     <?php
   }
   else {
