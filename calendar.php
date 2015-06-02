@@ -7,6 +7,8 @@ Description: Spider Event Calendar is a highly configurable product which allows
 Version: 1.4.20
 Author: https://web-dorado.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ Text Domain: sp_calendar
+ Domain Path: /languages/
 */
 $wd_spider_calendar_version="1.4.20";
 // LANGUAGE localization.
