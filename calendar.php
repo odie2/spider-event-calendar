@@ -395,17 +395,17 @@ function spider_calendar_quick_edit() {
             $month_array = array(
               '' => __( 'Current', 'sp_calendar' ),
               '01' => __( 'January' ),
-              '02' => __( 'February', 'sp_calendar' ),
-              '03' => __( 'March', 'sp_calendar' ),
-              '04' => __( 'April', 'sp_calendar' ),
-              '05' => __( 'May', 'sp_calendar' ),
-              '06' => __( 'June', 'sp_calendar' ),
-              '07' => __( 'July', 'sp_calendar' ),
-              '08' => __( 'August', 'sp_calendar' ),
-              '09' => __( 'September', 'sp_calendar' ),
-              '10' => __( 'October', 'sp_calendar' ),
-              '11' => __( 'November', 'sp_calendar' ),
-              '12' => __( 'December', 'sp_calendar' ),
+              '02' => __( 'February' ),
+              '03' => __( 'March' ),
+              '04' => __( 'April' ),
+              '05' => __( 'May' ),
+              '06' => __( 'June' ),
+              '07' => __( 'July' ),
+              '08' => __( 'August' ),
+              '09' => __( 'September' ),
+              '10' => __( 'October' ),
+              '11' => __( 'November' ),
+              '12' => __( 'December' ),
             );
             foreach ($month_array as $key => $def_month) {
               ?>
@@ -427,7 +427,7 @@ function spider_calendar_quick_edit() {
     <p class="submit inline-edit-save">
       <a accesskey="c" href="#" title="<?php _e( 'Cancel' ); ?>" onclick="cancel_qiucik_edit(<?php echo $row->id; ?>)" class="button-secondary cancel alignleft"><?php _e( 'Cancel' ); ?></a>
       <input type="hidden" id="_inline_edit" name="_inline_edit" value="d8393e8662">
-      <a accesskey="s" href="#" title="Update" onclick="updae_inline_sp_calendar(<?php echo  "'" . $row->id . "'" ?>)" class="button-primary save alignright">Update</a>
+      <a accesskey="s" href="#" title="<?php _e( 'Update', 'sp_calendar' ); ?>" onclick="updae_inline_sp_calendar(<?php echo  "'" . $row->id . "'" ?>)" class="button-primary save alignright"><?php _e( 'Update', 'sp_calendar' ); ?></a>
       <img id="imig_for_waiting" class="waiting" style="display:none;" src="http://localhost/wordpress/wp-admin/images/wpspin_light.gif" alt="">
       <input type="hidden" name="post_view" value="list">
       <input type="hidden" name="screen" value="edit-page">

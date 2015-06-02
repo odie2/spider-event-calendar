@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: spider_calendar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-31 21:27+0100\n"
-"PO-Revision-Date: 2015-05-31 21:28+0100\n"
+"POT-Creation-Date: 2015-06-03 00:02+0100\n"
+"PO-Revision-Date: 2015-06-03 00:03+0100\n"
 "Last-Translator: Maciej Gryniuk <maciejka45@gmail.com>\n"
 "Language-Team: \n"
 "Language: pl\n"
@@ -18,11 +18,12 @@ msgstr ""
 
 #: Theme_functions.php:3 calendar_functions.html.php:4
 #: calendar_functions.php:5 preview.php:20 preview_widget.php:20
+#: widget_Theme_functions.php:3 widget_Themes_function.html.php:3
 msgid "Access Denied"
 msgstr "Odmówiono dostępu"
 
 #: Theme_functions.php:439 calendar_functions.php:376
-#: calendar_functions.php:622
+#: calendar_functions.php:622 widget_Theme_functions.php:294
 msgid "Error. Please install plugin again."
 msgstr "Błąd. Proszę ponownie zainstalować wtyczkę."
 
@@ -30,7 +31,7 @@ msgstr "Błąd. Proszę ponownie zainstalować wtyczkę."
 msgid "Theme Saved."
 msgstr "Motyw zapisany."
 
-#: Theme_functions.php:465
+#: Theme_functions.php:465 widget_Theme_functions.php:320
 msgid "You can't delete deafult theme."
 msgstr "Nie możesz usunąć domyślnego motywu."
 
@@ -38,7 +39,7 @@ msgstr "Nie możesz usunąć domyślnego motywu."
 msgid "Spider Calendar Theme Not Deleted"
 msgstr ""
 
-#: Theme_functions.php:478
+#: Theme_functions.php:478 widget_Theme_functions.php:333
 msgid "Item Deleted."
 msgstr "Element usunięty."
 
@@ -78,93 +79,103 @@ msgstr ""
 msgid "Demo"
 msgstr "Demo"
 
-#: calendar.php:323 calendar.php:370
+#: calendar.php:325 calendar.php:372
 msgid "You have no permission."
 msgstr "Nie posiadasz wymaganych uprawnień."
 
-#: calendar.php:343 calendar_functions.html.php:180
+#: calendar.php:345 calendar_functions.html.php:180
 #: calendar_functions.html.php:194
 msgid "Manage Events"
 msgstr "Zarządzaj wydarzeniami"
 
-#: calendar.php:346 calendar_functions.html.php:197
+#: calendar.php:348 calendar_functions.html.php:197
 #: calendar_functions.html.php:704
 msgid "Edit This Calendar"
 msgstr "Edytuj ten kalendarz"
 
-#: calendar.php:346 calendar_functions.html.php:197
+#: calendar.php:348 calendar_functions.html.php:197
 #: calendar_functions.html.php:704 calendar_functions.html.php:1267
 #: calendar_functions.html.php:1286
 msgid "Edit"
 msgstr ""
 
-#: calendar.php:348 calendar_functions.html.php:199
+#: calendar.php:350 calendar_functions.html.php:199
 msgid "Edit This Calendar Inline"
 msgstr "Edytuj ten kalendarz w tym wierszu"
 
-#: calendar.php:348 calendar.php:380 calendar_functions.html.php:199
+#: calendar.php:350 calendar.php:382 calendar_functions.html.php:199
 msgid "Quick Edit"
 msgstr ""
 
-#: calendar.php:350 calendar_functions.html.php:201
+#: calendar.php:352 calendar_functions.html.php:201
 #: calendar_functions.html.php:706
 msgid "Delete This Calendar"
 msgstr "Usuń ten kalendarz"
 
-#: calendar.php:350 calendar_functions.html.php:201
+#: calendar.php:352 calendar_functions.html.php:201
 #: calendar_functions.html.php:706 calendar_functions.html.php:1268
 #: calendar_functions.html.php:1289
 msgid "Delete"
 msgstr ""
 
-#: calendar.php:353 calendar_functions.html.php:204
+#: calendar.php:355 calendar_functions.html.php:204
 msgid "Manage events"
 msgstr "Zarządzaj wydarzeniami"
 
-#: calendar.php:357 calendar.php:421 calendar.php:981
+#: calendar.php:359 calendar.php:423 calendar.php:983
 #: calendar_functions.html.php:206 calendar_functions.html.php:336
 #: calendar_functions.html.php:345 calendar_functions.html.php:471
 #: calendar_functions.html.php:480 calendar_functions.html.php:710
 #: calendar_functions.html.php:835 calendar_functions.html.php:1282
 #: calendar_functions.html.php:1678 calendar_functions.html.php:2187
+#: spidercalendar_upcoming_events_widget.php:2286
+#: spidercalendar_upcoming_events_widget.php:2300
+#: spidercalendar_upcoming_events_widget.php:2314
+#: spidercalendar_upcoming_events_widget.php:2328
 msgid "Yes"
 msgstr ""
 
-#: calendar.php:358 calendar.php:419 calendar_functions.html.php:206
+#: calendar.php:360 calendar.php:421 calendar_functions.html.php:206
 #: calendar_functions.html.php:334 calendar_functions.html.php:343
 #: calendar_functions.html.php:469 calendar_functions.html.php:478
 #: calendar_functions.html.php:710 calendar_functions.html.php:833
 #: calendar_functions.html.php:1282 calendar_functions.html.php:1676
 #: calendar_functions.html.php:2185
+#: spidercalendar_upcoming_events_widget.php:2288
+#: spidercalendar_upcoming_events_widget.php:2302
+#: spidercalendar_upcoming_events_widget.php:2316
+#: spidercalendar_upcoming_events_widget.php:2330
 msgid "No"
 msgstr ""
 
-#: calendar.php:381 calendar_functions.html.php:155
+#: calendar.php:383 calendar_functions.html.php:155
 #: calendar_functions.html.php:176 calendar_functions.html.php:293
 #: calendar_functions.html.php:429 calendar_functions.html.php:656
 #: calendar_functions.html.php:677 calendar_functions.html.php:1041
 #: calendar_functions.html.php:1088 calendar_functions.html.php:1213
 #: calendar_functions.html.php:1239 calendar_functions.html.php:1605
 #: calendar_functions.html.php:2066
+#: spidercalendar_upcoming_events_widget.php:2055
+#: widget_spider_calendar.php:82
 msgid "Title"
 msgstr "Tytuł"
 
-#: calendar.php:385 calendar_functions.html.php:297
+#: calendar.php:387 calendar_functions.html.php:297
 #: calendar_functions.html.php:433
 msgid "Default Year"
 msgstr "Domyślny rok"
 
-#: calendar.php:389 calendar_functions.html.php:301
+#: calendar.php:391 calendar_functions.html.php:301
 #: calendar_functions.html.php:437
 msgid "Default Month"
 msgstr "Domyślny miesiąc"
 
-#: calendar.php:394 calendar_functions.html.php:304
+#: calendar.php:396 calendar_functions.html.php:304
 #: calendar_functions.html.php:307 calendar_functions.html.php:442
 msgid "Current"
 msgstr "Bieżący"
 
-#: calendar.php:395 calendar_functions.html.php:308
+#: calendar.php:397 calendar_functions.html.php:308
 #: calendar_functions.html.php:443 calendar_functions.html.php:1713
 #: calendar_functions.html.php:2236 front_end/bigcalendarday.php:164
 #: front_end/bigcalendarday_widget.php:119 front_end/bigcalendarlist.php:161
@@ -174,7 +185,7 @@ msgstr "Bieżący"
 msgid "January"
 msgstr "Styczeń"
 
-#: calendar.php:396 calendar_functions.html.php:309
+#: calendar.php:398 calendar_functions.html.php:309
 #: calendar_functions.html.php:444 calendar_functions.html.php:1714
 #: calendar_functions.html.php:2237 front_end/bigcalendarday.php:165
 #: front_end/bigcalendarday_widget.php:120 front_end/bigcalendarlist.php:162
@@ -184,7 +195,7 @@ msgstr "Styczeń"
 msgid "February"
 msgstr "Luty"
 
-#: calendar.php:397 calendar_functions.html.php:310
+#: calendar.php:399 calendar_functions.html.php:310
 #: calendar_functions.html.php:445 calendar_functions.html.php:1715
 #: calendar_functions.html.php:2238 front_end/bigcalendarday.php:166
 #: front_end/bigcalendarday_widget.php:121 front_end/bigcalendarlist.php:163
@@ -194,7 +205,7 @@ msgstr "Luty"
 msgid "March"
 msgstr "Marzec"
 
-#: calendar.php:398 calendar_functions.html.php:311
+#: calendar.php:400 calendar_functions.html.php:311
 #: calendar_functions.html.php:446 calendar_functions.html.php:1716
 #: calendar_functions.html.php:2239 front_end/bigcalendarday.php:167
 #: front_end/bigcalendarday_widget.php:122 front_end/bigcalendarlist.php:164
@@ -204,7 +215,7 @@ msgstr "Marzec"
 msgid "April"
 msgstr "Kwiecień"
 
-#: calendar.php:399 calendar_functions.html.php:312
+#: calendar.php:401 calendar_functions.html.php:312
 #: calendar_functions.html.php:447 calendar_functions.html.php:1717
 #: calendar_functions.html.php:2240 front_end/bigcalendarday.php:168
 #: front_end/bigcalendarday_widget.php:123 front_end/bigcalendarlist.php:165
@@ -214,7 +225,7 @@ msgstr "Kwiecień"
 msgid "May"
 msgstr "Maj"
 
-#: calendar.php:400 calendar_functions.html.php:313
+#: calendar.php:402 calendar_functions.html.php:313
 #: calendar_functions.html.php:448 calendar_functions.html.php:1718
 #: calendar_functions.html.php:2241 front_end/bigcalendarday.php:169
 #: front_end/bigcalendarday_widget.php:124 front_end/bigcalendarlist.php:166
@@ -224,7 +235,7 @@ msgstr "Maj"
 msgid "June"
 msgstr "Czerwiec"
 
-#: calendar.php:401 calendar_functions.html.php:314
+#: calendar.php:403 calendar_functions.html.php:314
 #: calendar_functions.html.php:449 calendar_functions.html.php:1719
 #: calendar_functions.html.php:2242 front_end/bigcalendarday.php:170
 #: front_end/bigcalendarday_widget.php:125 front_end/bigcalendarlist.php:167
@@ -234,7 +245,7 @@ msgstr "Czerwiec"
 msgid "July"
 msgstr "Lipiec"
 
-#: calendar.php:402 calendar_functions.html.php:315
+#: calendar.php:404 calendar_functions.html.php:315
 #: calendar_functions.html.php:450 calendar_functions.html.php:1720
 #: calendar_functions.html.php:2243 front_end/bigcalendarday.php:171
 #: front_end/bigcalendarday_widget.php:126 front_end/bigcalendarlist.php:168
@@ -244,7 +255,7 @@ msgstr "Lipiec"
 msgid "August"
 msgstr "Sierpień"
 
-#: calendar.php:403 calendar_functions.html.php:316
+#: calendar.php:405 calendar_functions.html.php:316
 #: calendar_functions.html.php:451 calendar_functions.html.php:1721
 #: calendar_functions.html.php:2244 front_end/bigcalendarday.php:172
 #: front_end/bigcalendarday_widget.php:127 front_end/bigcalendarlist.php:169
@@ -254,7 +265,7 @@ msgstr "Sierpień"
 msgid "September"
 msgstr "Wrzesień"
 
-#: calendar.php:404 calendar_functions.html.php:317
+#: calendar.php:406 calendar_functions.html.php:317
 #: calendar_functions.html.php:452 calendar_functions.html.php:1722
 #: calendar_functions.html.php:2245 front_end/bigcalendarday.php:173
 #: front_end/bigcalendarday_widget.php:128 front_end/bigcalendarlist.php:170
@@ -264,7 +275,7 @@ msgstr "Wrzesień"
 msgid "October"
 msgstr "Październik"
 
-#: calendar.php:405 calendar_functions.html.php:318
+#: calendar.php:407 calendar_functions.html.php:318
 #: calendar_functions.html.php:453 calendar_functions.html.php:1723
 #: calendar_functions.html.php:2246 front_end/bigcalendarday.php:174
 #: front_end/bigcalendarday_widget.php:129 front_end/bigcalendarlist.php:171
@@ -274,7 +285,7 @@ msgstr "Październik"
 msgid "November"
 msgstr "Listopad"
 
-#: calendar.php:406 calendar_functions.html.php:319
+#: calendar.php:408 calendar_functions.html.php:319
 #: calendar_functions.html.php:454 calendar_functions.html.php:1724
 #: calendar_functions.html.php:2247 front_end/bigcalendarday.php:175
 #: front_end/bigcalendarday_widget.php:130 front_end/bigcalendarlist.php:172
@@ -284,67 +295,71 @@ msgstr "Listopad"
 msgid "December"
 msgstr "Grudzień"
 
-#: calendar.php:416 calendar_functions.html.php:466
+#: calendar.php:418 calendar_functions.html.php:466
 msgid "Use 12 hours time format"
 msgstr "Użyj 12-godzinnego formatu czasu"
 
-#: calendar.php:426 calendar_functions.html.php:286
+#: calendar.php:428 calendar_functions.html.php:286
 #: calendar_functions.html.php:422 calendar_functions.html.php:775
 #: calendar_functions.html.php:1579 calendar_functions.html.php:2052
 msgid "Cancel"
 msgstr ""
 
-#: calendar.php:463
+#: calendar.php:430
+msgid "Update"
+msgstr "Zaktualizuj"
+
+#: calendar.php:465
 msgid "Theme page title"
 msgstr "Tytuł strony motywu"
 
-#: calendar.php:463
+#: calendar.php:465
 msgid "Calendar"
 msgstr "Kalendarz"
 
-#: calendar.php:464
+#: calendar.php:466
 msgid "Calendars"
 msgstr "Kalendarze"
 
-#: calendar.php:465 calendar_functions.html.php:637
+#: calendar.php:467 calendar_functions.html.php:637
 msgid "Event Category"
 msgstr "Kategoria wydarzenia"
 
-#: calendar.php:466 calendar.php:467
+#: calendar.php:468 calendar.php:469
 msgid "Calendar Parameters"
 msgstr "Parametry kalendarza"
 
-#: calendar.php:466
+#: calendar.php:468
 msgid "Calendar Themes"
 msgstr "Motywy kalendarza"
 
-#: calendar.php:467
+#: calendar.php:469
 msgid "Widget Themes"
 msgstr "Motywy widgetu"
 
-#: calendar.php:468
+#: calendar.php:470
 msgid "Featured Plugins"
 msgstr "Polecane wtyczki"
 
-#: calendar.php:469 calendar.php:1003
+#: calendar.php:471 calendar.php:1005
 msgid "Featured Themes"
 msgstr "Polecane motywy"
 
-#: calendar.php:471
+#: calendar.php:473
 msgid "Licensing"
 msgstr "Licencja"
 
-#: calendar.php:472 calendar.php:918 calendar.php:929
+#: calendar.php:474 calendar.php:920 calendar.php:931
 msgid "Uninstall Spider Event Calendar"
 msgstr ""
 
-#: calendar.php:484
+#: calendar.php:486
 msgid ""
 "This plugin is the non-commercial version of the Spider Event Calendar. Use "
 "of the calendar is free."
 msgstr ""
 
-#: calendar.php:485
+#: calendar.php:487
 msgid ""
 "The only limitation is the use of the themes. If you want to use one of the "
 "17 standard themes or create a new one that satisfies the needs of your web "
@@ -354,61 +369,61 @@ msgstr ""
 "z 17 domyślnych motywów lub tworzyć własny, który spełni potrzeby Twojej "
 "strony internetowej, musisz zakupić licencję."
 
-#: calendar.php:486
+#: calendar.php:488
 msgid ""
 "Purchasing a license will add 17 standard themes and give possibility to "
 "edit the themes of the Spider Event Calendar."
 msgstr ""
 
-#: calendar.php:489
+#: calendar.php:491
 msgid "Purchase a License"
 msgstr "Kup licencję"
 
-#: calendar.php:491
+#: calendar.php:493
 msgid "After the purchasing the commercial version follow this steps:"
 msgstr "Po zakupie wersji komercyjnej wykonaj następujące kroki:"
 
-#: calendar.php:493
+#: calendar.php:495
 msgid "Deactivate Spider Event Calendar Plugin"
 msgstr ""
 
-#: calendar.php:494
+#: calendar.php:496
 msgid "Delete Spider Event Calendar Plugin"
 msgstr ""
 
-#: calendar.php:495
+#: calendar.php:497
 msgid "Install the downloaded commercial version of the plugin"
 msgstr "Zainstaluj pobraną wersję komercyjną wtyczki"
 
-#: calendar.php:643 calendar.php:714 calendar.php:721 calendar.php:799
+#: calendar.php:645 calendar.php:716 calendar.php:723 calendar.php:801
 msgid "Are you sure you want to do this?"
 msgstr "Na pewno chcesz to zrobić?"
 
-#: calendar.php:880 calendar.php:886 calendar.php:892 calendar.php:898
-#: calendar.php:904
+#: calendar.php:882 calendar.php:888 calendar.php:894 calendar.php:900
+#: calendar.php:906
 #, php-format
 msgid "Table %s has been deleted."
 msgstr "Tabela %s została usunięta."
 
-#: calendar.php:919
+#: calendar.php:921
 #, php-format
 msgid ""
 "<a href=\"%s\">Click Here</a> To Finish The Uninstallation And Spider Event "
 "Calendar Will Be Deactivated Automatically."
 msgstr ""
 
-#: calendar.php:932
+#: calendar.php:934
 msgid ""
 "Deactivating Spider Event Calendar plugin does not remove any data that may "
 "have been created. To completely remove this plugin, you can uninstall it "
 "here."
 msgstr ""
 
-#: calendar.php:936
+#: calendar.php:938
 msgid "WARNING:"
 msgstr "OSTRZEŻENIE:"
 
-#: calendar.php:937
+#: calendar.php:939
 msgid ""
 "Once uninstalled, this cannot be undone. You should use a Database Backup "
 "plugin of WordPress to back up all the data first."
@@ -416,44 +431,44 @@ msgstr ""
 "Po odinstalowaniu nie można cofnąć tej akcji. Aby zachować kopie zapasowe, "
 "użyj najpierw wtyczki kopii zapasowych WordPress."
 
-#: calendar.php:941
+#: calendar.php:943
 msgid "The following WordPress Options/Tables will be DELETED:"
 msgstr "USUNIĘTE zostaną następujące opcje/tabele WordPress'a:"
 
-#: calendar.php:946
+#: calendar.php:948
 msgid "WordPress Tables:"
 msgstr "Tabele WordPress'a:"
 
-#: calendar.php:968
+#: calendar.php:970
 msgid "You Are About To Uninstall Spider Event Calendar From WordPress."
 msgstr ""
 
-#: calendar.php:968
+#: calendar.php:970
 msgid "This Action Is Not Reversible."
 msgstr ""
 
-#: calendar.php:968
+#: calendar.php:970
 msgid "Choose [Cancel] To Stop, [OK] To Uninstall."
 msgstr "Wybierz [Anuluj], aby przerwać lub [OK], aby odinstalować."
 
-#: calendar.php:974
+#: calendar.php:976
 msgid "To uninstall please check the box above."
 msgstr "Aby odinstalować proszę zaznaczyć pole powyżej."
 
-#: calendar.php:980
+#: calendar.php:982
 msgid "Do you really want to uninstall Spider Event Calendar?"
 msgstr ""
 
-#: calendar.php:983
+#: calendar.php:985
 msgid "UNINSTALL Spider Event Calendar"
 msgstr ""
 
-#: calendar.php:1028 calendar.php:1038 calendar.php:1048 calendar.php:1058
-#: calendar.php:1068 calendar.php:1078 calendar.php:1088 calendar.php:1098
-#: calendar.php:1108 calendar.php:1139 calendar.php:1149 calendar.php:1159
-#: calendar.php:1169 calendar.php:1179 calendar.php:1189 calendar.php:1199
-#: calendar.php:1209 calendar.php:1219 calendar.php:1229 calendar.php:1239
-#: calendar.php:1249 calendar.php:1259 calendar.php:1269 calendar.php:1279
+#: calendar.php:1030 calendar.php:1040 calendar.php:1050 calendar.php:1060
+#: calendar.php:1070 calendar.php:1080 calendar.php:1090 calendar.php:1100
+#: calendar.php:1110 calendar.php:1141 calendar.php:1151 calendar.php:1161
+#: calendar.php:1171 calendar.php:1181 calendar.php:1191 calendar.php:1201
+#: calendar.php:1211 calendar.php:1221 calendar.php:1231 calendar.php:1241
+#: calendar.php:1251 calendar.php:1261 calendar.php:1271 calendar.php:1281
 msgid "Download"
 msgstr "Pobierz"
 
@@ -557,10 +572,18 @@ msgid "Event Manager"
 msgstr "Menedżer wydarzeń"
 
 #: calendar_functions.html.php:1045 calendar_functions.html.php:1217
+#: calendar_functions.html.php:1634 calendar_functions.html.php:1635
+#: calendar_functions.html.php:1650 calendar_functions.html.php:1651
+#: calendar_functions.html.php:2121 calendar_functions.html.php:2125
+#: calendar_functions.html.php:2135
 msgid "From"
 msgstr "Od"
 
 #: calendar_functions.html.php:1047 calendar_functions.html.php:1219
+#: calendar_functions.html.php:1641 calendar_functions.html.php:1642
+#: calendar_functions.html.php:1653 calendar_functions.html.php:1654
+#: calendar_functions.html.php:2127 calendar_functions.html.php:2131
+#: calendar_functions.html.php:2150 calendar_functions.html.php:2154
 msgid "To"
 msgstr "Do"
 
@@ -604,6 +627,14 @@ msgstr ""
 msgid "Category"
 msgstr "Kategoria"
 
+#: calendar_functions.html.php:1326
+msgid "Invalid Date"
+msgstr "Błedna data"
+
+#: calendar_functions.html.php:1339
+msgid "Invalid Time"
+msgstr "Błedny czas"
+
 #: calendar_functions.html.php:1347 calendar_functions.html.php:1821
 msgid "Provide the title"
 msgstr "Podaj tytuł"
@@ -642,14 +673,20 @@ msgid "Select Category"
 msgstr "Wybierz kategorię"
 
 #: calendar_functions.html.php:1637 calendar_functions.html.php:1644
-#: calendar_functions.html.php:2142 calendar_functions.html.php:2157
+#: calendar_functions.html.php:2141 calendar_functions.html.php:2142
+#: calendar_functions.html.php:2156 calendar_functions.html.php:2157
 msgid "AM"
 msgstr "a.m."
 
 #: calendar_functions.html.php:1638 calendar_functions.html.php:1645
-#: calendar_functions.html.php:2145 calendar_functions.html.php:2160
+#: calendar_functions.html.php:2144 calendar_functions.html.php:2145
+#: calendar_functions.html.php:2159 calendar_functions.html.php:2160
 msgid "PM"
 msgstr "p.m."
+
+#: calendar_functions.html.php:1659 calendar_functions.html.php:2167
+msgid "Note"
+msgstr "Opis"
 
 #: calendar_functions.html.php:1687 calendar_functions.html.php:2197
 msgid "Repeat Event"
@@ -679,31 +716,38 @@ msgstr "Powtarzaj rocznie"
 msgid "Repeat every"
 msgstr "Powtarzaj co"
 
-#: calendar_functions.html.php:1734 preview_widget.php:207
+#: calendar_functions.html.php:1734 calendar_functions.html.php:2256
+#: preview_widget.php:207
 msgid "Mon"
 msgstr ""
 
-#: calendar_functions.html.php:1735 preview_widget.php:210
+#: calendar_functions.html.php:1735 calendar_functions.html.php:2257
+#: preview_widget.php:210
 msgid "Tue"
 msgstr ""
 
-#: calendar_functions.html.php:1736 preview_widget.php:213
+#: calendar_functions.html.php:1736 calendar_functions.html.php:2258
+#: preview_widget.php:213
 msgid "Wed"
 msgstr ""
 
-#: calendar_functions.html.php:1737 preview_widget.php:216
+#: calendar_functions.html.php:1737 calendar_functions.html.php:2259
+#: preview_widget.php:216
 msgid "Thu"
 msgstr ""
 
-#: calendar_functions.html.php:1738 preview_widget.php:219
+#: calendar_functions.html.php:1738 calendar_functions.html.php:2260
+#: preview_widget.php:219
 msgid "Fri"
 msgstr ""
 
-#: calendar_functions.html.php:1739 preview_widget.php:222
+#: calendar_functions.html.php:1739 calendar_functions.html.php:2261
+#: preview_widget.php:222
 msgid "Sat"
 msgstr ""
 
-#: calendar_functions.html.php:1740 preview_widget.php:204
+#: calendar_functions.html.php:1740 calendar_functions.html.php:2262
+#: preview_widget.php:204
 msgid "Sun"
 msgstr ""
 
@@ -721,6 +765,36 @@ msgstr ""
 #: spidercalendar_upcoming_events_widget.php:1845
 msgid "on the"
 msgstr "na"
+
+#: calendar_functions.html.php:1749 calendar_functions.html.php:2272
+#: front_end/frontend_functions.php:1050
+#: spidercalendar_upcoming_events_widget.php:211
+msgid "First"
+msgstr "Pierwszy"
+
+#: calendar_functions.html.php:1750 calendar_functions.html.php:2273
+#: front_end/frontend_functions.php:1053
+#: spidercalendar_upcoming_events_widget.php:214
+msgid "Second"
+msgstr "Drugi"
+
+#: calendar_functions.html.php:1751 calendar_functions.html.php:2274
+#: front_end/frontend_functions.php:1056
+#: spidercalendar_upcoming_events_widget.php:217
+msgid "Third"
+msgstr "Trzeci"
+
+#: calendar_functions.html.php:1752 calendar_functions.html.php:2275
+#: front_end/frontend_functions.php:1059
+#: spidercalendar_upcoming_events_widget.php:220
+msgid "Fourth"
+msgstr "Czwarty"
+
+#: calendar_functions.html.php:1753 calendar_functions.html.php:2276
+#: front_end/frontend_functions.php:1062
+#: spidercalendar_upcoming_events_widget.php:223
+msgid "Last"
+msgstr "Ostatni"
 
 #: calendar_functions.html.php:1756 calendar_functions.html.php:2279
 #: front_end/frontend_functions.php:1068
@@ -773,10 +847,6 @@ msgstr "Powtarzaj do"
 msgid "Edit an event for calendar %s"
 msgstr "Edytuj wydarzenie dla kalendarza %s"
 
-#: calendar_functions.html.php:2167
-msgid "Note"
-msgstr "Opis"
-
 #: calendar_functions.html.php:2232 functions_for_xml_and_ajax.php:399
 #: functions_for_xml_and_ajax.php:405 functions_for_xml_and_ajax.php:637
 #: functions_for_xml_and_ajax.php:640
@@ -790,68 +860,6 @@ msgstr "Opis"
 #: spidercalendar_upcoming_events_widget.php:1845
 msgid "Year(s) in"
 msgstr "Rok (i), w"
-
-#: calendar_functions.html.php:2256 front_end/bigcalendarmonth.php:665
-#: front_end/bigcalendarmonth_widget.php:434 preview.php:135
-msgid "Mo"
-msgstr "Po"
-
-#: calendar_functions.html.php:2257 front_end/bigcalendarmonth.php:668
-#: front_end/bigcalendarmonth_widget.php:437 preview.php:140
-msgid "Tu"
-msgstr "Wt"
-
-#: calendar_functions.html.php:2258 front_end/bigcalendarmonth.php:671
-#: front_end/bigcalendarmonth_widget.php:440 preview.php:145
-msgid "We"
-msgstr "Śr"
-
-#: calendar_functions.html.php:2259 front_end/bigcalendarmonth.php:674
-#: front_end/bigcalendarmonth_widget.php:443 preview.php:150
-msgid "Th"
-msgstr "Cz"
-
-#: calendar_functions.html.php:2260 front_end/bigcalendarmonth.php:677
-#: front_end/bigcalendarmonth_widget.php:446 preview.php:155
-msgid "Fr"
-msgstr "Pi"
-
-#: calendar_functions.html.php:2261 front_end/bigcalendarmonth.php:680
-#: front_end/bigcalendarmonth_widget.php:449 preview.php:160
-msgid "Sa"
-msgstr "So"
-
-#: calendar_functions.html.php:2262 front_end/bigcalendarmonth.php:661
-#: front_end/bigcalendarmonth.php:684
-#: front_end/bigcalendarmonth_widget.php:430
-#: front_end/bigcalendarmonth_widget.php:453 preview.php:165
-msgid "Su"
-msgstr "Ni"
-
-#: calendar_functions.html.php:2272 front_end/frontend_functions.php:1050
-#: spidercalendar_upcoming_events_widget.php:211
-msgid "First"
-msgstr "Pierwszy"
-
-#: calendar_functions.html.php:2273 front_end/frontend_functions.php:1053
-#: spidercalendar_upcoming_events_widget.php:214
-msgid "Second"
-msgstr "Drugi"
-
-#: calendar_functions.html.php:2274 front_end/frontend_functions.php:1056
-#: spidercalendar_upcoming_events_widget.php:217
-msgid "Third"
-msgstr "Trzeci"
-
-#: calendar_functions.html.php:2275 front_end/frontend_functions.php:1059
-#: spidercalendar_upcoming_events_widget.php:220
-msgid "Fourth"
-msgstr "Czwarty"
-
-#: calendar_functions.html.php:2276 front_end/frontend_functions.php:1062
-#: spidercalendar_upcoming_events_widget.php:223
-msgid "Last"
-msgstr "Ostatni"
 
 #: calendar_functions.php:210
 msgid "Calendar Not Deleted."
@@ -928,6 +936,7 @@ msgstr "Kategoria wydarzeń została usunięta."
 #: spidercalendar_upcoming_events_widget.php:910
 #: spidercalendar_upcoming_events_widget.php:1386
 #: spidercalendar_upcoming_events_widget.php:1794
+#: widget_spider_calendar.php:134 widget_spider_calendar.php:144
 msgid "Day"
 msgstr "Dzień"
 
@@ -936,7 +945,8 @@ msgstr "Dzień"
 #: front_end/bigcalendarlist.php:510 front_end/bigcalendarlist_widget.php:333
 #: front_end/bigcalendarmonth.php:445
 #: front_end/bigcalendarmonth_widget.php:330 front_end/bigcalendarweek.php:554
-#: front_end/bigcalendarweek_widget.php:362
+#: front_end/bigcalendarweek_widget.php:362 widget_spider_calendar.php:133
+#: widget_spider_calendar.php:143
 msgid "Week"
 msgstr "Tydzień"
 
@@ -945,7 +955,8 @@ msgstr "Tydzień"
 #: front_end/bigcalendarlist.php:525 front_end/bigcalendarlist_widget.php:348
 #: front_end/bigcalendarmonth.php:460
 #: front_end/bigcalendarmonth_widget.php:344 front_end/bigcalendarweek.php:569
-#: front_end/bigcalendarweek_widget.php:377
+#: front_end/bigcalendarweek_widget.php:377 widget_spider_calendar.php:132
+#: widget_spider_calendar.php:142
 msgid "List"
 msgstr "Lista"
 
@@ -954,7 +965,8 @@ msgstr "Lista"
 #: front_end/bigcalendarlist.php:540 front_end/bigcalendarlist_widget.php:363
 #: front_end/bigcalendarmonth.php:475
 #: front_end/bigcalendarmonth_widget.php:358 front_end/bigcalendarweek.php:584
-#: front_end/bigcalendarweek_widget.php:392
+#: front_end/bigcalendarweek_widget.php:392 widget_spider_calendar.php:131
+#: widget_spider_calendar.php:141
 msgid "Month"
 msgstr "Miesiąc"
 
@@ -974,6 +986,42 @@ msgstr "Wszystkie kategorie"
 #: front_end/bigcalendarlist.php:766 front_end/bigcalendarlist_widget.php:468
 msgid "There Is No Event In This Month"
 msgstr "Nie ma zdarzeń w tym miesiącu"
+
+#: front_end/bigcalendarmonth.php:661 front_end/bigcalendarmonth.php:684
+#: front_end/bigcalendarmonth_widget.php:430
+#: front_end/bigcalendarmonth_widget.php:453 preview.php:165
+msgid "Su"
+msgstr "N"
+
+#: front_end/bigcalendarmonth.php:665
+#: front_end/bigcalendarmonth_widget.php:434 preview.php:135
+msgid "Mo"
+msgstr "Pn"
+
+#: front_end/bigcalendarmonth.php:668
+#: front_end/bigcalendarmonth_widget.php:437 preview.php:140
+msgid "Tu"
+msgstr "Wt"
+
+#: front_end/bigcalendarmonth.php:671
+#: front_end/bigcalendarmonth_widget.php:440 preview.php:145
+msgid "We"
+msgstr "Śr"
+
+#: front_end/bigcalendarmonth.php:674
+#: front_end/bigcalendarmonth_widget.php:443 preview.php:150
+msgid "Th"
+msgstr "Cz"
+
+#: front_end/bigcalendarmonth.php:677
+#: front_end/bigcalendarmonth_widget.php:446 preview.php:155
+msgid "Fr"
+msgstr "Pt"
+
+#: front_end/bigcalendarmonth.php:680
+#: front_end/bigcalendarmonth_widget.php:449 preview.php:160
+msgid "Sa"
+msgstr "So"
 
 #: front_end/bigcalendarmonth.php:824 front_end/bigcalendarmonth.php:884
 #: front_end/bigcalendarmonth.php:946 front_end/bigcalendarmonth.php:1009
@@ -1073,6 +1121,152 @@ msgstr "Przejdź do ostatniej strony"
 msgid "Event"
 msgstr "Wydarzenie"
 
+#: spidercalendar_upcoming_events_widget.php:27
+msgid "Upcoming Events"
+msgstr "Nadchodzące wydarzenia"
+
+#: spidercalendar_upcoming_events_widget.php:2065
+#: spidercalendar_upcoming_events_widget.php:2070
+#: widget_spider_calendar.php:90 widget_spider_calendar.php:95
+msgid "Select Calendar"
+msgstr "Wybierz kalendarz"
+
+#: spidercalendar_upcoming_events_widget.php:2085
+#: spidercalendar_upcoming_events_widget.php:2090
+#: widget_spider_calendar.php:110 widget_spider_calendar.php:115
+msgid "Select Theme"
+msgstr "Wybierz motyw"
+
+#: spidercalendar_upcoming_events_widget.php:2105
+msgid "Events to display"
+msgstr "Wyświetlane wydarzenia"
+
+#: spidercalendar_upcoming_events_widget.php:2110
+msgid "Starting From Current Date"
+msgstr "Począwszy od bieżącej daty"
+
+#: spidercalendar_upcoming_events_widget.php:2112
+msgid "Events In Date Interval"
+msgstr "Wydarzenia w przedziale czasu"
+
+#: spidercalendar_upcoming_events_widget.php:2114
+msgid "Selected Events"
+msgstr "Wybierz wydarzenia"
+
+#: spidercalendar_upcoming_events_widget.php:2119
+#: spidercalendar_upcoming_events_widget.php:2169
+#: spidercalendar_upcoming_events_widget.php:2178
+#: spidercalendar_upcoming_events_widget.php:2220
+#: spidercalendar_upcoming_events_widget.php:2245
+msgid "Events Quantity"
+msgstr "Ilość wydarzeń"
+
+#: spidercalendar_upcoming_events_widget.php:2128
+msgid "Starting From"
+msgstr "Począwszy od"
+
+#: spidercalendar_upcoming_events_widget.php:2132
+msgid "Current Date"
+msgstr "Bieżąca data"
+
+#: spidercalendar_upcoming_events_widget.php:2134
+msgid "Start Date"
+msgstr "Data początkowa"
+
+#: spidercalendar_upcoming_events_widget.php:2140
+msgid "Select Start Date"
+msgstr "Ustal datę początkową"
+
+#: spidercalendar_upcoming_events_widget.php:2151
+#: spidercalendar_upcoming_events_widget.php:2160
+#: spidercalendar_upcoming_events_widget.php:2211
+msgid "Following Days Quantity"
+msgstr "Ilość kolejnych dni"
+
+#: spidercalendar_upcoming_events_widget.php:2187
+#: spidercalendar_upcoming_events_widget.php:2191
+#: spidercalendar_upcoming_events_widget.php:2199
+#: spidercalendar_upcoming_events_widget.php:2203
+msgid "Ordering"
+msgstr "Sortowanie"
+
+#: spidercalendar_upcoming_events_widget.php:2193
+#: spidercalendar_upcoming_events_widget.php:2205
+msgid "Random"
+msgstr "Losowe"
+
+#: spidercalendar_upcoming_events_widget.php:2229
+msgid "Select Events From List"
+msgstr "Wybierz wydarzenia z listy"
+
+#: spidercalendar_upcoming_events_widget.php:2281
+msgid "Show Event Date"
+msgstr "Pokaż datę wydarzenia"
+
+#: spidercalendar_upcoming_events_widget.php:2295
+msgid "Show Event Repeat Rate"
+msgstr "Pokaż częstość powtarzania wydarzenia"
+
+#: spidercalendar_upcoming_events_widget.php:2309
+msgid "Show Event Text"
+msgstr "Pokaż tekst wydarzenia"
+
+#: spidercalendar_upcoming_events_widget.php:2323
+msgid "Show Numbering"
+msgstr "Pokaż numerowanie"
+
+#: spidercalendar_upcoming_events_widget.php:2343
+msgid "Width"
+msgstr "Szerokość"
+
+#: spidercalendar_upcoming_events_widget.php:2353
+msgid "Background Color"
+msgstr "Kolor tła"
+
+#: spidercalendar_upcoming_events_widget.php:2365
+msgid "Event Title Color"
+msgstr "Kolor tytułu wydarzenia"
+
+#: spidercalendar_upcoming_events_widget.php:2377
+msgid "Event Title Font Size"
+msgstr "Rozmiar czcionki tytułu wydarzenia"
+
+#: spidercalendar_upcoming_events_widget.php:2387
+msgid "Event Title Font"
+msgstr "Czcionka tytułu wydarzenia"
+
+#: spidercalendar_upcoming_events_widget.php:2392
+msgid "Select Font"
+msgstr "Wybierz czcionkę"
+
+#: spidercalendar_upcoming_events_widget.php:2404
+msgid "Event Date Color"
+msgstr "Kolor daty wydarzenia"
+
+#: spidercalendar_upcoming_events_widget.php:2416
+msgid "Event Date Format"
+msgstr "Format daty wydarzenia"
+
+#: spidercalendar_upcoming_events_widget.php:2426
+msgid "Event Repeat Rate Color"
+msgstr "Kolor częstości powtarzania wydarzenia"
+
+#: spidercalendar_upcoming_events_widget.php:2438
+msgid "Event Text Color"
+msgstr "Kolor tekstu wydarzenia"
+
+#: spidercalendar_upcoming_events_widget.php:2451
+msgid "Divider Color"
+msgstr "Kolor separatora"
+
+#: widget_Theme_functions.php:300
+msgid "Widget Theme Saved."
+msgstr "Motyw widgetu zapisany."
+
+#: widget_Theme_functions.php:328
+msgid "Spider Calendar Theme Not Deleted."
+msgstr ""
+
 #: widget_Themes_function.html.php:17
 msgid ""
 "This section allows you to create/edit themes for the calendars for the "
@@ -1086,6 +1280,28 @@ msgid ""
 "Here are examples of 6 standard templates included in the commercial version."
 msgstr ""
 "Poniżej zaprezentowano 6 domyślnych motywów zawartych w wersji komercyjnej."
+
+#: widget_spider_calendar.php:10
+msgid ""
+"Spider Calendar is a highly configurable product which allows you to have "
+"multiple organized events."
+msgstr ""
+
+#: widget_spider_calendar.php:13
+msgid "Spider Calendar"
+msgstr ""
+
+#: widget_spider_calendar.php:41
+msgid "Spider Calendar Widget Theme not Found please reinstall plugin."
+msgstr ""
+
+#: widget_spider_calendar.php:128
+msgid "Default View"
+msgstr "Domyślny widok"
+
+#: widget_spider_calendar.php:139
+msgid "Select Views"
+msgstr "Wybierz widoki"
 
 #~ msgid "Provide calendar title:"
 #~ msgstr "Podaj tytuł kalendarza:"

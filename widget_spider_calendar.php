@@ -7,10 +7,10 @@ class spider_calendar extends WP_Widget {
   function spider_calendar() {
     $widget_ops = array(
       'classname' => 'spider_calendar',
-      'description' => 'Spider Calendar is a highly configurable product which allows you to have multiple organized events.'
+      'description' => __( 'Spider Calendar is a highly configurable product which allows you to have multiple organized events.', 'sp_calendar' ),
     );
     $control_ops = array('id_base' => 'spider_calendar'); // Widget Control Settings.
-    $this->WP_Widget('spider_calendar', 'Spider Calendar', $widget_ops, $control_ops); // Create the widget.
+    $this->WP_Widget('spider_calendar', __( 'Spider Calendar', 'sp_calendar' ), $widget_ops, $control_ops); // Create the widget.
   }
 
   // Extract Args //
@@ -38,7 +38,7 @@ class spider_calendar extends WP_Widget {
       global $wpdb;
       $calendar_widget = 1;
       if (!$wpdb->get_row($wpdb->prepare("SELECT * FROM " . $wpdb->prefix . "spidercalendar_widget_theme WHERE id='%d'", $theme))) {
-        echo "Spider Calendar Widget Theme not Found please reinstall plugin.";
+        _e( 'Spider Calendar Widget Theme not Found please reinstall plugin.', 'sp_calendar' );
       }
       else {
         echo Spider_calendar_big_front_end($id, $theme, $default_view, $view, $calendar_widget);
@@ -79,7 +79,7 @@ class spider_calendar extends WP_Widget {
     $all_themes = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'spidercalendar_widget_theme');
     ?>
     <p>
-      <label for="<?php echo $this->get_field_id('title'); ?>">Title:</label>
+      <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e( 'Title', 'sp_calendar' ); ?>:</label>
       <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>'" type="text" value="<?php echo $instance['title']; ?>"/>
     </p>
     <table width="100%" class="paramlist admintable" cellspacing="1">
@@ -87,12 +87,12 @@ class spider_calendar extends WP_Widget {
         <tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('calendar'); ?>" class="hasTip">Select Calendar:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('calendar'); ?>" class="hasTip"><?php _e( 'Select Calendar', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
             <select name="<?php echo $this->get_field_name('calendar'); ?>" id="<?php echo $this->get_field_id('calendar'); ?>" style="font-size:10px;width:120px;" class="inputbox">
-              <option value="0">Select Calendar</option>
+              <option value="0"><?php _e( 'Select Calendar', 'sp_calendar' ); ?></option>
               <?php
               $sp_calendar = count($all_clendars);
               for ($i = 0; $i < $sp_calendar; $i++) {
@@ -107,12 +107,12 @@ class spider_calendar extends WP_Widget {
         <tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('theme'); ?>" class="hasTip">Select Theme:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('theme'); ?>" class="hasTip"><?php _e( 'Select Theme', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
             <select name="<?php echo $this->get_field_name('theme'); ?>" id="<?php echo $this->get_field_id('theme'); ?>" style="font-size:10px; width:120px;" class="inputbox">
-              <option value="0">Select Theme</option>
+              <option value="0"><?php _e( 'Select Theme', 'sp_calendar' ); ?></option>
               <?php
               $sp_theme = count($all_themes);
               for ($i = 0; $i < $sp_theme; $i++) {
@@ -125,23 +125,23 @@ class spider_calendar extends WP_Widget {
           </td>
         </tr>
         <tr>
-          <td class="key"><label for="<?php echo $this->get_field_id('default_view'); ?>">Default View:</label></td>
+          <td class="key"><label for="<?php echo $this->get_field_id('default_view'); ?>"><?php _e( 'Default View', 'sp_calendar' ); ?>:</label></td>
           <td>
             <select id="<?php echo $this->get_field_id('default_view'); ?>" name="<?php echo $this->get_field_name('default_view'); ?>" style="font-size:10px; width:120px;">
-              <option value="month" <?php if ($instance['default_view'] == 'month') echo 'selected="selected"'; ?>>Month</option>
-              <option value="list" <?php if ($instance['default_view'] == 'list') echo 'selected="selected"'; ?>>List</option>
-              <option value="week" <?php if ($instance['default_view'] == 'week') echo 'selected="selected"'; ?>>Week</option>
-              <option value="day" <?php if ($instance['default_view'] == 'day') echo 'selected="selected"'; ?>>Day</option>
+              <option value="month" <?php if ($instance['default_view'] == 'month') echo 'selected="selected"'; ?>><?php _e( 'Month', 'sp_calendar' ); ?></option>
+              <option value="list" <?php if ($instance['default_view'] == 'list') echo 'selected="selected"'; ?>><?php _e( 'List', 'sp_calendar' ); ?></option>
+              <option value="week" <?php if ($instance['default_view'] == 'week') echo 'selected="selected"'; ?>><?php _e( 'Week', 'sp_calendar' ); ?></option>
+              <option value="day" <?php if ($instance['default_view'] == 'day') echo 'selected="selected"'; ?>><?php _e( 'Day', 'sp_calendar' ); ?></option>
             </select>
           </td>
         </tr>
         <tr>
-          <td class="key"><label for="<?php echo $this->get_field_id('view_0'); ?>">Select Views:</label></td>
+          <td class="key"><label for="<?php echo $this->get_field_id('view_0'); ?>"><?php _e( 'Select Views', 'sp_calendar' ); ?>:</label></td>
           <td>
-            <input type="checkbox" id="<?php echo $this->get_field_id('view_0'); ?>" name="<?php echo $this->get_field_name('view_0'); ?>" <?php if ($instance['view_0'] == 'month') echo 'checked="checked"'; ?> value="month" style="width:30px;">Month
-            <input type="checkbox" id="<?php echo $this->get_field_id('view_1'); ?>" name="<?php echo $this->get_field_name('view_1'); ?>" <?php if ($instance['view_1'] == 'list') echo 'checked="checked"'; ?> value="list" style="width:30px;">List
-            <input type="checkbox" id="<?php echo $this->get_field_id('view_2'); ?>" name="<?php echo $this->get_field_name('view_2'); ?>" <?php if ($instance['view_2'] == 'week') echo 'checked="checked"'; ?> value="week" style="width:30px;">Week
-            <input type="checkbox" id="<?php echo $this->get_field_id('view_3'); ?>" name="<?php echo $this->get_field_name('view_3'); ?>" <?php if ($instance['view_3'] == 'day') echo 'checked="checked"'; ?> value="day" style="width:30px;">Day
+            <input type="checkbox" id="<?php echo $this->get_field_id('view_0'); ?>" name="<?php echo $this->get_field_name('view_0'); ?>" <?php if ($instance['view_0'] == 'month') echo 'checked="checked"'; ?> value="month" style="width:30px;"><?php _e( 'Month', 'sp_calendar' ); ?>
+            <input type="checkbox" id="<?php echo $this->get_field_id('view_1'); ?>" name="<?php echo $this->get_field_name('view_1'); ?>" <?php if ($instance['view_1'] == 'list') echo 'checked="checked"'; ?> value="list" style="width:30px;"><?php _e( 'List', 'sp_calendar' ); ?>
+            <input type="checkbox" id="<?php echo $this->get_field_id('view_2'); ?>" name="<?php echo $this->get_field_name('view_2'); ?>" <?php if ($instance['view_2'] == 'week') echo 'checked="checked"'; ?> value="week" style="width:30px;"><?php _e( 'Week', 'sp_calendar' ); ?>
+            <input type="checkbox" id="<?php echo $this->get_field_id('view_3'); ?>" name="<?php echo $this->get_field_name('view_3'); ?>" <?php if ($instance['view_3'] == 'day') echo 'checked="checked"'; ?> value="day" style="width:30px;"><?php _e( 'Day', 'sp_calendar' ); ?>
           </td>
         </tr>
       </tbody>

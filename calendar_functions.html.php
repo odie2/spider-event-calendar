@@ -417,7 +417,7 @@ function html_edit_spider_calendar($row) {
     </tr>
     <tr>
       <td width="100%"><h2><?php echo sprintf( __( 'Calendar - %s', 'sp_calendar' ), $row->title ); ?></h2></td>
-      <td align="right"><input type="button" onClick="submitbutton('Save')" value="<?php _e( 'Save', 'sp_calendar' ); ?>" class="button-secondary action"></td>
+      <td align="right"><input type="button" onClick="submitbutton('Save')" value="<?php _e( 'Save' ); ?>" class="button-secondary action"></td>
       <td align="right"><input type="button" onClick="submitbutton('Apply')" value="<?php _e( 'Apply' ); ?>" class="button-secondary action"></td>
       <td align="right"><input type="button" onClick="window.location.href='admin.php?page=SpiderCalendar'" value="<?php _e( 'Cancel' ); ?>" class="button-secondary action"></td>
     </tr>
@@ -1323,7 +1323,7 @@ function html_add_spider_event($calendar_id, $cal_name) {
       return;
     }
     if (form.date.value.search(/^[0-9]{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])/)) {
-      alert('Invalid Date');
+      alert('<?php _e( 'Invalid Date', 'sp_calendar' ); ?>');
     }
     else if (form.selhour_from.value == "" && form.selminute_from.value == "" && form.selhour_to.value == "" && form.selminute_to.value == "") {
       submitform(pressbutton);
@@ -1336,7 +1336,7 @@ function html_add_spider_event($calendar_id, $cal_name) {
     }
 
     else {
-      alert('Invalid Time');
+      alert('<?php _e( 'Invalid Time', 'sp_calendar' ); ?>');
     }
   }
   
@@ -1631,15 +1631,15 @@ ON " . $wpdb->prefix . "spidercalendar_event.category=" . $wpdb->prefix . "spide
                   <td class="key"><label for="selhour_from"><?php _e( 'Time', 'sp_calendar' ); ?>: </label></td>
                   <?php if ($calendar->time_format == 1) { ?>
                   <td>
-                    <input type="text" id="selhour_from" name="selhour_from" size="1" style="text-align:right" onKeyPress="return check12hour('selhour_from',event)" value="" title="from"/> <b>:</b>
-                    <input type="text" id="selminute_from" name="selminute_from" size="1" style="text-align:right" onKeyPress="return checkminute('selminute_from',event)" value="" onBlur="add_0('selminute_from')" title="from"/>
+                    <input type="text" id="selhour_from" name="selhour_from" size="1" style="text-align:right" onKeyPress="return check12hour('selhour_from',event)" value="" title="<?php _e( 'From', 'sp_calendar' ); ?>"/> <b>:</b>
+                    <input type="text" id="selminute_from" name="selminute_from" size="1" style="text-align:right" onKeyPress="return checkminute('selminute_from',event)" value="" onBlur="add_0('selminute_from')" title="<?php _e( 'From', 'sp_calendar' ); ?>"/>
                     <select id="select_from" name="select_from">
                       <option selected="selected"><?php _e( 'AM', 'sp_calendar' ); ?></option>
                       <option><?php _e( 'PM', 'sp_calendar' ); ?></option>
                     </select>
                     <span style="font-size:12px">&nbsp;-&nbsp;</span>
-                    <input type="text" id="selhour_to" name="selhour_to" size="1" style="text-align:right" onKeyPress="return check12hour('selhour_to',event)" value="" title="to"/> <b>:</b>
-                    <input type="text" id="selminute_to" name="selminute_to" size="1" style="text-align:right" onKeyPress="return checkminute('selminute_to',event)" value="" onBlur="add_0('selminute_to')" title="to"/>
+                    <input type="text" id="selhour_to" name="selhour_to" size="1" style="text-align:right" onKeyPress="return check12hour('selhour_to',event)" value="" title="<?php _e( 'To', 'sp_calendar' ); ?>"/> <b>:</b>
+                    <input type="text" id="selminute_to" name="selminute_to" size="1" style="text-align:right" onKeyPress="return checkminute('selminute_to',event)" value="" onBlur="add_0('selminute_to')" title="<?php _e( 'To', 'sp_calendar' ); ?>"/>
                     <select id="select_to" name="select_to">
                       <option><?php _e( 'AM', 'sp_calendar' ); ?></option>
                       <option><?php _e( 'PM', 'sp_calendar' ); ?></option>
@@ -1647,16 +1647,16 @@ ON " . $wpdb->prefix . "spidercalendar_event.category=" . $wpdb->prefix . "spide
                   </td>
                   <?php } if ($calendar->time_format == 0) { ?>
                   <td>
-                    <input type="text" id="selhour_from" name="selhour_from" size="1" style="text-align:right" onKeyPress="return checkhour('selhour_from',event)" value="" title="from" onBlur="add_0('selhour_from')"/> <b>:</b>
-                    <input type="text" id="selminute_from" name="selminute_from" size="1" style="text-align:right" onKeyPress="return checkminute('selminute_from',event)" value="" title="from" onBlur="add_0('selminute_from')"/>
+                    <input type="text" id="selhour_from" name="selhour_from" size="1" style="text-align:right" onKeyPress="return checkhour('selhour_from',event)" value="" title="<?php _e( 'From', 'sp_calendar' ); ?>" onBlur="add_0('selhour_from')"/> <b>:</b>
+                    <input type="text" id="selminute_from" name="selminute_from" size="1" style="text-align:right" onKeyPress="return checkminute('selminute_from',event)" value="" title="<?php _e( 'From', 'sp_calendar' ); ?>" onBlur="add_0('selminute_from')"/>
                     <span style="font-size:12px">&nbsp;-&nbsp;</span>
-                    <input type="text" id="selhour_to" name="selhour_to" size="1" style="text-align:right" onKeyPress="return checkhour('selhour_to',event)" value="" title="to" onBlur="add_0('selhour_to')"/> <b>:</b>
-                    <input type="text" id="selminute_to" name="selminute_to" size="1" style="text-align:right" onKeyPress="return checkminute('selminute_to',event)" value="" title="to" onBlur="add_0('selminute_to')"/>
+                    <input type="text" id="selhour_to" name="selhour_to" size="1" style="text-align:right" onKeyPress="return checkhour('selhour_to',event)" value="" title="<?php _e( 'To', 'sp_calendar' ); ?>" onBlur="add_0('selhour_to')"/> <b>:</b>
+                    <input type="text" id="selminute_to" name="selminute_to" size="1" style="text-align:right" onKeyPress="return checkminute('selminute_to',event)" value="" title="<?php _e( 'To', 'sp_calendar' ); ?>" onBlur="add_0('selminute_to')"/>
                   </td>
                   <?php }?>
                 </tr>
                 <tr>
-                  <td class="key"><label for="poststuff">Note: </label></td>
+                  <td class="key"><label for="poststuff"><?php _e( 'Note', 'sp_calendar' ); ?>: </label></td>
                   <td>
                     <div id="poststuff" style="width:100% !important;">  
 					  <?php if(version_compare(get_bloginfo('version'),3.3)<0) {?>
@@ -1746,11 +1746,11 @@ ON " . $wpdb->prefix . "spidercalendar_event.category=" . $wpdb->prefix . "spide
                       <input type="text" onKeyPress="return checknumber(month)" name="month" size="3" id="month"/><br/>
                       <input type="radio" id="radio2" onChange="radio_month()" name="month_type" value="2"/><?php _e( 'on the', 'sp_calendar' ); ?>: 
                       <select name="monthly_list" id="monthly_list" class="inputbox">
-                        <option value="1">First</option>
-                        <option value="8">Second</option>
-                        <option value="15">Third</option>
-                        <option value="22">Fourth</option>
-                        <option value="last">Last</option>
+                        <option value="1"><?php _e( 'First', 'sp_calendar' ); ?></option>
+                        <option value="8"><?php _e( 'Second', 'sp_calendar' ); ?></option>
+                        <option value="15"><?php _e( 'Third', 'sp_calendar' ); ?></option>
+                        <option value="22"><?php _e( 'Fourth', 'sp_calendar' ); ?></option>
+                        <option value="last"><?php _e( 'Last', 'sp_calendar' ); ?></option>
                       </select>
                       <select name="month_week" id="month_week" class="inputbox">
                         <option value="Mon"><?php _e( 'Monday' ); ?></option>
@@ -2118,45 +2118,45 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
                     ?>
                     <?php if ($calendar->time_format == 0) { ?>
                     <input type="text" id="selhour_from" name="selhour_from" size="1" style="text-align:right"
-                           onkeypress="return checkhour('selhour_from',event)" value="<?php echo $from[0]; ?>" title="from"
+                           onkeypress="return checkhour('selhour_from',event)" value="<?php echo $from[0]; ?>" title="<?php _e( 'From', 'sp_calendar' ); ?>"
                            onblur="add_0('selhour_from')"/> <b>:</b>
                     <input type="text" id="selminute_from" name="selminute_from" size="1" style="text-align:right"
                            onkeypress="return checkminute('selminute_from',event)" value="<?php echo substr($from[1], 0, 2); ?>"
-                           title="from" onBlur="add_0('selminute_from')"/> <span style="font-size:12px">&nbsp;-&nbsp;</span>
+                           title="<?php _e( 'From', 'sp_calendar' ); ?>" onBlur="add_0('selminute_from')"/> <span style="font-size:12px">&nbsp;-&nbsp;</span>
                     <input type="text" id="selhour_to" name="selhour_to" size="1" style="text-align:right"
-                           onkeypress="return checkhour('selhour_to',event)" value="<?php echo $to[0]; ?>" title="to"
+                           onkeypress="return checkhour('selhour_to',event)" value="<?php echo $to[0]; ?>" title="<?php _e( 'To', 'sp_calendar' ); ?>"
                            onblur="add_0('selhour_to')"/> <b>:</b>
                     <input type="text" id="selminute_to" name="selminute_to" size="1" style="text-align:right"
                            onkeypress="return checkminute('selminute_to',event)" value="<?php echo substr($to[1], 0, 2); ?>"
-                           title="to" onBlur="add_0('selminute_to')"/>
+                           title="<?php _e( 'To', 'sp_calendar' ); ?>" onBlur="add_0('selminute_to')"/>
                     <?php } 
 					if ($calendar->time_format == 1) { ?>
                     <input type="text" id="selhour_from" name="selhour_from" size="1" style="text-align:right"
-                           onkeypress="return check12hour('selhour_from',event)" value="<?php echo $from[0]; ?>" title="from"
+                           onkeypress="return check12hour('selhour_from',event)" value="<?php echo $from[0]; ?>" title="<?php _e( 'From', 'sp_calendar' ); ?>"
                            onblur="add_0('selhour_from')"/> <b>:</b>
                     <input type="text" id="selminute_from" name="selminute_from" size="1" style="text-align:right"
                            onkeypress="return checkminute('selminute_from',event)" value="<?php echo substr($from[1], 0, 2); ?>"
                            title="from" onBlur="add_0('selminute_from')"/>
                     <select id="select_from" name="select_from">
-                      <option <?php if (substr($from[1], 2, 2) == "AM")
+                      <option <?php if ( false !== strpos( substr( $from[1], 0, strpos( $from[1], '-' ) ), __( 'AM', 'sp_calendar' ) ) )
                         echo 'selected="selected"'; ?>><?php _e( 'AM', 'sp_calendar' ); ?>
                       </option>
-                      <option <?php if (substr($from[1], 2, 2) == "PM")
+                      <option <?php if ( false !== strpos( substr( $from[1], strpos( $from[1], '-' ) +1 ), __( 'PM', 'sp_calendar' ) ) )
                         echo 'selected="selected"'; ?>><?php _e( 'PM', 'sp_calendar' ); ?>
                       </option>
                     </select>
                     <span style="font-size:12px">&nbsp;-&nbsp;</span>
                     <input type="text" id="selhour_to" name="selhour_to" size="1" style="text-align:right"
-                           onkeypress="return check12hour('selhour_to',event)" value="<?php echo $to[0]; ?>" title="to"
+                           onkeypress="return check12hour('selhour_to',event)" value="<?php echo $to[0]; ?>" title="<?php _e( 'To', 'sp_calendar' ); ?>"
                            onblur="add_0('selhour_to')"/> <b>:</b>
                     <input type="text" id="selminute_to" name="selminute_to" size="1" style="text-align:right"
                            onkeypress="return checkminute('selminute_to',event)" value="<?php echo substr($to[1], 0, 2); ?>"
-                           title="to" onBlur="add_0('selminute_to')"/>
+                           title="<?php _e( 'To', 'sp_calendar' ); ?>" onBlur="add_0('selminute_to')"/>
                     <select id="select_to" name="select_to">
-                      <option <?php if (substr($to[1], 2, 2) == "AM")
+                      <option <?php if ( false !== strpos( substr( $to[1], 0, strpos( $to[1], '-' ) ), __( 'AM', 'sp_calendar' ) ) )
                         echo 'selected="selected"'; ?>><?php _e( 'AM', 'sp_calendar' ); ?>
                       </option>
-                      <option <?php if (substr($to[1], 2, 2) == "PM")
+                      <option <?php if ( false !== strpos( substr( $to[1], strpos( $to[1], '-' ) +1 ), __( 'PM', 'sp_calendar' ) ) )
                         echo 'selected="selected"';  ?>><?php _e( 'PM', 'sp_calendar' ); ?>
                       </option>
                     </select>
@@ -2253,13 +2253,13 @@ function html_edit_spider_event($row, $calendar_id, $id, $cal_name) {
                     </div>
                     <br/>
                     <div class="key" id="weekly" style="display:<?php if ($row->repeat_method != 'weekly') echo 'none'; ?>">
-                      <input type="checkbox" value="Mon" id="week_1" onChange="week_value()" <?php if (in_array('Mon', explode(',', $row->week))) echo 'checked="checked"' ?>   /><?php _e( 'Mo', 'sp_calendar' ); ?>
-                      <input type="checkbox" value="Tue" id="week_2" onChange="week_value()" <?php if (in_array('Tue', explode(',', $row->week))) echo 'checked="checked"' ?>   /><?php _e( 'Tu', 'sp_calendar' ); ?>
-                      <input type="checkbox" value="Wed" id="week_3" onChange="week_value()" <?php if (in_array('Wed', explode(',', $row->week))) echo 'checked="checked"' ?> /><?php _e( 'We', 'sp_calendar' ); ?>
-                      <input type="checkbox" value="Thu" id="week_4" onChange="week_value()" <?php if (in_array('Thu', explode(',', $row->week))) echo 'checked="checked"' ?>  /><?php _e( 'Th', 'sp_calendar' ); ?>
-                      <input type="checkbox" value="Fri" id="week_5" onChange="week_value()" <?php if (in_array('Fri', explode(',', $row->week))) echo 'checked="checked"' ?> /><?php _e( 'Fr', 'sp_calendar' ); ?>
-                      <input type="checkbox" value="Sat" id="week_6" onChange="week_value()" <?php if (in_array('Sat', explode(',', $row->week))) echo 'checked="checked"' ?>  /><?php _e( 'Sa', 'sp_calendar' ); ?>
-                      <input type="checkbox" value="Sun" id="week_7" onChange="week_value()" <?php if (in_array('Sun', explode(',', $row->week))) echo 'checked="checked"' ?> /><?php _e( 'Su', 'sp_calendar' ); ?>
+                      <input type="checkbox" value="Mon" id="week_1" onChange="week_value()" <?php if (in_array('Mon', explode(',', $row->week))) echo 'checked="checked"' ?>   /><?php _e( 'Mon' ); ?>
+                      <input type="checkbox" value="Tue" id="week_2" onChange="week_value()" <?php if (in_array('Tue', explode(',', $row->week))) echo 'checked="checked"' ?>   /><?php _e( 'Tue' ); ?>
+                      <input type="checkbox" value="Wed" id="week_3" onChange="week_value()" <?php if (in_array('Wed', explode(',', $row->week))) echo 'checked="checked"' ?> /><?php _e( 'Wed' ); ?>
+                      <input type="checkbox" value="Thu" id="week_4" onChange="week_value()" <?php if (in_array('Thu', explode(',', $row->week))) echo 'checked="checked"' ?>  /><?php _e( 'Thu' ); ?>
+                      <input type="checkbox" value="Fri" id="week_5" onChange="week_value()" <?php if (in_array('Fri', explode(',', $row->week))) echo 'checked="checked"' ?> /><?php _e( 'Fri' ); ?>
+                      <input type="checkbox" value="Sat" id="week_6" onChange="week_value()" <?php if (in_array('Sat', explode(',', $row->week))) echo 'checked="checked"' ?>  /><?php _e( 'Sat' ); ?>
+                      <input type="checkbox" value="Sun" id="week_7" onChange="week_value()" <?php if (in_array('Sun', explode(',', $row->week))) echo 'checked="checked"' ?> /><?php _e( 'Sun' ); ?>
                       <input type="hidden" name="week" id="week" value="<?php echo $row->week ?>"/>
                     </div>
                     <br/>

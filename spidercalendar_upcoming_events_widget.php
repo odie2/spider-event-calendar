@@ -24,7 +24,7 @@ class upcoming_events extends WP_Widget {
       'description' => ''
     );
     $control_ops = array('id_base' => 'upcoming_events'); // Widget Control Settings.
-    $this->WP_Widget('upcoming_events', 'Upcoming Events', $widget_ops, $control_ops); // Create the widget.
+    $this->WP_Widget('upcoming_events', __( 'Upcoming Events', 'sp_calendar' ), $widget_ops, $control_ops); // Create the widget.
   }
 
   // Extract Args //
@@ -229,25 +229,25 @@ function week_number_recent($x) {
 
  {
   if ($x == 'Mon') {
-    return __('Monday', 'sp_calendar');
+    return __( 'Monday' );
   }
   elseif ($x == 'Tue') {
-    return __('Tuesday', 'sp_calendar');
+    return __( 'Tuesday' );
   }
   elseif ($x == 'Wed') {
-    return __('Wednesday', 'sp_calendar');
+    return __( 'Wednesday' );
   }
   elseif ($x == 'Thu') {
-    return __('Thursday', 'sp_calendar');
+    return __( 'Thursday' );
   }
   elseif ($x == 'Fri') {
-    return __('Friday', 'sp_calendar');
+    return __( 'Friday' );
   }
   elseif ($x == 'Sat') {
-    return __('Saturday', 'sp_calendar');
+    return __( 'Saturday' );
   }
   elseif ($x == 'Sun') {
-    return __('Sunday', 'sp_calendar');
+    return __( 'Sunday' );
   }
 }
 
@@ -2052,7 +2052,7 @@ $ev++;
 	 </style>
     <p>
 	
-      <label for="<?php echo $this->get_field_id('title'); ?>">Title:</label>
+      <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e( 'Title' ); ?>:</label>
       <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>'" type="text" value="<?php echo $instance['title']; ?>"/>
     </p>
 	<span id="list"></span>
@@ -2062,12 +2062,12 @@ $ev++;
         <tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('calendar'); ?>" class="hasTip">Select Calendar:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('calendar'); ?>" class="hasTip"><?php _e( 'Select Calendar', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
             <select name="<?php echo $this->get_field_name('calendar'); ?>" id="<?php echo $this->get_field_id('calendar'); ?>" style="font-size:10px;width:120px;" class="inputbox" onchange="selectcal(this)">
-              <option value="0">Select Calendar</option>
+              <option value="0"><?php _e( 'Select Calendar', 'sp_calendar' ); ?></option>
               <?php
               $sp_calendar = count($all_clendars);
               for ($i = 0; $i < $sp_calendar; $i++) {
@@ -2082,12 +2082,12 @@ $ev++;
 		<tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('theme'); ?>" class="hasTip">Select Theme:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('theme'); ?>" class="hasTip"><?php _e( 'Select Theme', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
             <select name="<?php echo $this->get_field_name('theme'); ?>" id="<?php echo $this->get_field_id('theme'); ?>" style="font-size:10px; width:120px;" class="inputbox">
-              <option value="0">Select Theme</option>
+              <option value="0"><?php _e( 'Select Theme', 'sp_calendar' ); ?></option>
               <?php
               $sp_theme = count($all_themes);
               for ($i = 0; $i < $sp_theme; $i++) {
@@ -2102,21 +2102,21 @@ $ev++;
         <tr>
           <td style="width:120px" class="paramlist_view">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('view_type'); ?>" class="hasTip">Events to display:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('view_type'); ?>" class="hasTip"><?php _e( 'Events to display', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value" id="<?php echo $this->get_field_id('view_type'); ?>">
 				<label style="font-size:10px;" for="show0"><input type="radio" name="<?php echo $this->get_field_name('view_type'); ?>" value="0" <?php if ($instance['view_type'] == '0') echo 'checked="checked"'; ?> id="show0" onchange="show_(0)"/>
-				Starting From Current Date</label><br>
+				<?php _e( 'Starting From Current Date', 'sp_calendar' ); ?></label><br>
 				<label style="font-size:10px;" for="show1"><input type="radio" name="<?php echo $this->get_field_name('view_type'); ?>" value="1" <?php if ($instance['view_type'] == '1') echo 'checked="checked"'; ?> id="show1" onchange="show_(1)"/>
-				Events In Date Interval </label><br>
+				<?php _e( 'Events In Date Interval', 'sp_calendar' ); ?></label><br>
 				<label style="font-size:10px;" for="show2"><input type="radio" name="<?php echo $this->get_field_name('view_type'); ?>" value="2" <?php if ($instance['view_type'] == '2') echo 'checked="checked"'; ?> id="show2" onchange="show_(2)"/>
-				Selected Events</label>
+				<?php _e( 'Selected Events', 'sp_calendar' ); ?></label>
           </td>
         </tr>
 		<tr class="event_qauntity1" >
 			<td class="paramlist_quality">
-				<label style="font-size:10px" for="<?php echo $this->get_field_id('event_qauntity1'); ?>">Events Quantity:</label>
+				<label style="font-size:10px" for="<?php echo $this->get_field_id('event_qauntity1'); ?>"><?php _e( 'Events Quantity', 'sp_calendar' ); ?>:</label>
 			</td>
 			<td>
 				<input class="widefat" id="<?php echo $this->get_field_id('event_qauntity1'); ?>" name="<?php echo $this->get_field_name('event_qauntity1'); ?>'" type="text" value="<?php echo $instance['event_qauntity1']; ?>"/>
@@ -2125,19 +2125,19 @@ $ev++;
 		
 		<tr class="starting" id="<?php echo $this->get_field_id('starting'); ?>">
 			<td class="paramlist_quality">
-				<label style="font-size:10px" for="<?php echo $this->get_field_id('starting'); ?>">Starting From:</label>
+				<label style="font-size:10px" for="<?php echo $this->get_field_id('starting'); ?>"><?php _e( 'Starting From', 'sp_calendar' ); ?>:</label>
 			</td>
 			<td>
 				<label for="current" style="font-size:10px"><input type="radio" name="<?php echo $this->get_field_name('starting'); ?>" value="0" <?php if ($instance['starting'] == '0') echo 'checked="checked"'; ?> onchange="showd_(0)" id="current" />
-				Current Date</label><br>
+				<?php _e( 'Current Date', 'sp_calendar' ); ?></label><br>
 				<label for="starting" style="font-size:10px"><input type="radio" name="<?php echo $this->get_field_name('starting'); ?>" value="1" <?php if ($instance['starting'] == '1') echo 'checked="checked"';  ?> onchange="showd_(1)" id="starting" />
-				Start Date</label> 
+				<?php _e( 'Start Date', 'sp_calendar' ); ?></label> 
 			</td>
 		</tr>
 		
 		<tr class="start_date" style="display:none">
 			<td class="paramlist_quality">
-				<label style="font-size:10px" for="<?php echo $this->get_field_id('start_date'); ?>">Select Start Date:</label>
+				<label style="font-size:10px" for="<?php echo $this->get_field_id('start_date'); ?>"><?php _e( 'Select Start Date', 'sp_calendar' ); ?>:</label>
 			</td>
 			<td>
 				<input style="width:85px" class="inputbox" type="text" name="<?php echo $this->get_field_name('start_date'); ?>'" id="<?php echo $this->get_field_id('start_date'); ?>" size="10" maxlength="10" value="<?php echo $instance['start_date']; ?>"/>
@@ -2148,7 +2148,7 @@ $ev++;
 		
 		<tr class="follow_quality1">
 			<td class="paramlist_quality">
-				<label style="font-size:10px" for="<?php echo $this->get_field_id('follow_quality1'); ?>">Following Days Quantity:</label>
+				<label style="font-size:10px" for="<?php echo $this->get_field_id('follow_quality1'); ?>"><?php _e( 'Following Days Quantity', 'sp_calendar' ); ?>:</label>
 			</td>
 			<td>
 				<input class="widefat" id="<?php echo $this->get_field_id('follow_quality1'); ?>" name="<?php echo $this->get_field_name('follow_quality1'); ?>'" type="text" value="<?php echo $instance['follow_quality1']; ?>"/>
@@ -2157,7 +2157,7 @@ $ev++;
 		
 		<tr class="follow_quality3">
 			<td class="paramlist_quality">
-				<label style="font-size:10px" for="<?php echo $this->get_field_id('follow_quality3'); ?>">Following Days Quantity:</label>
+				<label style="font-size:10px" for="<?php echo $this->get_field_id('follow_quality3'); ?>"><?php _e( 'Following Days Quantity', 'sp_calendar' ); ?>:</label>
 			</td>
 			<td>
 				<input class="widefat" id="<?php echo $this->get_field_id('follow_quality3'); ?>" name="<?php echo $this->get_field_name('follow_quality3'); ?>'" type="text" value="<?php echo $instance['follow_quality3']; ?>"/>
@@ -2166,7 +2166,7 @@ $ev++;
 		
 		<tr class="event_qauntity2">
 			<td class="paramlist_quality">
-				<label style="font-size:10px" for="<?php echo $this->get_field_id('event_qauntity2'); ?>">Events Quantity:</label>
+				<label style="font-size:10px" for="<?php echo $this->get_field_id('event_qauntity2'); ?>"><?php _e( 'Events Quantity', 'sp_calendar' ); ?>:</label>
 			</td>
 			<td>
 				<input class="widefat" id="<?php echo $this->get_field_id('event_qauntity2'); ?>" name="<?php echo $this->get_field_name('event_qauntity2'); ?>'" type="text" value="<?php echo $instance['event_qauntity2']; ?>"/>
@@ -2175,7 +2175,7 @@ $ev++;
 		
 		<tr class="event_qauntity22">
 			<td class="paramlist_quality">
-				<label style="font-size:10px" for="<?php echo $this->get_field_id('event_qauntity22'); ?>">Events Quantity:</label>
+				<label style="font-size:10px" for="<?php echo $this->get_field_id('event_qauntity22'); ?>"><?php _e( 'Events Quantity', 'sp_calendar' ); ?>:</label>
 			</td>
 			<td>
 				<input class="widefat" id="<?php echo $this->get_field_id('event_qauntity22'); ?>" name="<?php echo $this->get_field_name('event_qauntity22'); ?>'" type="text" value="<?php echo $instance['event_qauntity22']; ?>"/>
@@ -2184,31 +2184,31 @@ $ev++;
 		
 		<tr class="ordering">
 			<td class="paramlist_quality">
-				<label style="font-size:10px" for="<?php echo $this->get_field_id('ordering'); ?>">Ordering:</label>
+				<label style="font-size:10px" for="<?php echo $this->get_field_id('ordering'); ?>"><?php _e( 'Ordering', 'sp_calendar' ); ?>:</label>
 			</td>
 			<td>
 				<label for="ord" style="font-size:10px"><input type="radio" name="<?php echo $this->get_field_name('ordering'); ?>" value="0" <?php if ($instance['ordering'] == '0') echo 'checked="checked"'; ?> id="ord" >
-				Ordering</label>
+				<?php _e( 'Ordering', 'sp_calendar' ); ?></label>
 				<label for="rand" style="font-size:10px"><input type="radio" name="<?php echo $this->get_field_name('ordering'); ?>" value="1" <?php if ($instance['ordering'] == '1') echo 'checked="checked"';?> id="rand">
-				Random</label> 
+				<?php _e( 'Random', 'sp_calendar' ); ?></label> 
 			</td>
 		</tr>
 		
 		<tr class="ordering1">
 			<td class="paramlist_quality">
-				<label style="font-size:10px" for="<?php echo $this->get_field_id('ordering1'); ?>">Ordering:</label>
+				<label style="font-size:10px" for="<?php echo $this->get_field_id('ordering1'); ?>"><?php _e( 'Ordering', 'sp_calendar' ); ?>:</label>
 			</td>
 			<td>
 				<input type="radio" name="<?php echo $this->get_field_name('ordering1'); ?>" value="0" <?php if ($instance['ordering1'] == '0') echo 'checked="checked"'; ?>  id="ord" >
-				<label for="showd0" style="font-size:10px">Ordering</label>
+				<label for="showd0" style="font-size:10px"><?php _e( 'Ordering', 'sp_calendar' ); ?></label>
 				<input type="radio" name="<?php echo $this->get_field_name('ordering1'); ?>" value="1" <?php if ($instance['ordering1'] == '1') echo 'checked="checked"';?> id="rand">
-				<label for="showd1" style="font-size:10px">Random</label> 
+				<label for="showd1" style="font-size:10px"><?php _e( 'Random', 'sp_calendar' ); ?></label> 
 			</td>
 		</tr>
 	
 		<tr class="follow_quality2">
 			<td class="paramlist_quality">
-				<label style="font-size:10px" for="<?php echo $this->get_field_id('follow_quality2'); ?>">Following Days Quantity:</label>
+				<label style="font-size:10px" for="<?php echo $this->get_field_id('follow_quality2'); ?>"><?php _e( 'Following Days Quantity', 'sp_calendar' ); ?>:</label>
 			</td>
 			<td>
 				<input class="widefat" id="<?php echo $this->get_field_id('follow_quality2'); ?>" name="<?php echo $this->get_field_name('follow_quality2'); ?>'" type="text" value="<?php echo $instance['follow_quality2']; ?>"/>
@@ -2217,7 +2217,7 @@ $ev++;
 		
 		<tr class="event_qauntity3">
 			<td class="paramlist_quality">
-				<label style="font-size:10px" for="<?php echo $this->get_field_id('event_qauntity3'); ?>">Events Quantity:</label>
+				<label style="font-size:10px" for="<?php echo $this->get_field_id('event_qauntity3'); ?>"><?php _e( 'Events Quantity', 'sp_calendar' ); ?>:</label>
 			</td>
 			<td>
 				<input class="widefat" id="<?php echo $this->get_field_id('event_qauntity3'); ?>" name="<?php echo $this->get_field_name('event_qauntity3'); ?>'" type="text" value="<?php echo $instance['event_qauntity3']; ?>"/>
@@ -2226,7 +2226,7 @@ $ev++;
 		
 		<tr class="follow_quality">
 			<td class="paramlist_quality">
-				<label style="font-size:10px" for="<?php echo $this->get_field_id('follow_quality'); ?>">Select Events From List:</label>
+				<label style="font-size:10px" for="<?php echo $this->get_field_id('follow_quality'); ?>"><?php _e( 'Select Events From List', 'sp_calendar' ); ?>:</label>
 			</td>
 			<td>
             <?php global $sonan; ?>
@@ -2242,7 +2242,7 @@ $ev++;
 		
 		<tr class="event_qauntity3">
 			<td class="paramlist_quality">
-				<label style="font-size:10px" for="<?php echo $this->get_field_id('event_qauntity3'); ?>">Events Quantity:</label>
+				<label style="font-size:10px" for="<?php echo $this->get_field_id('event_qauntity3'); ?>"><?php _e( 'Events Quantity', 'sp_calendar' ); ?>:</label>
 			</td>
 			<td>
 				<table id="art_table_meta" width="100%">
@@ -2278,56 +2278,56 @@ function addcal(x,y,z,f)
         <tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('event_date'); ?>" class="hasTip">Show Event Date:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('event_date'); ?>" class="hasTip"><?php _e( 'Show Event Date', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
 				<label for="event_date1" style="font-size:10px"><input type="radio" name="<?php echo $this->get_field_name('event_date'); ?>" value="1" <?php if ($instance['event_date'] == '1') echo 'checked="checked"'; ?> id="event_date1" >
-				Yes</label>
+				<?php _e( 'Yes' ); ?></label>
 				<label for="event_date2" style="font-size:10px"><input type="radio" name="<?php echo $this->get_field_name('event_date'); ?>" value="0" <?php if ($instance['event_date'] == '0') echo 'checked="checked"';?> id="event_date2">
-				No</label> 
+				<?php _e( 'No', 'sp_calendar' ); ?></label> 
           </td>
         </tr>
 	
 		<tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('repeat_rate'); ?>" class="hasTip">Show Event Repeat Rate:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('repeat_rate'); ?>" class="hasTip"><?php _e( 'Show Event Repeat Rate', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
 				<label for="repeat_rate1" style="font-size:10px"><input type="radio" name="<?php echo $this->get_field_name('repeat_rate'); ?>" value="1" <?php if ($instance['repeat_rate'] == '1') echo 'checked="checked"'; ?> id="repeat_rate1" >
-				Yes</label>
+				<?php _e( 'Yes' ); ?></label>
 				<label for="repeat_rate2" style="font-size:10px"><input type="radio" name="<?php echo $this->get_field_name('repeat_rate'); ?>" value="0" <?php if ($instance['repeat_rate'] == '0') echo 'checked="checked"';?> id="repeat_rate2">
-				No</label> 
+				<?php _e( 'No' ); ?></label> 
           </td>
         </tr>
 		
 		<tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('ev_text'); ?>" class="hasTip">Show Event Text:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('ev_text'); ?>" class="hasTip"><?php _e( 'Show Event Text', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
 				<label for="ev_text1" style="font-size:10px"><input type="radio" name="<?php echo $this->get_field_name('ev_text'); ?>" value="1" <?php if ($instance['ev_text'] == '1') echo 'checked="checked"'; ?> id="ev_text1" >
-				Yes</label>
+				<?php _e( 'Yes' ); ?></label>
 				<label for="ev_text2" style="font-size:10px"><input type="radio" name="<?php echo $this->get_field_name('ev_text'); ?>" value="0" <?php if ($instance['ev_text'] == '0') echo 'checked="checked"';?> id="ev_text2">
-				No</label> 
+				<?php _e( 'No' ); ?></label> 
           </td>
         </tr>
 		
 		<tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('numbering'); ?>" class="hasTip">Show Numbering:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('numbering'); ?>" class="hasTip"><?php _e( 'Show Numbering', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
 				<label for="numbering1" style="font-size:10px"><input type="radio" name="<?php echo $this->get_field_name('numbering'); ?>" value="1" <?php if ($instance['numbering'] == '1') echo 'checked="checked"'; ?> id="numbering1" >
-				Yes</label>
+				<?php _e( 'Yes' ); ?></label>
 				<label for="numbering2" style="font-size:10px"><input type="radio" name="<?php echo $this->get_field_name('numbering'); ?>" value="0" <?php if ($instance['numbering'] == '0') echo 'checked="checked"';?> id="numbering2">
-				No</label> 
+				<?php _e( 'No' ); ?></label> 
           </td>
 		</tr>
 		</tbody>
@@ -2340,7 +2340,7 @@ function addcal(x,y,z,f)
 	  <tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('width'); ?>" class="hasTip">Width:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('width'); ?>" class="hasTip"><?php _e( 'Width', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
@@ -2350,7 +2350,7 @@ function addcal(x,y,z,f)
         <tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('bg_color'); ?>" class="hasTip">Background Color:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('bg_color'); ?>" class="hasTip"><?php _e( 'Background Color', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
@@ -2362,7 +2362,7 @@ function addcal(x,y,z,f)
 		 <tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('title_color'); ?>" class="hasTip">Event Title Color:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('title_color'); ?>" class="hasTip"><?php _e( 'Event Title Color', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
@@ -2374,7 +2374,7 @@ function addcal(x,y,z,f)
 		<tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('title_size'); ?>" class="hasTip">Event Title Font Size:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('title_size'); ?>" class="hasTip"><?php _e( 'Event Title Font Size', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
@@ -2384,12 +2384,12 @@ function addcal(x,y,z,f)
 		<tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('title_font'); ?>" class="hasTip">Event Title Font:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('title_font'); ?>" class="hasTip"><?php _e( 'Event Title Font', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
 				<select name="<?php echo $this->get_field_name('title_font'); ?>" id="<?php echo $this->get_field_id('font'); ?>" style="font-size:10px; width:105px" class="inputbox">		 
-                    <option value="0">Select Font</option>
+                    <option value="0"><?php _e( 'Select Font', 'sp_calendar' ); ?></option>
                     <option value="Verdana" <?php if($instance['title_font']=='Verdana') echo 'selected="selected"'?>>Verdana</option>
                     <option value="Lucida" <?php if($instance['title_font']=='Lucida') echo 'selected="selected"'?>>Lucida</option>
                     <option value="Georgia" <?php if($instance['title_font']=='Georgia') echo 'selected="selected"'?>>Georgia</option>
@@ -2401,7 +2401,7 @@ function addcal(x,y,z,f)
 		<tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('date_color'); ?>" class="hasTip">Event Date Color:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('date_color'); ?>" class="hasTip"><?php _e( 'Event Date Color', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
@@ -2413,7 +2413,7 @@ function addcal(x,y,z,f)
 		<tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('date_format'); ?>" class="hasTip">Event Date Format:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('date_format'); ?>" class="hasTip"><?php _e( 'Event Date Format', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
@@ -2423,7 +2423,7 @@ function addcal(x,y,z,f)
 		<tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('repeat_color'); ?>" class="hasTip">Event Repeat Rate Color:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('repeat_color'); ?>" class="hasTip"><?php _e( 'Event Repeat Rate Color', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value" id="repeat_rate_col">
@@ -2435,7 +2435,7 @@ function addcal(x,y,z,f)
 		<tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('text_color'); ?>" class="hasTip">Event Text Color:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('text_color'); ?>" class="hasTip"><?php _e( 'Event Text Color', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">
@@ -2448,7 +2448,7 @@ function addcal(x,y,z,f)
 		<tr>
           <td style="width:120px" class="paramlist_key">
             <span class="editlinktip">
-              <label style="font-size:10px" for="<?php echo $this->get_field_id('divider_color'); ?>" class="hasTip">Divider Color:</label>
+              <label style="font-size:10px" for="<?php echo $this->get_field_id('divider_color'); ?>" class="hasTip"><?php _e( 'Divider Color', 'sp_calendar' ); ?>:</label>
             </span>
           </td>
           <td class="paramlist_value">

@@ -1,6 +1,6 @@
 <?php
 if (!current_user_can('manage_options')) {
-  die('Access Denied');
+  die(__( 'Access Denied', 'sp_calendar' ));
 }
 function html_show_theme_calendar_widget() {
   ?>
