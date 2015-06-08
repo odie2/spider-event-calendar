@@ -160,19 +160,6 @@ $theme = $wpdb->get_row($wpdb->prepare('SELECT * FROM ' . $wpdb->prefix . 'spide
   $event_num_font_size = $theme->event_num_font_size;
   $show_numbers_for_events = $theme->day_start;
 
-
-  __('January');
-  __('February');
-  __('March');
-  __('April');
-  __('May');
-  __('June');
-  __('July');
-  __('August');
-  __('September');
-  __('October');
-  __('November');
-  __('December');
   if ($cell_height == '') {
     $cell_height = 70;
   }

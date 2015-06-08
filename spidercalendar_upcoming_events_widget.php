@@ -781,7 +781,7 @@ href="' . add_query_arg(array(
                               'tbWidth' => $popup_width,
                               'tbHeight' => $popup_height
                               ), get_option( "home", get_site_url()).'/wp-admin/admin-ajax.php') . '"
- ></br><b>'. $isk++.'.'.$event_title.'</b></a></div>';
+ ></br><b>'. $isk++.'. '.$event_title.'</b></a></div>';
 
 }
 else
@@ -818,7 +818,7 @@ $activedatestr = '';
 $date_format_array = explode(' ', $date_format);
 
 for ($i = 0; $i < count($date_format_array); $i++) {
-    $activedatestr .= __(date("" . $date_format_array[$i] . "", strtotime($event_date)), 'sp_calendar') . ' ';
+    $activedatestr .= __(date("" . $date_format_array[$i] . "", strtotime($event_date))) . ' ';
   }
 
 if($show_time==1)
@@ -827,150 +827,83 @@ echo '<div id="event_date'.$id.'">'.$activedatestr.'</div>';
 
 if($show_repeat==1)
 {
-if($event_text=='')
-{if($curr_event->repeat_method=="no_repeat")
-echo '';
-else
-{
-echo '<div id="event_repeat'.$id.'" >';
-
-	if($curr_event->repeat_method=='daily')
-	echo '<div >'.__('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Day', 'sp_calendar') . '</div>';
-
-		if($curr_event->repeat_method=='weekly')
-
-		{
-
-		echo '<div >'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Week(s) on', 'sp_calendar') . '</br>';
-
-		for ($g=0;$g<count($week);$g++) 
-
-		{
-
-			if($week[$g]!=''){
-
-				if($g!=count($week)-2)
-
-					echo week_convert_recent($week[$g]).',';
-
-				else
-
-					echo week_convert_recent($week[$g]);
-
-			
-
-			}
-
-			
-
-		}
-
-		echo '</div>';
-
-		}
-
-		if($curr_event->repeat_method=='monthly' and $curr_event->month_type==1)
-
-		echo '<div>'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Month(s) on the', 'sp_calendar') . ' '.$curr_event->month.'</div>';	
-
-		if($curr_event->repeat_method=='monthly' and $curr_event->month_type==2)
-
-		echo '<div>'. __('Repeat Every', 'sp_calendar').' '.$repeat.' ' . __('Month(s) on the', 'sp_calendar') . ' '.week_number_recent($curr_event->monthly_list).' '.week_convert_recent($curr_event->month_week).'</div>';
-
-
-
-		if($curr_event->repeat_method=='yearly' and $curr_event->month_type==1)
-
-		echo '<div>'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Year(s) in', 'sp_calendar') . ' '.date('F',mktime(0,0,0,$curr_event->year_month + 1,0,0)).' '. __('on the', 'sp_calendar').' '.$curr_event->month.'</div>';	
-
-
-
-		if($curr_event->repeat_method=='yearly' and $curr_event->month_type==2)
-
-		echo '<div >'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Year(s) in', 'sp_calendar') . ' '.date('F',mktime(0,0,0,$curr_event->year_month + 1,0,0)).' '. __('on the', 'sp_calendar').' '.week_number_recent($curr_event->monthly_list).' '.week_convert_recent($curr_event->month_week).'</div>';		
-
-
-
-
-
-
-echo '</div>';	
-}
-
-}
-else
-{
 if($curr_event->repeat_method=="no_repeat")
 echo '';
 else
 {
 echo '<div id="event_repeat'.$id.'" >';
 
-	if($curr_event->repeat_method=='daily')
-	echo '<div >'.__('Repeat Every', 'sp_calendar').' '.$repeat.' ' . __('Day', 'sp_calendar') . '</div>';
+	$messages = array(
+		'text' => array(
+			'daily' => _x('Repeat every [time]', 'Example: Repeat every 2 days.', 'sp_calendar'),
+			'weekly' => _x('Repeat every [time] on: [days]', 'Example: Repeat every 2 weeks on: Monday, Tuesday.', 'sp_calendar'),
+			'monthly' => array(
+				_x('Repeat every [time] on the [custom]', 'Example: Repeat every 2 months on the [custom].', 'sp_calendar'),
+				_x('Repeat every [time] on [daytype] [days]', 'Example: Repeat every 2 months on last Friday.', 'sp_calendar'),
+			),
+			'yearly' => array(
+				_x('Repeat every [time] in [months] on the [custom]', 'Example: Repeat every 2 years in January on the [custom].', 'sp_calendar'),
+				_x('Repeat every [time] in [months] on [daytype] [days]', 'Example: Repeat every 2 years in January on last Friday.', 'sp_calendar'),
+			),
+		),
+		'time' => array(
+			'daily' => sprintf( _nx( '%s day', '%s days', $repeat, 'Used in Repeat every [x] - days', 'sp_calendar' ), $repeat ),
+			'weekly' => sprintf( _nx( '%s week', '%s weeks', $repeat, 'Used in Repeat every [x] - weeks', 'sp_calendar' ), $repeat ),
+			'monthly' => sprintf( _nx( '%s month', '%s months', $repeat, 'Used in Repeat every [x] - months', 'sp_calendar' ), $repeat ),
+			'yearly' => sprintf( _nx( '%s year', '%s years', $repeat, 'Used in Repeat every [x] - years', 'sp_calendar' ), $repeat ),
+		),
+	);
 
-		if($curr_event->repeat_method=='weekly')
+	$text = $messages['text'][$curr_event->repeat_method];
+	$time_text = $messages['time'][$curr_event->repeat_method];
+	$days_text = '';
+	$months_text = '';
+	$daytype_text = '';
+	$custom_text = '';
 
-		{
+	if ( $curr_event->repeat_method == 'monthly' || $curr_event->repeat_method == 'yearly' ) {
+		if ( $curr_event->month_type == 1 )
+			$text = $text[0];
+		elseif ( $curr_event->month_type == 2 )
+			$text = $text[1];
+	}
+          
+	if ($curr_event->repeat_method == 'weekly') {
+		$week_array = array();
 
-		echo '<div >'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Week(s) on', 'sp_calendar') . ' : ';
-
-		for ($g=0;$g<count($week);$g++) 
-
-		{
-
-			if($week[$g]!=''){
-
-				if($g!=count($week)-2)
-
-					echo week_convert_recent($week[$g]).',';
-
-				else
-
-					echo week_convert_recent($week[$g]);
-
-			
-
-			}
-
-			
-
+		$week=explode(',',$curr_event->week);
+		for ($g = 0; $g < count($week); ++$g) {
+      	if ($week[$g] != '')
+				$week_array[] = week_convert_recent($week[$g]);
 		}
+		$days_text = implode( ', ', $week_array );
+	}
+	elseif ($curr_event->repeat_method == 'monthly' and $curr_event->month_type == 1)
+		$custom_text = $curr_event->month;
+	elseif ($curr_event->repeat_method == 'monthly' and $curr_event->month_type == 2) {
+		$daytype_text = week_number_recent($curr_event->monthly_list);
+		$days_text = week_convert_recent($curr_event->month_week);
+	}
+	elseif ($curr_event->repeat_method == 'yearly' and $curr_event->month_type == 1) {
+		$months_text = __( date('F', mktime(0, 0, 0, $curr_event->year_month + 1, 0, 0)) );
+		$custom_text = $curr_event->month;
+	}
+	elseif ($curr_event->repeat_method == 'yearly' and $curr_event->month_type == 2) {
+		$months_text = __( date('F', mktime(0, 0, 0, $curr_event->year_month + 1, 0, 0)) );
+		$daytype_text = week_number_recent($curr_event->monthly_list);
+		$days_text = week_convert_recent($curr_event->month_week);
+	}
+            
+	$text = str_replace( '[time]', $time_text, $text );
+	$text = str_replace( '[days]', $days_text, $text );
+	$text = str_replace( '[months]', $months_text, $text );
+	$text = str_replace( '[daytype]', $daytype_text, $text );
+	$text = str_replace( '[custom]', $custom_text, $text );
 
-		echo '</div>';
-
-		}
-
-		if($curr_event->repeat_method=='monthly' and $curr_event->month_type==1)
-
-		echo '<div>'. __('Repeat Every', 'sp_calendar').' '.$repeat.' ' . __('Month(s) on the', 'sp_calendar') . ' '.$curr_event->month.'</div>';	
-
-
-
-		if($curr_event->repeat_method=='monthly' and $curr_event->month_type==2)
-
-		echo '<div>'. __('Repeat Every', 'sp_calendar').' '.$repeat.' ' . __('Month(s) on the', 'sp_calendar') . ' '.week_number_recent($curr_event->monthly_list).' '.week_convert_recent($curr_event->month_week).'</div>';
-
-
-
-		if($curr_event->repeat_method=='yearly' and $curr_event->month_type==1)
-
-		echo '<div>'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Year(s) in', 'sp_calendar') . ' '.date('F',mktime(0,0,0,$curr_event->year_month + 1,0,0)).' '. __('on the', 'sp_calendar').' '.$curr_event->month.'</div>';	
-
-
-
-		if($curr_event->repeat_method=='yearly' and $curr_event->month_type==2)
-
-		echo '<div >'. __('Repeat Every', 'sp_calendar').' '.$repeat.' ' . __('Year(s) in', 'sp_calendar') . ' '.date('F',mktime(0,0,0,$curr_event->year_month + 1,0,0)).' '. __('on the', 'sp_calendar').' '.week_number_recent($curr_event->monthly_list).' '.week_convert_recent($curr_event->month_week).'</div>';		
-
-
-
-
-
-
-echo '</div>';	
+	echo '<div>'. $text . '</div>';
+	echo '</div>';
 }
-}
+
 }
 if($show_eventtext==1)
 {
@@ -1367,11 +1300,11 @@ $activedatestr = '';
 $date_format_array = explode(' ', $date_format);
 
 for ($i = 0; $i < count($date_format_array); $i++) {
-    $activedatestr .= __(date("" . $date_format_array[$i] . "", strtotime($event_date)), 'sp_calendar') . ' ';
+    $activedatestr .= __(date("" . $date_format_array[$i] . "", strtotime($event_date))) . ' ';
   }
 
 if($show_time==1)
-echo '<div id="event_date'.$id.'">'.__($activedatestr, 'sp_calendar').'</div>';
+echo '<div id="event_date'.$id.'">'.__($activedatestr).'</div>';
 
 if($show_repeat==1)
 {
@@ -1382,69 +1315,74 @@ else
 {
 echo '<div id="event_repeat'.$id.'" >';
 
-	if($order_event_current_day->repeat_method=='daily')
-	echo '<div >'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Day', 'sp_calendar') . '</div>';
+	$messages = array(
+		'text' => array(
+			'daily' => _x('Repeat every [time]', 'Example: Repeat every 2 days.', 'sp_calendar'),
+			'weekly' => _x('Repeat every [time] on: [days]', 'Example: Repeat every 2 weeks on: Monday, Tuesday.', 'sp_calendar'),
+			'monthly' => array(
+				_x('Repeat every [time] on the [custom]', 'Example: Repeat every 2 months on the [custom].', 'sp_calendar'),
+				_x('Repeat every [time] on [daytype] [days]', 'Example: Repeat every 2 months on last Friday.', 'sp_calendar'),
+			),
+			'yearly' => array(
+				_x('Repeat every [time] in [months] on the [custom]', 'Example: Repeat every 2 years in January on the [custom].', 'sp_calendar'),
+				_x('Repeat every [time] in [months] on [daytype] [days]', 'Example: Repeat every 2 years in January on last Friday.', 'sp_calendar'),
+			),
+		),
+		'time' => array(
+			'daily' => sprintf( _nx( '%s day', '%s days', $repeat, 'Used in Repeat every [x] - days', 'sp_calendar' ), $repeat ),
+			'weekly' => sprintf( _nx( '%s week', '%s weeks', $repeat, 'Used in Repeat every [x] - weeks', 'sp_calendar' ), $repeat ),
+			'monthly' => sprintf( _nx( '%s month', '%s months', $repeat, 'Used in Repeat every [x] - months', 'sp_calendar' ), $repeat ),
+			'yearly' => sprintf( _nx( '%s year', '%s years', $repeat, 'Used in Repeat every [x] - years', 'sp_calendar' ), $repeat ),
+		),
+	);
+$curr_event = $order_event_current_day;
+	$text = $messages['text'][$curr_event->repeat_method];
+	$time_text = $messages['time'][$curr_event->repeat_method];
+	$days_text = '';
+	$months_text = '';
+	$daytype_text = '';
+	$custom_text = '';
 
-		if($order_event_current_day->repeat_method=='weekly')
-
-		{
-
-		echo '<div >'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Week(s) on', 'sp_calendar') . ' : ';
-
-		for ($g=0;$g<count($week);$g++) 
-
-		{
-
-			if($week[$g]!=''){
-
-				if($g!=count($week)-2)
-
-					echo week_convert_recent($week[$g]).',';
-
-				else
-
-					echo week_convert_recent($week[$g]);
-
-			
-
-			}
-
-			
-
+	if ( $curr_event->repeat_method == 'monthly' || $curr_event->repeat_method == 'yearly' ) {
+		if ( $curr_event->month_type == 1 )
+			$text = $text[0];
+		elseif ( $curr_event->month_type == 2 )
+			$text = $text[1];
+	}
+           
+	if ($curr_event->repeat_method == 'weekly') {
+		$week_array = array();
+		$week=explode(',',$curr_event->week);
+		for ($g = 0; $g < count($week); ++$g) {
+      	if ($week[$g] != '')
+				$week_array[] = week_convert_recent($week[$g]);
 		}
+		$days_text = implode( ', ', $week_array );
+	}
+	elseif ($curr_event->repeat_method == 'monthly' and $curr_event->month_type == 1)
+		$custom_text = $curr_event->month;
+	elseif ($curr_event->repeat_method == 'monthly' and $curr_event->month_type == 2) {
+		$daytype_text = week_number_recent($curr_event->monthly_list);
+		$days_text = week_convert_recent($curr_event->month_week);
+	}
+	elseif ($curr_event->repeat_method == 'yearly' and $curr_event->month_type == 1) {
+		$months_text = __( date('F', mktime(0, 0, 0, $curr_event->year_month + 1, 0, 0)) );
+		$custom_text = $curr_event->month;
+	}
+	elseif ($curr_event->repeat_method == 'yearly' and $curr_event->month_type == 2) {
+		$months_text = __( date('F', mktime(0, 0, 0, $curr_event->year_month + 1, 0, 0)) );
+		$daytype_text = week_number_recent($curr_event->monthly_list);
+		$days_text = week_convert_recent($curr_event->month_week);
+	}
+            
+	$text = str_replace( '[time]', $time_text, $text );
+	$text = str_replace( '[days]', $days_text, $text );
+	$text = str_replace( '[months]', $months_text, $text );
+	$text = str_replace( '[daytype]', $daytype_text, $text );
+	$text = str_replace( '[custom]', $custom_text, $text );
 
-		echo '</div>';
-
-		}
-
-		if($order_event_current_day->repeat_method=='monthly' and $order_event_current_day->month_type==1)
-
-		echo '<div>'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' '. __('Month(s) on the', 'sp_calendar').' '.$order_event_current_day->month.'</div>';	
-
-
-
-		if($order_event_current_day->repeat_method=='monthly' and $order_event_current_day->month_type==2)
-
-		echo '<div>'. __('Repeat Every', 'sp_calendar').' '.$repeat.' '. __('Month(s) on the', 'sp_calendar').' '.week_number_recent($order_event_current_day->monthly_list).' '.week_convert_recent($order_event_current_day->month_week).'</div>';
-
-
-
-		if($order_event_current_day->repeat_method=='yearly' and $order_event_current_day->month_type==1)
-
-		echo '<div>'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Year(s) in', 'sp_calendar') . ' '.date('F',mktime(0,0,0,$order_event_current_day->year_month + 1,0,0)).' '. __('on the', 'sp_calendar').' '.$order_event_current_day->month.'</div>';	
-
-
-
-		if($order_event_current_day->repeat_method=='yearly' and $order_event_current_day->month_type==2)
-
-		echo '<div >'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Year(s) in', 'sp_calendar') . ' '.date('F',mktime(0,0,0,$order_event_current_day->year_month + 1,0,0)).' '. __('on the', 'sp_calendar').' '.week_number_recent($order_event_current_day->monthly_list).' '.week_convert_recent($order_event_current_day->month_week).'</div>';		
-
-
-
-
-
-
-echo '</div>';	
+	echo '<div>'. $text . '</div>';
+	echo '</div>';
 }
 
 
@@ -1775,11 +1713,11 @@ $activedatestr = '';
 $date_format_array = explode(' ', $date_format);
 
 for ($i = 0; $i < count($date_format_array); $i++) {
-    $activedatestr .= __(date("" . $date_format_array[$i] . "", strtotime($event_date)), 'sp_calendar') . ' ';
+    $activedatestr .= __(date("" . $date_format_array[$i] . "", strtotime($event_date))) . ' ';
   }
 
 if($show_time==1)
-echo '<div id="event_date'.$id.'">'.__($activedatestr, 'sp_calendar').'</div>';
+echo '<div id="event_date'.$id.'">'.__($activedatestr).'</div>';
 
 if($show_repeat==1)
 {
@@ -1790,65 +1728,73 @@ else
 {
 echo '<div id="event_repeat'.$id.'" >';
 
-	if($event->repeat_method=='daily')
-	echo '<div >'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Day', 'sp_calendar') . '</div>';
+	$messages = array(
+		'text' => array(
+			'daily' => _x('Repeat every [time]', 'Example: Repeat every 2 days.', 'sp_calendar'),
+			'weekly' => _x('Repeat every [time] on: [days]', 'Example: Repeat every 2 weeks on: Monday, Tuesday.', 'sp_calendar'),
+			'monthly' => array(
+				_x('Repeat every [time] on the [custom]', 'Example: Repeat every 2 months on the [custom].', 'sp_calendar'),
+				_x('Repeat every [time] on [daytype] [days]', 'Example: Repeat every 2 months on last Friday.', 'sp_calendar'),
+			),
+			'yearly' => array(
+				_x('Repeat every [time] in [months] on the [custom]', 'Example: Repeat every 2 years in January on the [custom].', 'sp_calendar'),
+				_x('Repeat every [time] in [months] on [daytype] [days]', 'Example: Repeat every 2 years in January on last Friday.', 'sp_calendar'),
+			),
+		),
+		'time' => array(
+			'daily' => sprintf( _nx( '%s day', '%s days', $repeat, 'Used in Repeat every [x] - days', 'sp_calendar' ), $repeat ),
+			'weekly' => sprintf( _nx( '%s week', '%s weeks', $repeat, 'Used in Repeat every [x] - weeks', 'sp_calendar' ), $repeat ),
+			'monthly' => sprintf( _nx( '%s month', '%s months', $repeat, 'Used in Repeat every [x] - months', 'sp_calendar' ), $repeat ),
+			'yearly' => sprintf( _nx( '%s year', '%s years', $repeat, 'Used in Repeat every [x] - years', 'sp_calendar' ), $repeat ),
+		),
+	);
+$curr_event = $event;
+	$text = $messages['text'][$curr_event->repeat_method];
+	$time_text = $messages['time'][$curr_event->repeat_method];
+	$days_text = '';
+	$months_text = '';
+	$daytype_text = '';
+	$custom_text = '';
 
-		if($event->repeat_method=='weekly')
-
-		{
-
-		echo '<div >'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Week(s) on', 'sp_calendar') . ' : ';
-
-		$week=explode(',',$event->week);
-		for ($g=0;$g<count($week);$g++) 
-
-		{
-
-			if($week[$g]!=''){
-
-				if($g!=count($week)-2)
-
-					echo week_convert_recent($week[$g]).',';
-
-				else
-
-					echo week_convert_recent($week[$g]);
-
-			
-
-			}
-
-			
-
+	if ( $curr_event->repeat_method == 'monthly' || $curr_event->repeat_method == 'yearly' ) {
+		if ( $curr_event->month_type == 1 )
+			$text = $text[0];
+		elseif ( $curr_event->month_type == 2 )
+			$text = $text[1];
+	}
+           
+	if ($curr_event->repeat_method == 'weekly') {
+		$week_array = array();
+		$week=explode(',',$curr_event->week);
+		for ($g = 0; $g < count($week); ++$g) {
+      	if ($week[$g] != '')
+				$week_array[] = week_convert_recent($week[$g]);
 		}
+		$days_text = implode( ', ', $week_array );
+	}
+	elseif ($curr_event->repeat_method == 'monthly' and $curr_event->month_type == 1)
+		$custom_text = $curr_event->month;
+	elseif ($curr_event->repeat_method == 'monthly' and $curr_event->month_type == 2) {
+		$daytype_text = week_number_recent($curr_event->monthly_list);
+		$days_text = week_convert_recent($curr_event->month_week);
+	}
+	elseif ($curr_event->repeat_method == 'yearly' and $curr_event->month_type == 1) {
+		$months_text = __( date('F', mktime(0, 0, 0, $curr_event->year_month + 1, 0, 0)) );
+		$custom_text = $curr_event->month;
+	}
+	elseif ($curr_event->repeat_method == 'yearly' and $curr_event->month_type == 2) {
+		$months_text = __( date('F', mktime(0, 0, 0, $curr_event->year_month + 1, 0, 0)) );
+		$daytype_text = week_number_recent($curr_event->monthly_list);
+		$days_text = week_convert_recent($curr_event->month_week);
+	}
+            
+	$text = str_replace( '[time]', $time_text, $text );
+	$text = str_replace( '[days]', $days_text, $text );
+	$text = str_replace( '[months]', $months_text, $text );
+	$text = str_replace( '[daytype]', $daytype_text, $text );
+	$text = str_replace( '[custom]', $custom_text, $text );
 
-		echo '</div>';
-
-		}
-
-		if($event->repeat_method=='monthly' and $event->month_type==1)
-		echo '<div>'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' '.__('Month(s) on the', 'sp_calendar').' '.$event->month.'</div>';	
-
-
-
-		if($event->repeat_method=='monthly' and $event->month_type==2)
-		echo '<div>'. __('Repeat Every', 'sp_calendar').' '.$repeat.' '.__('Month(s) on the', 'sp_calendar').' '.week_number_recent($event->monthly_list).' '.week_convert_recent($event->month_week).'</div>';
-
-
-
-		if($event->repeat_method=='yearly' and $event->month_type==1)
-		echo '<div>'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Year(s) in', 'sp_calendar') . ' '.date('F',mktime(0,0,0,$event->year_month + 1,0,0)).' '. __('on the', 'sp_calendar').' '.$event->month.'</div>';	
-
-
-
-		if($event->repeat_method=='yearly' and $event->month_type==2)
-		echo '<div >'. __('Repeat Every', 'sp_calendar').' ' .$repeat.' ' . __('Year(s) in', 'sp_calendar') . ' '.date('F',mktime(0,0,0,$event->year_month + 1,0,0)).' '. __('on the', 'sp_calendar').' '.week_number_recent($event->monthly_list).' '.week_convert_recent($event->month_week).'</div>';		
-
-
-
-
-
-
+	echo '<div>'. $text . '</div>';
 echo '</div>';		
 }
 

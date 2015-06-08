@@ -457,6 +457,7 @@ function sp_calendar_add_button($buttons) {
 function sp_calendar_register($plugin_array) {
   $url = plugins_url('js/editor_plugin.js', __FILE__);
   $plugin_array["sp_calendar_mce"] = $url;
+  //wp_localize_script( 'sp_calendar_mce', 'sp_calendar_mce_locale', array( 'button_title' => __( 'Insert Spider Calendar', 'sp_calendar'  ) ) );
   return $plugin_array;
 }
 

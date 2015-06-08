@@ -116,18 +116,6 @@ $cat_ids = substr($cat_ids, 0,-1);
   $popup_width = $theme->popup_width;
   $popup_height = $theme->popup_height;
 
-  __('January', 'sp_calendar');
-  __('February', 'sp_calendar');
-  __('March', 'sp_calendar');
-  __('April', 'sp_calendar');
-  __('May', 'sp_calendar');
-  __('June', 'sp_calendar');
-  __('July', 'sp_calendar');
-  __('August', 'sp_calendar');
-  __('September', 'sp_calendar');
-  __('October', 'sp_calendar');
-  __('November', 'sp_calendar');
-  __('December', 'sp_calendar');
   // if ($cell_height == '') {
     // $cell_height = 70;
   // }

@@ -155,18 +155,6 @@ $cat_ids = substr($cat_ids, 0,-1);
   $text_color_year = '#' . str_replace('#','',$theme->text_color_year);
   $ev_color = $theme->event_title_color;
 
-  __('January', 'sp_calendar');
-  __('February', 'sp_calendar');
-  __('March', 'sp_calendar');
-  __('April', 'sp_calendar');
-  __('May', 'sp_calendar');
-  __('June', 'sp_calendar');
-  __('July', 'sp_calendar');
-  __('August', 'sp_calendar');
-  __('September', 'sp_calendar');
-  __('October', 'sp_calendar');
-  __('November', 'sp_calendar');
-  __('December', 'sp_calendar');
   if ($cell_height == '') {
     $cell_height = 70;
   }
@@ -833,10 +821,10 @@ $color=str_replace('#','',$color);
 				
       }
       else
-	  if ($i ==date( 'j' ) and $month == date('F') and $year == date('Y')) {
+	  if ($i ==date( 'j' ) and $month == Month_name(date('n')) and $year == date('Y')) {
 	  
 		if(!isset($border_day)) $border_day = "";
-                if ($i == date('j') and $month == date('F') and $year == date('Y')) { $border_day = $current_day_border_color;}
+                if ($i == date('j') and $month == Month_name(date('n')) and $year == date('Y')) { $border_day = $current_day_border_color;}
         if (in_array($i,$array_days)) {
           echo '      <td class="cala_day" style="background-color:' . $ev_title_bg_color . ';padding:0; margin:0;line-height:15px; border: 3px solid ' . $current_day_border_color . ' !important">
                         <p style="background-color:' . $evented_color_bg . ';color:' . $evented_color . ';font-size:' . $other_days_font_size . 'px;line-height:1.3;font-family:tahoma;padding-left: 5px;text-shadow: 1px 1px white;">' . $i . '</p>';
@@ -1018,7 +1006,7 @@ $color=str_replace('#','',$color);
       }
       else {
  
-       if ($i ==date( 'j' ) and $month == date('F') and $year == date('Y')) {
+       if ($i ==date( 'j' ) and $month == Month_name(date('n')) and $year == date('Y')) {
 		
 		
           if (in_array ($i,$array_days)) {

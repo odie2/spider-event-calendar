@@ -17,8 +17,23 @@ function IsDate_inputed($str) {
   return FALSE;
 }
 function php_Month_num($month_name) {
+  $month_names = array(
+    'January' => __('January'),
+    'February' => __('February'),
+    'March' => __('March'),
+    'April' => __('April'),
+    'May' => __('May'),
+    'June' => __('June'),
+    'July' => __('July'),
+    'August' => __('August'),
+    'September' => __('September'),
+    'October' => __('October'),
+    'November' => __('November'),
+    'December' => __('December'),
+  );
+
   for ($month_num = 1; $month_num <= 12; $month_num++) {
-    if (date("F", mktime(0, 0, 0, $month_num, 1, 0)) == $month_name) {
+    if ( date("F", mktime(0, 0, 0, $month_num, 1, 0)) == $month_name || $month_names[ date("F", mktime(0, 0, 0, $month_num, 1, 0)) ] == $month_name) {
       if ($month_num < 10) {
         return '0' . $month_num;
       }
@@ -1028,7 +1043,22 @@ $cat_ids = substr($cat_ids, 0,-1);
 
 function Month_name($month_num) {
   $timestamp = mktime(0, 0, 0, $month_num, 1, 2005);
-  return date("F", $timestamp);
+  $month = date("F", $timestamp);
+  $month_names = array(
+    'January' => __('January'),
+    'February' => __('February'),
+    'March' => __('March'),
+    'April' => __('April'),
+    'May' => __('May'),
+    'June' => __('June'),
+    'July' => __('July'),
+    'August' => __('August'),
+    'September' => __('September'),
+    'October' => __('October'),
+    'November' => __('November'),
+    'December' => __('December'),
+  );
+  return $month_names[$month];
 }
 
 function add_0($month_num) {
@@ -1038,8 +1068,23 @@ function add_0($month_num) {
 }
 
 function Month_num($month_name) {
+  $month_names = array(
+    'January' => __('January'),
+    'February' => __('February'),
+    'March' => __('March'),
+    'April' => __('April'),
+    'May' => __('May'),
+    'June' => __('June'),
+    'July' => __('July'),
+    'August' => __('August'),
+    'September' => __('September'),
+    'October' => __('October'),
+    'November' => __('November'),
+    'December' => __('December'),
+  );
+
   for ($month_num = 1; $month_num <= 12; $month_num++) {
-    if (date("F", mktime(0, 0, 0, $month_num, 1, 0)) == $month_name) {
+    if ( date("F", mktime(0, 0, 0, $month_num, 1, 0)) == $month_name || $month_names[ date("F", mktime(0, 0, 0, $month_num, 1, 0)) ] == $month_name) {
       return $month_num;
     }
   }
@@ -1065,25 +1110,25 @@ function week_number($x) {
 
 function week_convert($x) {
   if ($x == 'Mon') {
-    return __('Monday', 'sp_calendar');
+    return __('Monday');
   }
   elseif ($x == 'Tue') {
-    return __('Tuesday', 'sp_calendar');
+    return __('Tuesday');
   }
   elseif ($x == 'Wed') {
-    return __('Wednesday', 'sp_calendar');
+    return __('Wednesday');
   }
   elseif ($x == 'Thu') {
-    return __('Thursday', 'sp_calendar');
+    return __('Thursday');
   }
   elseif ($x == 'Fri') {
-    return __('Friday', 'sp_calendar');
+    return __('Friday');
   }
   elseif ($x == 'Sat') {
-    return __('Saturday', 'sp_calendar');
+    return __('Saturday');
   }
   elseif ($x == 'Sun') {
-    return __('Sunday', 'sp_calendar');
+    return __('Sunday');
   }
 }
 
@@ -1122,8 +1167,23 @@ function php_showevent_seemore($calendar, $date) {
 }
 
 function php_Month_num_seemore($month_name) {
+    $month_names = array(
+    'January' => __('January'),
+    'February' => __('February'),
+    'March' => __('March'),
+    'April' => __('April'),
+    'May' => __('May'),
+    'June' => __('June'),
+    'July' => __('July'),
+    'August' => __('August'),
+    'September' => __('September'),
+    'October' => __('October'),
+    'November' => __('November'),
+    'December' => __('December'),
+  );
+
   for ($month_num = 1; $month_num <= 12; $month_num++) {
-    if (date("F", mktime(0, 0, 0, $month_num, 1, 0)) == $month_name) {
+    if ( date("F", mktime(0, 0, 0, $month_num, 1, 0)) == $month_name || $month_names[ date("F", mktime(0, 0, 0, $month_num, 1, 0)) ] == $month_name) {
       return $month_num;
     }
   }

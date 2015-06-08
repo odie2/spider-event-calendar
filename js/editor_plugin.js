@@ -13,6 +13,7 @@
       });
       ed.addButton('sp_calendar_mce', {
         title : 'Insert Spider Calendar',
+        //title : sp_calendar_mce_locale.button_title,
         cmd : 'mcesp_calendar_mce',
 		image: wdplugin_url + '/images/calendar_menu.png'
       });

@@ -115,18 +115,6 @@ $cat_ids = substr($cat_ids, 0,-1);
   $popup_width = $theme->popup_width;
   $popup_height = $theme->popup_height;
 
-  __('January', 'sp_calendar');
-  __('February', 'sp_calendar');
-  __('March', 'sp_calendar');
-  __('April', 'sp_calendar');
-  __('May', 'sp_calendar');
-  __('June', 'sp_calendar');
-  __('July', 'sp_calendar');
-  __('August', 'sp_calendar');
-  __('September', 'sp_calendar');
-  __('October', 'sp_calendar');
-  __('November', 'sp_calendar');
-  __('December', 'sp_calendar');
   if ($date != '') {
     $date_REFERER = $date;
   }
@@ -535,7 +523,7 @@ $cat_ids = substr($cat_ids, 0,-1);
                   </div>
 				  </td>';
       }
-      elseif ($i == date('j') and $month == date('F') and $year == date('Y')) {
+      elseif ($i == date('j') and $month == Month_name(date('n')) and $year == date('Y')) {
         if (in_array($i, $array_days)) {
           if (in_array ($i, $array_days1)) {
             echo '
@@ -703,7 +691,7 @@ if (in_array ($i,$array_days)) {
 					
     }
     else {
-			if ($i == date('j') and $month == date('F') and $year == date('Y')) {
+			if ($i == date('j') and $month == Month_name(date('n')) and $year == date('Y')) {
 			
 			
 				if (in_array ($i, $array_days)) {
